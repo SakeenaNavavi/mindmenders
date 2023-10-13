@@ -1,4 +1,5 @@
-const resourceLibrary=()=>
+const ResourceLibrary=()=>
 {
     
 }
+export default ResourceLibrary;

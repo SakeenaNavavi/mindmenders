@@ -1,3 +1,13 @@
 body{
     background-color: #F4F4EB;
 }
+.btn-outline-success:hover{
+    background-color: #F4F4EB;
+    color: #443806;
+    
+}
+.eb-garamond {
+    font-family: "EB Garamond", sans-serif;
+    color: #F4F4EB;
+  }
+  

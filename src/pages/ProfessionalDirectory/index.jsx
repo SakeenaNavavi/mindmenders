@@ -1,4 +1,5 @@
-const directory=()=>
+const ProfessionalDirectory=()=>
 {
     
 }
+export default ProfessionalDirectory;

@@ -1,4 +1,5 @@
-const quizzes=()=>
+const Quizzes=()=>
 {
     
 }
+export default Quizzes;

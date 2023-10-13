@@ -1,4 +1,5 @@
-const reviews=()=>
+const Reviews=()=>
 {
     
 }
+export default Reviews;

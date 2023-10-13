@@ -1,4 +1,5 @@
-const appointmentbooking=()=>
+const AppointmentBooking=()=>
 {
     
 }
+export default AppointmentBooking;

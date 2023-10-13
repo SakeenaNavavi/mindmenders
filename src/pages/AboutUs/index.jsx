@@ -1,4 +1,5 @@
-const aboutus=()=>
+const AboutUs=()=>
 {
     
 }
+export default AboutUs;

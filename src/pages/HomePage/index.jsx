@@ -1,4 +1,5 @@
-const home=()=>
+const Home=()=>
 {
     
 }
+export default Home;

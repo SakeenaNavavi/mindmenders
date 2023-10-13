@@ -1,4 +1,5 @@
-const conditions=()=>
+const Conditions=()=>
 {
     
 }
+export default Conditions

@@ -1,4 +1,5 @@
 import Navitems from "../../atoms/Navitems";
+import './style.css';
 const Navbar=()=>
 {
     return (
@@ -11,22 +12,22 @@ const Navbar=()=>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item">
-          <a class="nav-link active" style={{color:"white"}} aria-current="page" href="/">Home</a>
+          <a class="nav-link eb-garamond" aria-current="page" href="/">Home</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" style={{color:"white"}} href="ProfessionalDirectory">Find a Therapist</a>
+          <a class="nav-link eb-garamond" href="ProfessionalDirectory">Find a Therapist</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" style={{color:"white"}} href="AboutUs">About Us</a>
+          <a class="nav-link eb-garamond" href="AboutUs">About Us</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" style={{color:"white"}} href="Quizzes">Quizzes</a>
+          <a class="nav-link eb-garamond" href="Quizzes">Quizzes</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" style={{color:"white"}} href="ResourceLibrary">Resource Library</a>
+          <a class="nav-link eb-garamond" href="ResourceLibrary">Resource Library</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" style={{color:"white"}} href="OnlineCommunity">Online Community</a>
+          <a class="nav-link eb-garamond" href="OnlineCommunity">Online Community</a>
         </li>
       </ul>
       <form class="d-flex" role="search">

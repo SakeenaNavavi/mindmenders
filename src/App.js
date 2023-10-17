@@ -9,6 +9,7 @@ import AboutUs from './pages/AboutUs';
 import Quizzes from './pages/Quizzes';
 import ResourceLibrary from './pages/ResourceLibrary';
 import OnlineCommunity from './pages/OnlineCommunity';
+import LoginPage from './pages/LoginPage';
 import Footer from './Components/molecules/Footer';
 import TermsAndConditions from './pages/TermsAndConditions';
 import PrivacyPolicy from './pages/PrivancyPolicy';
@@ -19,6 +20,7 @@ function App() {
             <BrowserRouter>
       <Routes>
       <Route path="/" element={<Home />} />
+      <Route path="Login" element={<LoginPage/>}/>
         <Route path="ProfessionalDirectory" element={<ProfessionalDirectory />} />
         <Route path="AboutUs" element={<AboutUs />} />
         <Route path="Quizzes" element={<Quizzes />} />

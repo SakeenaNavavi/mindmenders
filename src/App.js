@@ -9,6 +9,9 @@ import AboutUs from './pages/AboutUs';
 import Quizzes from './pages/Quizzes';
 import ResourceLibrary from './pages/ResourceLibrary';
 import OnlineCommunity from './pages/OnlineCommunity';
+import Footer from './Components/molecules/Footer';
+import TermsAndConditions from './pages/TermsAndConditions';
+import PrivacyPolicy from './pages/PrivancyPolicy';
 import LoginPage from './pages/LoginPage';
 function App() {
   return (
@@ -23,8 +26,11 @@ function App() {
         <Route path="Quizzes" element={<Quizzes />} />
         <Route path="ResourceLibrary" element={< ResourceLibrary/>} />
         <Route path="OnlineCommunity" element={<OnlineCommunity />} />
+        <Route path="/terms-and-conditions" element={<TermsAndConditions/>} /> {/* Route for the TermsAndConditions component */}
+        <Route path="/privacy-policy" element={<PrivacyPolicy/>}/>
       </Routes>
       </BrowserRouter>
+      <Footer/>
     </div>
   );
 }

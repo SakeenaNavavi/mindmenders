@@ -6,7 +6,7 @@ const Home2=()=>{
             <section>
                 <Container fluid className="home-directory">
                     <Row>
-                        <Col md={4} className="professionals-pic">
+                        <Col md={6} className="professionals-pic">
                             <img src={professionals} className="img-fluid" alt="mental health professionals animation"/>
                         </Col>
                         <Col md={8} className="directory-about">

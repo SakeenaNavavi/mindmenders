@@ -1,0 +1,46 @@
+@import url('https://fonts.googleapis.com/css2?family=Arapey&display=swap');
+
+.btn-outline-success:hover{
+    background-color: #F4F4EB;
+    color: #443806;
+}
+.btn{
+    margin-right: 35px;
+}
+.nav-link{
+    font-family: 'Times New Roman', Times, serif;
+}
+.nav-link:hover{
+    color: #F4F4EB;
+}
+.login-icon{
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    font-size: 32px;
+    cursor: pointer;
+    color: #F4F4EB;
+}
+.popup {
+    position: fixed;
+    top: 50px;
+    right: 20px;
+    background-color: #D6C9C8;
+    border: 1px solid #ccc;
+    padding: 10px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+  }
+  .popup-button{
+    margin: 5px;
+  }
+.modal-content{
+    background-color: #F0FFF0;
+    font-family: "Arapey",serif;
+}
+.modal-body{
+    font-size: 20px;
+}
+.btn-primary{
+    background-color: #90EE90;
+    font-size: 20px;
+}

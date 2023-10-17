@@ -1,0 +1,35 @@
+@font-face {
+  font-family: 'Migra';
+  src: url(./Migra-Extralight.woff) format('woff');
+}
+.heading{
+    padding-bottom: 15;
+    font-size: 100px;
+    font-family: 'Migra', sans-serif;
+}
+
+.home-header {
+    padding-top: 90px !important;
+    text-align: center;
+}
+.home-section {
+    position: relative;
+    z-index: -1;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding-bottom: 120px !important;
+    padding-top: 70px !important;
+    padding-left: 20px;
+    color: #443806;
+    scroll-behavior: smooth;
+  }
+  .heading-content{
+    font-size: 30px;
+    font-family: 'Times New Roman', Times, serif;
+  }
+.home-video{
+  width: 600px;
+   height:320px;
+   margin-top: 50px;
+}

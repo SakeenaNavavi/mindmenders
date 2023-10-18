@@ -11,7 +11,7 @@ import ResourceLibrary from './pages/ResourceLibrary';
 import OnlineCommunity from './pages/OnlineCommunity';
 import Footer from './Components/molecules/Footer';
 import TermsAndConditions from './pages/TermsAndConditions';
-import PrivacyPolicy from './pages/PrivancyPolicy';
+import PrivacyPolicy from './pages/PrivacyPolicy';
 import LoginPage from './pages/LoginPage';
 function App() {
   return (

@@ -22,9 +22,9 @@ const Quizzes = () => {
           display: 'flex',
           justifyContent: 'space-between',
           margin: '0 auto',
-          backgroundColor: isHovered1 ? '#26580f' : 'white',
+          backgroundColor: isHovered1 ? '#90EE90' : 'white',
           transition: 'background-color 0.3s',
-          color: isHovered1 ? 'white' : 'black',
+          color: isHovered1 ? '#006400' : 'black',
           borderRadius: '10px',
         }}
         onMouseEnter={() => setIsHovered1(true)}
@@ -49,9 +49,9 @@ const Quizzes = () => {
           display: 'flex',
           justifyContent: 'space-between',
           margin: '0 auto',
-          backgroundColor: isHovered2 ? '#26580f' : 'white',
+          backgroundColor: isHovered2 ? '#90EE90' : 'white',
           transition: 'background-color 0.3s',
-          color: isHovered2 ? 'white' : 'black',
+          color: isHovered2 ? '#006400' : 'black',
           borderRadius: '10px',
         }}
         onMouseEnter={() => setIsHovered2(true)}
@@ -75,9 +75,9 @@ const Quizzes = () => {
           display: 'flex',
           justifyContent: 'space-between',
           margin: '0 auto',
-          backgroundColor: isHovered3 ? '#26580f' : 'white',
+          backgroundColor: isHovered3 ? '#90EE90' : 'white',
           transition: 'background-color 0.3s',
-          color: isHovered3 ? 'white' : 'black',
+          color: isHovered3 ? '#006400' : 'black',
           borderRadius: '10px',
         }}
         onMouseEnter={() => setIsHovered3(true)}
@@ -101,9 +101,9 @@ const Quizzes = () => {
           display: 'flex',
           justifyContent: 'space-between',
           margin: '0 auto',
-          backgroundColor: isHovered4 ? '#26580f' : 'white',
+          backgroundColor: isHovered4 ? '#90EE90' : 'white',
           transition: 'background-color 0.3s',
-          color: isHovered4 ? 'white' : 'black',
+          color: isHovered4 ? '#006400' : 'black',
           borderRadius: '10px',
         }}
         onMouseEnter={() => setIsHovered4(true)}
@@ -127,9 +127,9 @@ const Quizzes = () => {
           display: 'flex',
           justifyContent: 'space-between',
           margin: '0 auto',
-          backgroundColor: isHovered5 ? '#26580f' : 'white',
+          backgroundColor: isHovered5 ? '#90EE90' : 'white',
           transition: 'background-color 0.3s',
-          color: isHovered5 ? 'white' : 'black',
+          color: isHovered5 ? '#006400' : 'black',
           borderRadius: '10px',
         }}
         onMouseEnter={() => setIsHovered5(true)}
@@ -153,9 +153,9 @@ const Quizzes = () => {
           display: 'flex',
           justifyContent: 'space-between',
           margin: '0 auto',
-          backgroundColor: isHovered6 ? '#26580f' : 'white',
+          backgroundColor: isHovered6 ? '#90EE90' : 'white',
           transition: 'background-color 0.3s',
-          color: isHovered6 ? 'white' : 'black',
+          color: isHovered6 ? '#006400' : 'black',
           borderRadius: '10px',
         }}
         onMouseEnter={() => setIsHovered6(true)}
@@ -179,9 +179,9 @@ const Quizzes = () => {
           display: 'flex',
           justifyContent: 'space-between',
           margin: '0 auto',
-          backgroundColor: isHovered7 ? '#26580f' : 'white',
+          backgroundColor: isHovered7 ? '#90EE90' : 'white',
           transition: 'background-color 0.3s',
-          color: isHovered7 ? 'white' : 'black',
+          color: isHovered7 ? '#006400' : 'black',
           borderRadius: '10px',
         }}
         onMouseEnter={() => setIsHovered7(true)}
@@ -205,9 +205,9 @@ const Quizzes = () => {
           display: 'flex',
           justifyContent: 'space-between',
           margin: '0 auto',
-          backgroundColor: isHovered8 ? '#26580f' : 'white',
+          backgroundColor: isHovered8 ? '#90EE90' : 'white',
           transition: 'background-color 0.3s',
-          color: isHovered8 ? 'white' : 'black',
+          color: isHovered8 ? '#006400' : 'black',
           borderRadius: '10px',
         }}
         onMouseEnter={() => setIsHovered8(true)}
@@ -231,9 +231,9 @@ const Quizzes = () => {
           display: 'flex',
           justifyContent: 'space-between',
           margin: '0 auto',
-          backgroundColor: isHovered9 ? '#26580f' : 'white',
+          backgroundColor: isHovered9 ? '#90EE90' : 'white',
           transition: 'background-color 0.3s',
-          color: isHovered9 ? 'white' : 'black',
+          color: isHovered9 ? '#006400' : 'black',
           borderRadius: '10px',
         }}
         onMouseEnter={() => setIsHovered9(true)}

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-
+import { Link } from 'react-router-dom';
 const Quizzes = () => {
   const [isHovered1, setIsHovered1] = useState(false);
   const [isHovered2, setIsHovered2] = useState(false);
@@ -33,9 +33,11 @@ const Quizzes = () => {
         <h5 className="text-box-header" style={{ textAlign: 'left',fontFamily:'Lobster, cursive' }}>
           01."Depression, a mental health challenge, brings persistent sadness and a loss of interest, impacting daily life. Don't face it alone; let's explore and discuss with empathy and understanding."
         </h5>
-        <a href="your_target_page_url_here">
-          <button style={{ width: '175px', height: '40px',backgroundColor: '#F4F4EB', color: '#26580f' }}>MindfulQuiz</button>
-        </a>
+        <Link to="/add-quizzes">
+  <button style={{ width: '175px', height: '40px', backgroundColor: '#F4F4EB', color: '#26580f' }}>
+    AddQuizzes
+  </button>
+</Link>
       </div>
       
       <br />
@@ -60,9 +62,11 @@ const Quizzes = () => {
         <h5 className="text-box-header" style={{ textAlign: 'left',fontFamily:'Lobster, cursive' }}>
           02."Stress is a common response to life's challenges, affecting well-being. We can explore this experience and emotional health together through quizzes, promoting understanding and support."
         </h5>
-        <a href="your_target_page_url_here">
-          <button style={{ width: '175px', height: '40px',backgroundColor: '#F4F4EB', color: '#26580f' }}>MindfulQuiz</button>
-        </a>
+        <Link to="/add-quizzes">
+  <button style={{ width: '175px', height: '40px', backgroundColor: '#F4F4EB', color: '#26580f' }}>
+    AddQuizzes
+  </button>
+</Link>
       </div>
 
       <br />
@@ -86,9 +90,11 @@ const Quizzes = () => {
         <h5 className="text-box-header" style={{ textAlign: 'left',fontFamily:'Lobster, cursive'  }}>
           03."Insomnia, a sleep disorder causing difficulty in falling or staying asleep, can affect emotional well-being. If you've faced insomnia, let's explore solutions and take a depression quiz together for better understanding and support."
         </h5>
-        <a href="your_target_page_url_here">
-          <button style={{ width: '175px', height: '40px',backgroundColor: '#F4F4EB', color: '#26580f' }}>MindfulQuiz</button>
-        </a>
+        <Link to="/add-quizzes">
+  <button style={{ width: '175px', height: '40px', backgroundColor: '#F4F4EB', color: '#26580f' }}>
+    AddQuizzes
+  </button>
+</Link>
       </div>
 
       <br />
@@ -112,9 +118,11 @@ const Quizzes = () => {
         <h5 className="text-box-header" style={{ textAlign: 'left',fontFamily:'Lobster, cursive'  }}>
           04."Overthinking, a common mental habit involving excessive analysis, can impact emotional well-being. If you've been caught in overthinking, let's explore strategies and take a depression quiz together to enhance understanding and support."
         </h5>
-        <a href="your_target_page_url_here">
-          <button style={{ width: '175px', height: '40px',backgroundColor: '#F4F4EB', color: '#26580f'}}>MindfulQuiz</button>
-        </a>
+        <Link to="/add-quizzes">
+  <button style={{ width: '175px', height: '40px', backgroundColor: '#F4F4EB', color: '#26580f' }}>
+    AddQuizzes
+  </button>
+</Link>
       </div>
 
       <br />
@@ -138,9 +146,11 @@ const Quizzes = () => {
         <h5 className="text-box-header" style={{ textAlign: 'left',fontFamily:'Lobster, cursive'  }}>
           05."Addictions, compulsive behaviors disrupting daily life, can challenge mental well-being. If you're struggling with addictions, let's have a conversation. Are you ready to take a depression quiz, exploring emotional well-being together?"
         </h5>
-        <a href="your_target_page_url_here">
-          <button style={{ width: '175px', height: '40px',backgroundColor: '#F4F4EB', color: '#26580f' }}>MindfulQuiz</button>
-        </a>
+        <Link to="/add-quizzes">
+  <button style={{ width: '175px', height: '40px', backgroundColor: '#F4F4EB', color: '#26580f' }}>
+    AddQuizzes
+  </button>
+</Link>
       </div>
 
       <br />
@@ -164,9 +174,11 @@ const Quizzes = () => {
         <h5 className="text-box-header" style={{ textAlign: 'left',fontFamily:'Lobster, cursive'  }}>
           06."Eating disorders, characterized by unhealthy eating behaviors, can impact emotional well-being. If you're dealing with eating disorders, let's have a conversation. Are you interested in taking a eating disorders quiz to explore emotional well-being together?"
         </h5>
-        <a href="your_target_page_url_here">
-          <button style={{ width: '175px', height: '40px',backgroundColor: '#F4F4EB', color: '#26580f' }}>MindfulQuiz</button>
-        </a>
+        <Link to="/add-quizzes">
+  <button style={{ width: '175px', height: '40px', backgroundColor: '#F4F4EB', color: '#26580f' }}>
+    AddQuizzes
+  </button>
+</Link>
       </div>
 
       <br />
@@ -190,9 +202,11 @@ const Quizzes = () => {
         <h5 className="text-box-header" style={{ textAlign: 'left',fontFamily:'Lobster, cursive'  }}>
           07."Bipolar and mood disorders, characterized by extreme mood swings, can impact emotional well-being. If you're experiencing these challenges, let's connect. Are you ready to take a Bipolar and Other mood disoders quiz, exploring emotional well-being together?"
         </h5>
-        <a href="your_target_page_url_here">
-          <button style={{ width: '175px', height: '40px',backgroundColor: '#F4F4EB', color: '#26580f' }}>MindfulQuiz</button>
-        </a>
+        <Link to="/add-quizzes">
+  <button style={{ width: '175px', height: '40px', backgroundColor: '#F4F4EB', color: '#26580f' }}>
+    AddQuizzes
+  </button>
+</Link>
       </div>
 
       <br />
@@ -216,9 +230,11 @@ const Quizzes = () => {
         <h5 className="text-box-header" style={{ textAlign: 'left',fontFamily:'Lobster, cursive'  }}>
           08."Phobias, marked by intense irrational fears, can affect emotional well-being. If you're struggling with phobias, let's have a conversation. Are you ready for a phobias quiz, exploring emotional well-being together?"
         </h5>
-        <a href="your_target_page_url_here">
-          <button style={{ width: '175px', height: '40px',backgroundColor: '#F4F4EB', color: '#26580f' }}>MindfulQuiz</button>
-        </a>
+        <Link to="/add-quizzes">
+  <button style={{ width: '175px', height: '40px', backgroundColor: '#F4F4EB', color: '#26580f' }}>
+    AddQuizzes
+  </button>
+</Link>
       </div>
 
       <br />
@@ -239,13 +255,14 @@ const Quizzes = () => {
         onMouseEnter={() => setIsHovered9(true)}
         onMouseLeave={() => setIsHovered9(false)}
       >
-        <h5 className="text-box-header" style={{ textAlign: 'left',fontFamily:'Lobster, cursive'  }}>
-          09."ADHD, characterized by focus and impulsivity challenges, can impact emotional well-being. If you're living with ADHD, let's share experiences. Are you ready to take ADH quiz, exploring emotional well-being together?"
-        </h5>
-        <a href="your_target_page_url_here">
-        <button style={{ width: '175px', height: '40px', backgroundColor: '#F4F4EB', color: '#26580f' }}>MindfulQuiz</button>
-
-        </a>
+        <h5 className="text-box-header" style={{ textAlign: 'left', fontFamily: 'Lobster, cursive' }}>
+  09."ADHD, characterized by focus and impulsivity challenges, can impact emotional well-being. If you're living with ADHD, let's share experiences. Are you ready to take ADH quiz, exploring emotional well-being together?"
+</h5>
+<Link to="/add-quizzes">
+  <button style={{ width: '175px', height: '40px', backgroundColor: '#F4F4EB', color: '#26580f' }}>
+    AddQuizzes
+  </button>
+</Link>
       </div>
 
       <br />

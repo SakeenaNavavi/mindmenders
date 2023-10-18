@@ -13,6 +13,7 @@ import Footer from './Components/molecules/Footer';
 import TermsAndConditions from './pages/TermsAndConditions';
 import PrivacyPolicy from './pages/PrivacyPolicy';
 import LoginPage from './pages/LoginPage';
+import AddQuizzes from './pages/AddQuizzes';
 function App() {
   return (
     <div className="App">
@@ -28,6 +29,7 @@ function App() {
         <Route path="OnlineCommunity" element={<OnlineCommunity />} />
         <Route path="/terms-and-conditions" element={<TermsAndConditions/>} /> {/* Route for the TermsAndConditions component */}
         <Route path="/privacy-policy" element={<PrivacyPolicy/>}/>
+        <Route path="/add-quizzes" element={<AddQuizzes/>}/>
       </Routes>
       </BrowserRouter>
       <Footer/>

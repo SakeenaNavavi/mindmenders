@@ -1,0 +1,31 @@
+
+h3 {
+    font-weight: bold;
+    text-align: left;
+    padding: 20px;
+    font-size: 24px;
+  }
+  
+  /* Section headers */
+  h5 {
+    font-weight: bold;
+    text-align: left;
+    margin: 20px 0;
+    font-size: 18px;
+  }
+  
+  /* Paragraph text */
+  p {
+    text-align: left;
+    margin: 10px 0;
+    font-size: 16px;
+  }
+  
+  /* Subsection headers (h6) */
+  h6 {
+    font-weight: bold;
+    text-align: left;
+    margin: 10px 0;
+    font-size: 16px;
+  }
+  

@@ -2,6 +2,7 @@
   font-family: 'Migra';
   src: url(./Migra-Extralight.woff) format('woff');
 }
+@import url('https://fonts.googleapis.com/css2?family=Arapey&display=swap');
 .heading{
     padding-bottom: 15;
     font-size: 100px;
@@ -19,7 +20,7 @@
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-    padding-bottom: 120px !important;
+    padding-bottom: 140px !important;
     padding-top: 70px !important;
     padding-left: 20px;
     color: #443806;
@@ -34,3 +35,38 @@
    height:320px;
    margin-top: 50px;
 }
+.directory-about-description{
+  color: #443806;
+  font-family: "Arapey",serif;
+  font-size:xx-large;
+  text-align: center;
+  padding-top: 70px;
+  padding-right: 40px;
+}
+#directory-button{
+  background-color: #443806;
+  color: #F4F4EB;
+  border-color: #443806;
+  font-family: "Arapey",serif;
+}
+.home-directory{
+  padding-bottom: 130px;
+}
+#quiz-button{
+  background-color: #443806;
+  color: #F4F4EB;
+  border-color: #443806;
+  font-family: "Arapey",serif;
+}
+.home-quizzes{
+  padding-bottom: 130px;
+}
+.quiz-about-description{
+  color: #443806;
+  font-family: "Arapey",serif;
+  font-size:xx-large;
+  text-align: center;
+  padding-top: 70px;
+  padding-left: 40px;
+}
+

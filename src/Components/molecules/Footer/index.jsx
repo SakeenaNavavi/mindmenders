@@ -13,7 +13,7 @@ const Footer = () => {
               <h5 style={{  fontSize: '18px', fontWeight: 'bold',textAlign: 'left'}}><b>Quick Links</b></h5>
               <ul className="list-unstyled"style={{ textAlign: 'left' }}>
                 <li>
-                  <a href="/Home" className="text-white">Home</a>
+                  <a href="/" className="text-white">Home</a>
                 </li>
                 <li>
                 <a href="/privacy-policy" className="text-white">Privacy Policy</a>

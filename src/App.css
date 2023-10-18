@@ -39,3 +39,6 @@
 body{
   background-color: #F4F4EB;
 }
+html{
+  scroll-behavior: smooth;
+}

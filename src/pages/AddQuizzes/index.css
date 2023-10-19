@@ -1,4 +1,15 @@
-.custom-card {
-    width: 100px; /* You can adjust the width as needed */
+
+
+  .custom-card-width {
+    max-width: 1500px; 
+    width: 100%;
+    height: auto;
+    padding: 10px;
+    box-sizing: border-box;
+  }
+  
+  .card-text
+  {
+    text-align: left;
   }
   

@@ -1,5 +1,5 @@
 import React from 'react';
-
+import './index.css';
 const AddQuizzes = () => {
   // Define the number of cards you want
   const numCards = 10;
@@ -9,9 +9,9 @@ const AddQuizzes = () => {
   for (let i = 1; i <= numCards; i++) {
     cards.push(
       <div key={i} className="d-flex justify-content-left vh-20" style={{ padding: '10px' }}>
-        <div className="card custom-card" style={{ marginBottom: '5px', width: '1500px', padding: '10px' }}>
+      <div className="card custom-card custom-card-width">
           <div className="card-body">
-            <p className="card-text" style={{ textAlign: 'left' }}>
+            <p className="card-text">
               {i}. You can customize this text to make each card unique. <br />
               <input type="radio" name="flexRadioDefault" id={`flexRadioDefault${i}`} className="form-check-input" />
               <label htmlFor={`flexRadioDefault${i}`} className="form-check-label">

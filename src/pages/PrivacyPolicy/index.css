@@ -1,9 +1,11 @@
-
+@import url('https://fonts.googleapis.com/css2?family=Arapey&display=swap');
 .h3 {
   font-weight: bold;
   text-align: left;
   padding: 10px;
   font-size: 24px;
+  color: #443806;
+  font-family: "Arapey",serif;
 
 }
 
@@ -14,6 +16,8 @@
   margin: 20px 0;
   font-size: 18px;
   padding: 10px;
+  color: #443806;
+  font-family: "Arapey",serif;
 }
 
 
@@ -31,12 +35,15 @@
   margin: 10px 0;
   font-size: 16px;
   padding: 10px;
+  color: #443806;
+  font-family: "Arapey",serif;
 }
 .h1
 {
   font-family: 'Pacifico', cursive, sans-serif;
   padding: 10px;
-  
+  color: #443806;
+  font-family: "Arapey",serif;
   
 }
 

@@ -1,0 +1,31 @@
+@keyframes Bounce {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.about-container {
+ padding-top: 100px;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  background-image: url('./woman-6001298_1281.jpg');
+  background-position: auto;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position:justify;
+  z-index: -1;
+
+}
+
+.about-content {
+  color: #ffffff;
+  text-shadow: 1px 1px 2px #000000;
+  text-align:left;
+  padding-right: 50px;
+  animation: Bounce 1s ease-out; /* Add the animation to the paragraph */
+}

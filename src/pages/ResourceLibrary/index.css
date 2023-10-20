@@ -1,0 +1,14 @@
+/* Body styles */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4eb;
+    margin: 0;
+  }
+  
+  /* Header styles */
+  header {
+    background-color: #70663e;
+    color: #fff;
+    text-align: center;
+    padding: 20px;
+  }

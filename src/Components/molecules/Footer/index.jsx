@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Row, Col, Button, OverlayTrigger, Popover } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { FaFacebook, FaTwitter, FaWhatsapp, FaStar } from 'react-icons/fa';
+import { FaFacebook, FaTwitter, FaWhatsapp, FaStar,FaPhone } from 'react-icons/fa';
 import './index.css';
 import Swal from 'sweetalert2';
 
@@ -49,21 +49,22 @@ const YourComponent = () => {
                   </a>
                 </li> <br /> 
                 <OverlayTrigger
-  trigger="hover"  
+  trigger="hover"
   placement="right"
   overlay={
-   
-    <Popover id="popover-right">
-    <div className="crisis-helping">
-      <h3>Crisis Helping</h3>
-      <h5> Hotline:1990</h5>
+    <Popover id="popover-right" className="custom-popover">
+      <div className="crisis-helping">
+        <h3>Crisis Helpline</h3>
+        <h5> Hotline: 1990</h5>
       </div>
     </Popover>
-   
   }
 >
-<button type="button" class="custom-button" data-bs-toggle="popover" data-bs-title="Popover title" data-bs-content="And here's some amazing content. It's very engaging. Right?">Crisis Helping</button>
+  <button type="button" className="custom-button faphone-button">
+    <FaPhone size={30} className="faphone-icon" /> <p className="faphonep">Crisis Helpling</p>
+  </button>
 </OverlayTrigger>
+
               </ul>
             </Col>
 
@@ -105,8 +106,8 @@ const YourComponent = () => {
                     <br /> <br />
                     <textarea id="reviewInput" className="form-control mb-3" placeholder="Write your review here"></textarea>
                     <button type="submit" className="custom-submit-button" onClick={handleFormSubmit}>
-  Submit
-</button>
+                      Submit
+                    </button>
 
                   </div>
                 </div>

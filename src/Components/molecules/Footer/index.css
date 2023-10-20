@@ -64,7 +64,7 @@
   border-radius: 5px;
   font-family: "Arapey",serif;
   width: 150px;
-  height: 50px;
+  height: 70px;
   
 }
 
@@ -72,10 +72,11 @@
   background-color:  #443806; 
   color: #fff;
   border: none; 
-  width: 80px;
+  width: 90px;
   height: 50px;
   border-radius: 5px;
   font-family: "Arapey",serif;
+  padding: 10px;
 }
 .footer-p
 {
@@ -91,6 +92,25 @@
 {
   font-family: "Arapey",serif;
 }
+.faphone-button {
+  display: flex;
+  align-items: center;
+}
 
+.faphone-button {
+  display: flex;
+  align-items: center;
+}
+
+.faphone-icon {
+  padding: 5px;
+}
+
+.faphonep {
+  padding: 10px; 
+}
+.custom-popover {
+  padding: 10px; 
+}
 
 

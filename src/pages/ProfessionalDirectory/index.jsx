@@ -1,4 +1,5 @@
 import './index.css';
+import { Link } from 'react-router-dom';
 
 const directory=()=>
 {
@@ -16,7 +17,13 @@ const directory=()=>
                         <h5 class="directory-card-title">Dr. Rumi Ruben</h5>
                         <p class="directory-title">Psychiatrist</p>
                         <p><button class="directory-button-1">Book Now</button></p>
-                        <p><button class="directory-button">Chat Now</button></p>
+                        <div className="chat-button-container">
+          <button className="chat-button">
+            <Link to="/OnlineCommunity" className="custom-link">
+              Chat now
+            </Link>
+          </button>
+        </div>
                     </div>
                 </div>
             </div>
@@ -27,7 +34,13 @@ const directory=()=>
                         <h5 class="directory-card-title">Dr. Mike Ross</h5>
                         <p class="directory-title">Psychiatrist</p>
                         <p><button class="directory-button-1">Book Now</button></p>
-                        <p><button class="directory-button">Chat Now</button></p>
+                        <div className="chat-button-container">
+          <button className="chat-button">
+            <Link to="/OnlineCommunity" className="custom-link">
+              Chat now
+            </Link>
+          </button>
+        </div>
                     </div>
                 </div>
             </div>
@@ -38,7 +51,13 @@ const directory=()=>
                         <h5 class="directory-card-title">Dr. John Doe</h5>
                         <p class="directory-title">Psychiatrist</p>
                         <p><button class="directory-button-1">Book Now</button></p>
-                        <p><button class="directory-button">Chat Now</button></p>
+                        <div className="chat-button-container">
+          <button className="chat-button">
+            <Link to="/OnlineCommunity" className="custom-link">
+              Chat now
+            </Link>
+          </button>
+        </div>
                     </div>
                 </div>
             </div>
@@ -49,7 +68,13 @@ const directory=()=>
                         <h5 class="directory-card-title">Dr. Rumi Ruben</h5>
                         <p class="directory-title">Psychiatrist</p>
                         <p><button class="directory-button-1">Book Now</button></p>
-                        <p><button class="directory-button">Chat Now</button></p>
+                        <div className="chat-button-container">
+          <button className="chat-button">
+            <Link to="/OnlineCommunity" className="custom-link">
+              Chat now
+            </Link>
+          </button>
+        </div>
                     </div>
                 </div>
             </div>
@@ -60,7 +85,13 @@ const directory=()=>
                         <h5 class="directory-card-title">Dr. Rumi Ruben</h5>
                         <p class="directory-title">Psychiatrist</p>
                         <p><button class="directory-button-1">Book Now</button></p>
-                        <p><button class="directory-button">Chat Now</button></p>
+                        <div className="chat-button-container">
+          <button className="chat-button">
+            <Link to="/OnlineCommunity" className="custom-link">
+              Chat now
+            </Link>
+          </button>
+        </div>
                     </div>
                 </div>
             </div>
@@ -71,7 +102,13 @@ const directory=()=>
                         <h5 class="directory-card-title">Dr. Rumi Ruben</h5>
                         <p class="directory-title">Psychiatrist</p>
                         <p><button class="directory-button-1">Book Now</button></p>
-                        <p><button class="directory-button">Chat Now</button></p>
+                        <div className="chat-button-container">
+          <button className="chat-button">
+            <Link to="/OnlineCommunity" className="custom-link">
+              Chat now
+            </Link>
+          </button>
+        </div>
                     </div>
                 </div>
             </div>
@@ -82,7 +119,13 @@ const directory=()=>
                         <h5 class="directory-card-title">Dr. Rumi Ruben</h5>
                         <p class="directory-title">Psychiatrist</p>
                         <p><button class="directory-button-1">Book Now</button></p>
-                        <p><button class="directory-button">Chat Now</button></p>
+                        <div className="chat-button-container">
+          <button className="chat-button">
+            <Link to="/OnlineCommunity" className="custom-link">
+              Chat now
+            </Link>
+          </button>
+        </div>
                     </div>
                 </div>
             </div>
@@ -93,7 +136,13 @@ const directory=()=>
                         <h5 class="directory-card-title">Dr. Rumi Ruben</h5>
                         <p class="directory-title">Psychiatrist</p>
                         <p><button class="directory-button-1">Book Now</button></p>
-                        <p><button class="directory-button">Chat Now</button></p>
+                        <div className="chat-button-container">
+          <button className="chat-button">
+            <Link to="/OnlineCommunity" className="custom-link">
+              Chat now
+            </Link>
+          </button>
+        </div>
                     </div>
                 </div>
             </div>
@@ -104,7 +153,13 @@ const directory=()=>
                         <h5 class="directory-card-title">Dr. Rumi Ruben</h5>
                         <p class="directory-title">Psychiatrist</p>
                         <p><button class="directory-button-1">Book Now</button></p>
-                        <p><button class="directory-button">Chat Now</button></p>
+                        <div className="chat-button-container">
+          <button className="chat-button">
+            <Link to="/OnlineCommunity" className="custom-link">
+              Chat now
+            </Link>
+          </button>
+        </div>
                     </div>
                 </div>
             </div>
@@ -115,7 +170,13 @@ const directory=()=>
                         <h5 class="directory-card-title">Dr. Rumi Ruben</h5>
                         <p class="directory-title">Psychiatrist</p>
                         <p><button class="directory-button-1">Book Now</button></p>
-                        <p><button class="directory-button">Chat Now</button></p>
+                        <div className="chat-button-container">
+          <button className="chat-button">
+            <Link to="/OnlineCommunity" className="custom-link">
+              Chat now
+            </Link>
+          </button>
+        </div>
                     </div>
                 </div>
             </div>

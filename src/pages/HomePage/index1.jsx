@@ -1,5 +1,6 @@
 import {Container, Row, Col, Button} from 'react-bootstrap';
 import professionals from './professionals.PNG';
+import { Link } from 'react-router-dom';
 const Home2=()=>{
     return(
         <div>
@@ -14,7 +15,13 @@ const Home2=()=>{
                             Explore our curated directory of highly credentialed and devoted mental health professionals <br/>
                             who share our unwavering commitment to your emotional and psychological well-being.
                             </p>
-                            <Button type="button" class="btn btn-primary" id="directory-button">Get Started</Button>
+                             <div className="getstart-button-container">
+                                 <button className="getstart-button">
+                                     <Link to="/ProfessionalDirectory" className="custom-link">
+                                        Get Start
+                                     </Link>
+                                 </button>
+                             </div>
                         </Col>
                     </Row>
                 </Container>

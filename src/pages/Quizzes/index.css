@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Arapey&display=swap');
 .box {
     border: 1px solid #000;
     width: 1200px;
@@ -16,9 +17,20 @@
   }
   .h1
   {
-    color: #3CB371;
+    color: #443806;
+    font-family: "Arapey",serif;
   }
   .text-box-header {
     text-align: left;
     font-family: 'Lobster', cursive;
+    font-family: "Arapey",serif;
+  }
+  .button
+  {
+    width: 175px;
+     height: 40px;
+     background-color: #F4F4EB;
+     color: #443806;
+     font-family: "Arapey",serif;
+    
   }

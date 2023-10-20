@@ -1,5 +1,5 @@
 import React from 'react';
-import './index.css';
+
 const PrivacyPolicy = () => {
   return (
     <div>
@@ -20,9 +20,9 @@ Our website might employ cookies for improved user experience and analytical ins
 This Privacy Policy underscores our commitment to data security and privacy, and we reserve the right to update it in alignment with changes in our practices and the law. We value your trust and well-being and are devoted to providing a supportive and secure environment for your journey toward improved mental health and emotional well-being.
 </p>
       <h5 className="h5">Information We Collect</h5>
-      <h6 className="h6">01.Personal Information:</h6>
+      <h6 className="information" style={{color:'#443806',textAlign:'left',padding:'10px'}}>01.Personal Information:</h6>
     <p  className= "p">In the delivery of our mental health services, we may gather personal details, including your name, contact information, student ID, and demographic information. Importantly, this data is willingly supplied by you as you engage with our services. Your voluntary provision of this information helps us customize and enhance your mental health experience. We treat this data with the utmost care and confidentiality, ensuring your privacy and security are maintained at all times. This personalized approach empowers us to offer tailored support and resources as you embark on your journey to improved mental well-being.</p>
-      <h6 className="h6">02.Health Information:</h6>
+      <h6 className="information" style={{color:'#443806',textAlign:'left'}}>02.Health Information:</h6>
       <p  className= "p">In your interactions with our dedicated mental health professionals, which include therapists and counselors, there might be occasions when you choose to share health-related information. Please rest assured that this sensitive data is handled with the highest degree of confidentiality. Your privacy is of paramount importance to us, and we are dedicated to safeguarding and preserving the privacy and security of your personal information. This commitment ensures that you can openly and securely engage with our mental health experts, facilitating an environment where you can address your health needs and concerns with complete trust and confidence.</p>
       <h5 className= "h5">Data Security</h5>
       <p  className= "p">Ensuring your privacy remains a foremost concern for us. We have established robust security protocols to safeguard your personal information. Our unwavering commitment includes strict adherence to all relevant data protection regulations, guaranteeing the utmost safety and confidentiality of your data. These measures are in place to provide you with a secure and reassuring environment as you engage with our mental health services. Our dedication to maintaining the privacy and integrity of your information empowers you to make the most of our services with the confidence that your personal data is protected and your privacy is upheld as a fundamental principle.</p>

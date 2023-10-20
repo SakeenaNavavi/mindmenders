@@ -1,36 +1,39 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
+import './index.css';
 
 const AddQuizzes = () => {
-  // Define the number of cards you want
   const numCards = 10;
-  // Create an array to store the cards
   const cards = [];
 
   for (let i = 1; i <= numCards; i++) {
+    
+    const radioGroupName = `flexRadioDefault${i}`;
+
     cards.push(
       <div key={i} className="d-flex justify-content-left vh-20" style={{ padding: '10px' }}>
-        <div className="card custom-card" style={{ marginBottom: '5px', width: '1500px', padding: '10px' }}>
-          <div className="card-body">
-            <p className="card-text" style={{ textAlign: 'left' }}>
+        <div className="quiz-card card custom-card custom-card-width">
+          <div className="quiz-card-body">
+            <p className="quiz-card-text">
               {i}. You can customize this text to make each card unique. <br />
-              <input type="radio" name="flexRadioDefault" id={`flexRadioDefault${i}`} className="form-check-input" />
-              <label htmlFor={`flexRadioDefault${i}`} className="form-check-label">
+              <input type="radio" name={radioGroupName} id={`disagree${i}`} className="form-check-input" />
+              <label htmlFor={`disagree${i}`} className="form-check-label">
                 Disagree
               </label> <br />
-              <input type="radio" name="flexRadioDefault" id={`flexRadioDefault${i}`} className="form-check-input" />
-              <label htmlFor={`flexRadioDefault${i}`} className="form-check-label">
+              <input type="radio" name={radioGroupName} id={`stronglyDisagree${i}`} className="form-check-input" />
+              <label htmlFor={`stronglyDisagree${i}`} className="form-check-label">
                 Strongly Disagree
               </label> <br />
-              <input type="radio" name="flexRadioDefault" id={`flexRadioDefault${i}`} className="form-check-input" />
-              <label htmlFor={`flexRadioDefault${i}`} className="form-check-label">
+              <input type="radio" name={radioGroupName} id={`neutral${i}`} className="form-check-input" />
+              <label htmlFor={`neutral${i}`} className="form-check-label">
                 Neutral
               </label> <br />
-              <input type="radio" name="flexRadioDefault" id={`flexRadioDefault${i}`} className="form-check-input" />
-              <label htmlFor={`flexRadioDefault${i}`} className="form-check-label">
+              <input type="radio" name={radioGroupName} id={`agree${i}`} className="form-check-input" />
+              <label htmlFor={`agree${i}`} className="form-check-label">
                 Agree
               </label> <br />
-              <input type="radio" name="flexRadioDefault" id={`flexRadioDefault${i}`} className="form-check-input" />
-              <label htmlFor={`flexRadioDefault${i}`} className="form-check-label">
+              <input type="radio" name={radioGroupName} id={`stronglyAgree${i}`} className="form-check-input" />
+              <label htmlFor={`stronglyAgree${i}`} className="form-check-label">
                 Strongly Agree
               </label>
             </p>
@@ -40,7 +43,25 @@ const AddQuizzes = () => {
     );
   }
 
-  return <div>{cards}</div>;
+  return (
+    <div className="button-box">
+      <div className="padded-card">
+        {cards}
+      </div>
+      <div className="but-box">
+        <div className="goback-button-container">
+          <button className="goback-button">
+            <Link to="/quizzes" className="custom-link">
+              Go Back
+            </Link>
+          </button>
+        </div>
+        <div className="submit-button-container">
+          <button className="submit-button">Submit</button>
+        </div>
+      </div>
+    </div>
+  );
 };
 
 export default AddQuizzes;

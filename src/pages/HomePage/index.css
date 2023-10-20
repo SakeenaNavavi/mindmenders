@@ -69,4 +69,33 @@
   padding-top: 70px;
   padding-left: 40px;
 }
-
+.getstart-button {
+  background-color: #443806; 
+  color:#fff ; 
+  border: none; 
+  padding: 10px 20px; 
+  float: center; 
+  font-family: "Arapey",serif;
+  border-radius: 5px;
+  width: 125px;
+  height: 50px;
+}
+.getstart-button-container {
+  text-align: center;
+  padding: 10px; 
+}
+.quizzes-button-container{
+  text-align: center;
+  padding: 10px; 
+}
+.quizzes-button{
+  background-color: #443806; 
+  color:#fff ; 
+  border: none; 
+  padding: 10px 20px; 
+  float: center; 
+  font-family: "Arapey",serif;
+  border-radius: 5px;
+  width: 125px;
+  height: 50px;
+}

@@ -14,7 +14,7 @@ const directory=()=>
             </div> 
             <div class="row row-cols-1 row-cols-md-5 g-4">
                 <div class="col">
-                    <div class="card h-100">
+                    <div class="directory-card h-100">
                         <img src="https://lankasara.com/wp-content/uploads/2023/05/snapshot35.jpg" class="card-img-top" alt="phycho"></img>
                         <div class="card-body">
                             <h5 class="card-title">Dr. Rumi Ruben</h5>
@@ -25,7 +25,7 @@ const directory=()=>
                     </div>
                 </div>
                 <div class="col">
-                    <div class="card h-100">
+                    <div class="directory-card h-100">
                         <img src="https://nawinna.com/assets/images/doctor/100/187-untitled-1.jpg" class="card-img-top" alt="phycho"></img>
                         <div class="card-body">
                             <h5 class="card-title">Card title</h5>
@@ -36,7 +36,7 @@ const directory=()=>
                     </div>
                 </div>
                 <div class="col">
-                    <div class="card h-100">
+                    <div class="directory-card h-100">
                             <img src="" class="card-img-top" alt="..."></img>
                             <div class="card-body">
                                 <h5 class="card-title">Card title</h5>
@@ -47,7 +47,7 @@ const directory=()=>
                     </div>
                 </div>
                 <div class="col">
-                    <div class="card h-100">
+                    <div class="directory-card h-100">
                             <img src="https://lankasara.com/wp-content/uploads/2023/05/snapshot35.jpg" class="card-img-top" alt="..."></img>
                             <div class="card-body">
                                 <h5 class="card-title">Card title</h5>
@@ -58,7 +58,7 @@ const directory=()=>
                     </div>
                 </div>
                 <div class="col">
-                    <div class="card h-100">
+                    <div class="directory-card h-100">
                             <img src="..." class="card-img-top" alt="..."></img>
                             <div class="card-body">
                                 <h5 class="card-title">Card title</h5>
@@ -69,7 +69,7 @@ const directory=()=>
                     </div>
                 </div> 
                 <div class="col">
-                    <div class="card h-100">
+                    <div class="directory-card h-100">
                             <img src="..." class="card-img-top" alt="..."></img>
                             <div class="card-body">
                                 <h5 class="card-title">Card title</h5>
@@ -80,7 +80,7 @@ const directory=()=>
                     </div>
                 </div>
                 <div class="col">
-                    <div class="card h-100">
+                    <div class="directory-card h-100">
                             <img src="..." class="card-img-top" alt="..."></img>
                             <div class="card-body">
                                 <h5 class="card-title">Card title</h5>
@@ -91,7 +91,7 @@ const directory=()=>
                     </div>
                 </div>
                     <div class="col">
-                        <div class="card h-100">
+                        <div class="directory-card h-100">
                             <img src="..." class="card-img-top" alt="..."></img>
                             <div class="card-body">
                                 <h5 class="card-title">Card title</h5>
@@ -102,7 +102,7 @@ const directory=()=>
                         </div>
                     </div>
                     <div class="col">
-                        <div class="card h-100">
+                        <div class="directory-card h-100">
                             <img src="https://lankasara.com/wp-content/uploads/2023/05/snapshot35.jpg" class="card-img-top" alt="..."></img>
                             <div class="card-body">
                                 <h5 class="card-title">Card title</h5>
@@ -113,7 +113,7 @@ const directory=()=>
                         </div>
                     </div>
                     <div class="col">
-                        <div class="card h-100">
+                        <div class="directory-card h-100">
                             <img src="..." class="card-img-top" alt="..."></img>
                             <div class="card-body">
                                 <h5 class="card-title">Card title</h5>

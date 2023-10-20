@@ -3,7 +3,7 @@
   src: url(./Migra-Extralight.woff) format('woff');
 }
 @import url('https://fonts.googleapis.com/css2?family=Arapey&display=swap');
-.heading{
+.home-heading{
     padding-bottom: 15;
     font-size: 100px;
     font-family: 'Migra', sans-serif;

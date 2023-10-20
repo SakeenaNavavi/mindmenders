@@ -11,7 +11,7 @@ const Home=()=>
                 <Container className="home-content">
                     <Row>
                         <Col md={6} className="home-header">
-                            <h1 className="heading">MindMenders</h1>
+                            <h1 className="home-heading">MindMenders</h1>
                             <p className="heading-content">Guiding Your Path to Mental Wellness<br/> 
                             Your Trusted Mental Health Support Network</p>
                         </Col>

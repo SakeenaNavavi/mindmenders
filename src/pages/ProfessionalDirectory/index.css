@@ -8,12 +8,12 @@
 }
   
 @media screen and (max-width: 650px) {
-    .card {
+    .directory-card {
         width: 40%;
     }
 }
   
-.card {
+.directory-card {
     box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.4);
     margin: 10px;
     width: 100%; 
@@ -26,20 +26,21 @@
     border-radius: 15px 50px;
 }
 
-.card:hover {
+.directory-card:hover {
     transform: scale(1.1);
 }
 
-.card-image{
+.directory-card-image{
     width: 200px;
     height: 190px;
 }
 
 .heading {
-    color: #423d27;
     font-family: "Arapey",serif;
     font-weight: 200; 
     font-size: 3em;
+    background-color: transparent;
+    color: aliceblue;
 } 
 
 .para{
@@ -47,7 +48,7 @@
     font-family: "Arapey",serif;
 }
 
-.card-title {
+.directory-card-title {
     font-size: 18px;
     font-weight: bold;
     font-family: 'Times New Roman', Times, serif ;
@@ -61,11 +62,11 @@
     display: table;
 }
   
-.title {
+.directory-title {
     color: #333333;
 }
   
-.button {
+.directory-button {
     border: none;
     outline: 0;
     display: inline-block;
@@ -78,11 +79,11 @@
     border-radius: 12px;
 }
 
-.button:hover {
+.directory-button:hover {
     background-color: #4FAAD7;
 }
 
-.button-1 {
+.directory-button-1 {
     border: none;
     outline: 0;
     display: inline-block;
@@ -95,6 +96,11 @@
     border-radius: 12px;
 }
 
-.button-1:hover {
+.directory-button-1:hover {
     background-color: #EA3526;
+}
+.heading-container{
+    padding-top: 10px;
+    padding-bottom: 10px;
+    background-color: transparent;
 }

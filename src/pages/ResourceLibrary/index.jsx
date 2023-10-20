@@ -1,4 +1,6 @@
-const ResourceLibraryPage = () => {
+
+const ResourceLibrary = () => {
+  
     const resources = [
       {
         type: 'video',
@@ -83,6 +85,7 @@ const ResourceLibraryPage = () => {
   
     return (
       <div>
+
         <h2>"Mind Matters: Exploring the Intricacies of Mental Health"</h2>
         {resources.map((resource, index) => {
           if (resource.type === 'video') {
@@ -108,14 +111,7 @@ const ResourceLibraryPage = () => {
                 
               </div>
             );
-          } else if (resource.type === 'image') {
-            return (
-              <div key={index}>
-                <h3>Image</h3>
-                <img src={resource.imageUrl} alt="Resource" />
-                <p>{resource.description}</p>
-              </div>
-            );
+          
           } else {
             return null;
           }
@@ -124,7 +120,7 @@ const ResourceLibraryPage = () => {
     );
   };
   
-  export default ResourceLibraryPage;
+  export default ResourceLibrary;
   
   
   

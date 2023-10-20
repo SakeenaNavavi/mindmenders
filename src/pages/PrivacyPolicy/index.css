@@ -46,5 +46,12 @@
   font-family: "Arapey",serif;
   
 }
-
+.information
+{
+  text-align: left;
+  padding: 10px;
+  font-size: 24px;
+  color: #443806;
+  font-family: "Arapey",serif;
+}
 

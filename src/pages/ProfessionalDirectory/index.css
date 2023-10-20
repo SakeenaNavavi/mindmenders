@@ -1,5 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Arapey&display=swap');
-.card {
+.directory-card {
     margin: 10px;
     width: 200px; 
     height: 150px;
@@ -10,7 +10,7 @@
     transition: transform 0.3s ease;
 }
 
-.card:hover {
+.directory-card:hover {
     transform: scale(1.1);
 }
 

@@ -1,6 +1,6 @@
 
-
-  .custom-card-width {
+@import url('https://fonts.googleapis.com/css2?family=Arapey&display=swap');
+  .quiz-card {
     max-width: 1500px; 
     width: 100%;
     height: auto;
@@ -8,8 +8,71 @@
     box-sizing: border-box;
   }
   
-  .card-text
+  .quiz-card-text
   {
     text-align: left;
+    font-family: "Arapey",serif;
   }
   
+.submit-button-container {
+  text-align: right;
+  padding: 10px; 
+}
+
+.submit-button {
+  background-color: #443806; 
+  color: #fff; 
+  border: none; 
+  padding: 10px 20px;
+  font-family: "Arapey",serif;
+  border-radius: 5px;
+}
+
+.goback-button {
+  background-color: #443806; 
+  color:#fff ; 
+  border: none; 
+  padding: 10px 20px; 
+  float: left; 
+  font-family: "Arapey",serif;
+  border-radius: 5px;
+}
+.goback-button-container {
+  text-align: left;
+  padding: 10px; 
+}
+
+.custom-link {
+  text-decoration: none;
+  color: #fff; 
+  
+}
+.but-box {
+  width: 100%; /* Adjust the width as needed, you can use percentage or other units */
+  height: 100px; /* Adjust the height as needed, you can use pixels or other units */
+  border: none; /* Add a border for visualization */
+  padding: 20px; /* Add padding to the box contents */
+  margin: 0 auto; /* Center the box horizontally on the page */
+  box-sizing: border-box; /* Include padding and border in the box dimensions */
+}
+.but-box {
+  width: 100%; /* Adjust the width as needed */
+  height: 100px; /* Adjust the height as needed */
+  border: none;
+  padding: 20px;
+  margin: 0 auto;
+  box-sizing: border-box;
+  background-color: #F4F4EB;
+}
+
+.goback-button-container {
+  float: left; /* Float the "Go Back" button container to the left */
+  width: 50%; /* Adjust the width as needed */
+}
+
+.submit-button-container {
+  float: right; /* Float the "Submit" button container to the right */
+  width: 50%; /* Adjust the width as needed */
+  text-align: right; /* Align the "Submit" button to the right within its container */
+}
+

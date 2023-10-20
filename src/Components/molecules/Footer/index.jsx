@@ -61,7 +61,7 @@ const YourComponent = () => {
   }
 >
   <button type="button" className="custom-button faphone-button">
-    <FaPhone size={30} className="faphone-icon" /> <p className="faphonep">Crisis Helping</p>
+    <FaPhone size={30} className="faphone-icon" /> <p className="faphonep">Crisis Helpling</p>
   </button>
 </OverlayTrigger>
 

@@ -46,7 +46,7 @@ const Navbar=()=>
         <FontAwesomeIcon icon={faUserCircle} />
       </div></button>
       <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
+  <div class="modal-dialog modal-dialog-centered">
     <div class="modal-content">
       <div class="modal-header">
         <h1 class="modal-title fs-4" id="exampleModalLabel">Welcome to MindMenders!</h1>
@@ -56,8 +56,9 @@ const Navbar=()=>
       Hello and welcome to MindMenders! To access our exclusive services, tailored specifically for registered users,<br/> kindly proceed by:
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-primary" onClick={LoginPage}>Login</button>
-        <button type="button" class="btn btn-primary">Sign-up</button>
+        <button type="button" class="btn btn-primary" data-bs-target="#exampleModalToggle2" data-bs-toggle="modal">Login</button>
+
+        <button type="button" class="btn btn-primary" data-bs-target="#exampleModalToggle2" data-bs-toggle="modal">Sign-up</button>
       </div>
     </div>
   </div>

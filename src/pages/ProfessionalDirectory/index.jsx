@@ -6,7 +6,7 @@ const directory=()=>
     return (           
         <div>
             <div className="heading-container">
-            <h2 className="heading text-center">FIND A THERAPIST</h2>
+          <h3 className="h3">FIND YOUR THERAPIST</h3>
             <p className="para">Discover Our Distinguished Network of Dedicated Mental Health Professionals</p>
             </div>
         <div class="row row-cols-1 row-cols-md-5 g-4">

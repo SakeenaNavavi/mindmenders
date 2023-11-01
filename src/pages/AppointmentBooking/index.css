@@ -1,6 +1,9 @@
-.appointment{
-    font-family: "Muli", sans-serif;
-    background-color: #F5DEB3;
+@import url('https://fonts.googleapis.com/css2?family=Arapey&display=swap');
+* {
+    box-sizing: border-box;
+}
+.reservation{
+    font-family: "Arapey",serif;
     color: black;
     display: flex;
     flex-direction: column;
@@ -9,11 +12,13 @@
     height: 100vh;
     overflow: hidden;
     margin: 0;
-}
-.rappointment-container{
     margin-top: 30px;
     margin-bottom: 30px;
-    background-color: burlywood;
+}
+.reservation-container{
+    margin-top: 30px;
+    margin-bottom: 30px;
+    background-color: #C4D4A2;
     height: fit-content;
     width: fit-content;
     padding: 20px 40px;
@@ -21,13 +26,14 @@
 }
 .form-header{
     text-align: center;
-    margin-bottom: 30px;
+    margin-bottom: 10px;
+    font-size: 50px;
 }
 .btn-primary{
     cursor: pointer;
     display: inline-block;
     padding-top: 50px;
-    background: Sienna;
+    background: #443806;
     padding: 15px;
     font-family: inherit;
     font-size: 16px;
@@ -47,4 +53,12 @@
     margin-left: auto;
     margin-right: auto;
     width:300px;
+}
+.gender-label{
+    position: relative;
+    padding-right: 30px;
+    cursor: pointer;
+}
+.your-custom-button-class{
+    background-color: #443806;
 }

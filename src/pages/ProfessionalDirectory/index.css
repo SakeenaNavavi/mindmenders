@@ -4,7 +4,6 @@
     padding-left:40px;
     padding-right: 10px;
     padding-bottom: 5px;
-    
 }
   
 @media screen and (max-width: 650px) {
@@ -14,7 +13,6 @@
 }
   
 .directory-card {
-    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.4);
     margin: 10px;
     width: 100%; 
     height: 100;
@@ -23,7 +21,9 @@
     flex-direction: column;
     font-size: 14px;
     transition: transform 0.3s ease;
-    border-radius: 15px 50px;
+    border-radius: 15px;
+    overflow: hidden;
+    margin-left: 40px;
 }
 
 .directory-card:hover {
@@ -33,6 +33,7 @@
 .directory-card-image{
     width: 200px;
     height: 190px;
+
 }
 
 .heading {
@@ -55,6 +56,7 @@
 }
   .container {
     padding: 0 16px;
+    
 }
 .container::after, .row::after {
     content: "";
@@ -66,39 +68,33 @@
     color: #333333;
 }
   
-.directory-button {
+.chat-button {
     border: none;
     outline: 0;
     display: inline-block;
     padding: 1px;
     color: #000;
-    background-color: #AAAAAA;
+    background-color: #70663E;
     text-align: center;
     cursor: pointer;
-    width: 100%;
+    width: 70%;
     border-radius: 12px;
-}
-
-.directory-button:hover {
-    background-color: #4FAAD7;
+    margin-bottom: 10px;
 }
 
 .directory-button-1 {
     border: none;
     outline: 0;
     display: inline-block;
-    padding: 2px;
+    padding: 1px;
     color: #FFFFFF;
-    background-color: #000;
+    background-color: #70663E;
     text-align: center;
     cursor: pointer;
     width: 70%;
     border-radius: 12px;
 }
 
-.directory-button-1:hover {
-    background-color: #EA3526;
-}
 .heading-container{
     padding-top: 10px;
     padding-bottom: 10px;
@@ -108,5 +104,4 @@
 {
     font-family: "Arapey",serif;
     color: #333333;
-
 }

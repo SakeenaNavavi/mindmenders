@@ -1,4 +1,3 @@
-import logo from './logo.svg';
 import './App.css';
 import './style.css';
 import { BrowserRouter,Routes,Route } from 'react-router-dom';
@@ -12,8 +11,9 @@ import OnlineCommunity from './pages/OnlineCommunity';
 import Footer from './Components/molecules/Footer';
 import TermsAndConditions from './pages/TermsAndConditions';
 import PrivacyPolicy from './pages/PrivacyPolicy';
-import LoginPage from './pages/LoginPage';
 import AddQuizzes from './pages/AddQuizzes';
+import AppointmentBooking from './pages/AppointmentBooking';
+import Loginregister from './pages/LoginRegister';
 function App() {
   return (
     <div className="App">
@@ -21,15 +21,16 @@ function App() {
             <BrowserRouter>
       <Routes>
       <Route path="/" element={<Home/>} />
-      <Route path="Login" element={<LoginPage/>}/>
         <Route path="ProfessionalDirectory" element={<ProfessionalDirectory />} />
         <Route path="AboutUs" element={<AboutUs />} />
         <Route path="Quizzes" element={<Quizzes />} />
         <Route path="ResourceLibrary" element={< ResourceLibrary/>} />
         <Route path="OnlineCommunity" element={<OnlineCommunity />} />
-        <Route path="/terms-and-conditions" element={<TermsAndConditions/>} /> {/* Route for the TermsAndConditions component */}
+        <Route path="/terms-and-conditions" element={<TermsAndConditions/>} />
         <Route path="/privacy-policy" element={<PrivacyPolicy/>}/>
         <Route path="/add-quizzes" element={<AddQuizzes/>}/>
+        <Route path="/book-appointment" element={<AppointmentBooking/>}/>
+        <Route path="/login-register" element={<Loginregister/>}/>
       </Routes>
       </BrowserRouter>
       <Footer/>

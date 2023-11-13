@@ -1,52 +1,76 @@
-const Loginregister=()=>{
-    return(
-        <div>
-            <h1 className="login-title text-center">Welcome To MindMenders!</h1>
-            <div className="login-description text-center fs-1">Hello and welcome to MindMenders! To access our exclusive services, tailored specifically for registered users,
-            <br/> kindly proceed by:</div>
+import React, { useEffect } from 'react';
+import './index.css';
+const LoginRegister =()=>{
+    useEffect(() => {
+        const imgBtn = document.querySelector('.img__btn');
+        const cont = document.querySelector('.cont');
 
-            <div class="section">
-                <div class="container"> 
-                <div class="row full-height justify-content-center">
-                    <div class="col-12 text-center align-self-center py-5">
-                        <div class="section pb-5 pt-5 pt-sm-2 text-center">
-                            <h6 class="mb-0 pb-3">
-                                <span>Log In </span><span>Sign Up</span></h6>
-                                	<input class="checkbox" type="checkbox" id="reg-log" name="reg-log"/>
-                                	<label for="reg-log"></label>	<div class="card-3d-wrap mx-auto">	
-                                    <div class="card-3d-wrapper">	<div class="card-front">	
-                                    <div class="center-wrap">	<div class="section text-center">	
-                                    <h4 class="mb-4 pb-3">Log In</h4>	<div class="form-group"> 
-                <input type="email" name="logemail" class="form-style" placeholder="Your Email" id="logemail" autocomplete="none"/>
-                	<i class="input-icon fa fa-at"></i>	</div>	<div class="form-group mt-2"> 
-                    <input type="password" name="logpass" class="form-style" placeholder="Your Password" id="logpass" autocomplete="none"/>
-                    	<i class="input-icon fa fa-lock"></i>	</div>	<a href="#" class="btn mt-4">Login</a>	
-                        <p class="mb-0 mt-4 text-center"> <a href="#0" class="link">Forgot your password?</a> </p>
-                        	</div>
-                            	</div>
-                                	</div>
-                                    	<div class="card-back">
-                                        	<div class="center-wrap">
-                                                	<div class="section text-center">	
-                                                    <h4 class="mb-4 pb-3">Sign Up</h4>	
-                                                    <div class="form-group"> 
-                                                    <input type="text" name="logname" class="form-style" placeholder="Your Full Name" id="logname" autocomplete="none"/>	
-                                                    <i class="input-icon fa fa-user"></i>	</div>	<div class="form-group mt-2"> 
-                                                    <input type="email" name="logemail" class="form-style" placeholder="Your Email" id="logemail" autocomplete="none"/>	
-                                                    <i class="input-icon fa fa-at"></i>	</div>	<div class="form-group mt-2"> 
-                                                    <input type="password" name="logpass" class="form-style" placeholder="Your Password" id="logpass" autocomplete="none"/>	
-                                                    <i class="input-icon fa fa-lock"></i>	</div>	<a href="#" class="btn mt-4">Signup</a>	
-                                                    </div>	
-                                                    </div>	
-                                                    </div>	
-                                                    </div>	
-                                                    </div>	
-                                                    </div>	
-                                                    </div>	
-                                                    </div> 
-                                                    </div>	
-                                                    </div>
+        imgBtn.addEventListener('click', function() {
+            cont.classList.toggle('s--signup');
+        });
+
+        return () => {
+            imgBtn.removeEventListener('click', function() {
+                cont.classList.toggle('s--signup');
+            });
+        };
+    }, []);
+    return (
+        <div>
+    <div class="cont">
+        <div class="form sign-in">
+            <h2>Welcome</h2>
+            <label>
+                <span>Email</span>
+                <input type="email" />
+            </label>
+            <label>
+                <span>Password</span>
+                <input type="password" />
+            </label>
+            <p class="forgot-pass">Forgot password?</p>
+            <button type="button" class="submit">Sign In</button>
+         
         </div>
+        <div class="sub-cont">
+            <div class="img">
+                <div class="img__text m--up">
+                 
+                    <h3>Don't have an account? Please Sign up!</h3>
+                </div>
+                <div class="img__text m--in">
+                
+                    <h3>If you already have an account, just sign in.</h3>
+                </div>
+                <div class="img__btn">
+                    <span class="m--up">Sign Up</span>
+                    <span class="m--in">Sign In</span>
+                </div>
+            </div>
+            <div class="form sign-up">
+                <h2>Create your Account</h2>
+                <label>
+                    <span>First name</span>
+                    <input type="text" />
+                </label>
+                <label>
+                    <span>Last name</span>
+                    <input type="text" />
+                </label>
+                <label>
+                    <span>Email</span>
+                    <input type="email" />
+                </label>
+                <label>
+                    <span>Password</span>
+                    <input type="password" />
+                </label>
+                <button type="button" class="submit">Sign Up</button>
+                
+            </div>
+        </div>
+    </div>
+    </div>
     )
 }
-export default Loginregister;
+export default LoginRegister;

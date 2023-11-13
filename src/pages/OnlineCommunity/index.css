@@ -41,7 +41,7 @@
 }
 
 .people-list .chat-list li.active {
-    background: #efefef
+    background: #efefef;
 }
 
 .people-list .chat-list li .name {

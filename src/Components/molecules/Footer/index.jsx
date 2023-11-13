@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Row, Col, Button, OverlayTrigger, Popover } from 'react-bootstrap';
+import { Row, Col } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { FaFacebook, FaTwitter, FaWhatsapp, FaStar,FaPhone } from 'react-icons/fa';
 import './index.css';

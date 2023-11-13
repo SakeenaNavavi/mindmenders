@@ -13,6 +13,7 @@ import TermsAndConditions from './pages/TermsAndConditions';
 import PrivacyPolicy from './pages/PrivacyPolicy';
 import AddQuizzes from './pages/AddQuizzes';
 import LoginRegister from './pages/LoginRegister';
+import AppointmentBooking from './pages/AppointmentBooking';
 function App() {
   return (
     <div className="App">
@@ -29,6 +30,7 @@ function App() {
         <Route path="/privacy-policy" element={<PrivacyPolicy/>}/>
         <Route path="/add-quizzes" element={<AddQuizzes/>}/>
         <Route path="/loginRegister" element={<LoginRegister/>}/>
+        <Route path="/AppointmentBooking" element ={<AppointmentBooking/>}/>
       </Routes>
       
       <Footer/>

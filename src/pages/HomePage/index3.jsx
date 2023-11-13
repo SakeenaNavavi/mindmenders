@@ -13,7 +13,7 @@ const Home4=()=>{
                         <Col md={6} className="directory-about">
                             <p className="directory-about-description">
                             Dive into our comprehensive Resource Library, your gateway to a wealth of informative and empowering materials.
-                             Discover a curated collection of videos,articles, and books, meticulously selected to support your mental health and well-being.
+                             Discover a curated and hand-picked collection of videos,articles, and books, meticulously selected to support your mental health and well-being.
                             </p>
                              <div className="getstart-button-container">
                                  <button className="lib-button">

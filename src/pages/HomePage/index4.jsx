@@ -9,7 +9,7 @@ const Home5=()=>{
                     <Col md={6} className="quiz-about">
                         <p className="quiz-about-description">Join our vibrant online community, where individuals 
                         come together to share experiences, offer support, and foster connections. This peer network 
-                        provides a safe and nurturing space to connect with like-minded individuals on your mental health journey.</p>
+                        provides a safe and sound space to connect with like-minded individuals on your mental health journey.</p>
                          <div className="quizzes-button-container">
                                  <button className="quizzes-button">
                                      <Link to="/OnlineCommunity" className="custom-link">

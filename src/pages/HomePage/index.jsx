@@ -1,7 +1,9 @@
 import { Container, Row, Col } from "react-bootstrap";
 import './index.css';
 import Home2 from './index1.jsx';
-import Home3 from "./index2";
+import Home3 from "./index2.jsx";
+import Home4 from "./index3.jsx";
+import Home5 from "./index4.jsx";
 import animation from './videoplayback.mp4';
 const Home=()=>
 {
@@ -25,6 +27,8 @@ const Home=()=>
             </Container>
             <Home2/>
             <Home3/>
+            <Home4/>
+            <Home5/>
         </section>
     )
 }

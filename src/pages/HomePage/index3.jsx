@@ -1,24 +1,24 @@
 import {Container, Row, Col, Button} from 'react-bootstrap';
-import professionals from './professionals.png';
 import { Link } from 'react-router-dom';
-const Home2=()=>{
+import ResourceLibrary from './resourceLibrary.png'
+const Home4=()=>{
     return(
         <div>
             <section>
                 <Container fluid className="home-directory">
                     <Row>
                         <Col md={6} className="professionals-pic">
-                            <img src={professionals} className="img-fluid" alt="mental health professionals animation"/>
+                            <img src={ResourceLibrary} className="img-fluid" alt="mental health professionals animation"/>
                         </Col>
                         <Col md={6} className="directory-about">
                             <p className="directory-about-description">
-                            Explore our curated directory of highly credentialed and devoted mental health professionals <br/>
-                            who share our unwavering commitment to your emotional and psychological well-being.
+                            Dive into our comprehensive Resource Library, your gateway to a wealth of informative and empowering materials.
+                             Discover a curated and hand-picked collection of videos,articles, and books, meticulously selected to support your mental health and well-being.
                             </p>
                              <div className="getstart-button-container">
-                                 <button className="getstart-button">
-                                     <Link to="/ProfessionalDirectory" className="custom-link">
-                                        Get Started
+                                 <button className="lib-button">
+                                     <Link to="/ResourceLibrary" className="custom-link">
+                                        Start Exploring!
                                      </Link>
                                  </button>
                              </div>
@@ -29,4 +29,4 @@ const Home2=()=>{
         </div>
     )
 }
-export default Home2;
+export default Home4;

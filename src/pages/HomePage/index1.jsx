@@ -8,7 +8,7 @@ const Home2=()=>{
                 <Container fluid className="home-directory">
                     <Row>
                         <Col md={6} className="professionals-pic">
-                            <img src={professionals} className="img-fluid" alt="mental health professionals animation"/>
+                            <img src={professionals} className="img-fluid" alt="mental health professionals"/>
                         </Col>
                         <Col md={6} className="directory-about">
                             <p className="directory-about-description">

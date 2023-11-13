@@ -82,7 +82,7 @@ class Doctorgui extends Component {
   };
 
   render() {
-    const { messages, newMessage, contacts, patientRequests, selectedDate, selectedTime, selectedRequestId } = this.state;
+    const { messages, newMessage, contacts, patientRequests, selectedRequestId } = this.state;
 
     return (
       <div className="website-container">

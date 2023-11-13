@@ -1,0 +1,318 @@
+@import url('https://fonts.googleapis.com/css2?family=Arapey&display=swap');
+.website-container {
+    display: flex;
+  }
+  
+  .body{
+    background-color:  #efefef;
+  }
+  
+  .mental-health-chat {
+    flex: 2; 
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .contact-image {
+    width: 50px;
+    height: 50px; 
+    border-radius: 50%; 
+    padding: 10px;
+  }
+  .contact-name {
+    margin: 0 10px; 
+  }
+    
+
+.website-container {
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  
+  .mental-health-chat {
+    width: 60%; 
+  padding-left: 180px;
+  padding-top: 20px;
+  }
+  
+  .patient-requests {
+    width: 20%; 
+  }
+  
+  .website-container {
+    padding: 50px; 
+  }
+  
+  .contact-list.boxed h2 {
+    font-size: 18px;
+    color: #333; 
+  }
+  
+  .contact-list.boxed ul {
+    list-style: none; 
+  }
+  
+  .contact-list.boxed li {
+    margin: 10px 0; 
+  }
+  
+  .contact-list.boxed .contact-image {
+    max-width: 50px; 
+    margin-right: 10px; 
+  }
+
+ .chat-window {
+  height: 900px ;
+  width: 600px;
+  border: 1px solid #333;
+  flex-direction: column; 
+  align-items: center; 
+  background-color: #f9f9f9;
+  display: flex;
+   
+    gap: 10px;
+  
+}
+
+.message {
+  margin: 10px 0;
+  padding: 10px;
+  border-radius: 10px;
+  clear: both;
+}
+
+
+.message.user {
+  background-color: #DCF8C6; 
+  float: right;
+}
+
+
+.message.professional {
+  background-color: #EDEDED; 
+  float: left;
+}
+
+
+.sender {
+  font-weight: bold;
+}
+
+
+.input-area {
+  margin-top: 10px;
+}
+
+
+.input-container button {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 4px;
+    cursor: pointer;
+    align-items: right;
+}
+.input-container {
+    display: flex;
+    margin-top: 10px;
+    padding-left: 20px;
+}
+.input-container input {
+  
+    width: 500px;
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-right: 10px; 
+}
+  
+  .mental-health-chat.boxed h2 {
+    font-size: 18px;
+    color: #007BFF; 
+  }
+  
+  .mental-health-chat.boxed .chat-window {
+    max-height: 200px; 
+    overflow-y: scroll; 
+  }
+  
+  .mental-health-chat.boxed .input-area {
+    display: flex;
+    margin-top: 10px; 
+  }
+  
+  .mental-health-chat.boxed input[type="text"] {
+    flex: 1; 
+    padding: 5px;
+  }
+  
+  .mental-health-chat.boxed button {
+    background-color: #007BFF; 
+    color: #fff; 
+    border: none;
+    padding: 5px 10px; 
+     
+  }
+
+.patient-requests.boxed {
+    border: 1px solid #ccc;
+    padding: 20px; 
+    background-color: #e3dac9;
+    width: 275px;
+    height: 1000px;
+  }
+  
+  .patient-requests.boxed h2 {
+    font-size: 18px; 
+    color:  #443806;
+    font-family: "Arapey",serif;
+  }
+  .contactlisth{
+    font-size: 18px; 
+    color:  #443806;
+    font-family: "Arapey",serif;
+  }
+  
+  .patient-requests.boxed ul {
+    list-style: none; 
+  }
+  
+  .patient-requests.boxed li {
+    margin: 10px 0;
+  }
+  
+  .patient-requests.boxed button {
+    background-color: #C4D4A2;
+    color: #443806; 
+    border: none; 
+    padding: 5px 10px; 
+    margin-left: 5px; 
+  }
+  .boxed{
+    background-color:#e3dac9;
+    width: 350px;
+    height: 1000px;
+    border: 1px solid #ccc;
+    padding: 20px;
+     display: flex;
+    flex-direction: column;
+    align-items: center; 
+    
+  }
+  .boxedh {
+    border: 1px solid  #ccc;
+    padding: 20px; 
+    background-color: #e3dac9;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 650px;
+    height: 1000px;
+  
+  }
+  
+
+  
+  .request-info {
+    flex-grow: 1;
+    text-align: left;
+    width: 200px;
+    
+  }
+  
+  .button-container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    margin-left: 10px; }
+  
+  .button-container button {
+    margin-bottom: 5px; 
+  }
+  .patient-request {
+    margin-bottom: 20px;
+    padding: 15px; 
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background-color: #f9f9f9;
+  }
+  
+  .request-name {
+    font-weight: bold;
+    
+    margin-bottom: 10px; 
+    
+  }
+  
+  .button-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    justify-content: space-between;
+  }
+  
+  .popup-msg {
+    background-color: #fff;
+    border: 1px solid #ccc;
+    padding: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+    width: 100px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    text-align: center;
+    border-radius: 4px;
+    height: 50px;
+  }
+  .contact-item {
+    border: 1px solid #ccc;
+    margin: 10px;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    width: 250px;
+    height: 50px;
+    background-color: #fff;
+  }
+  
+  .contact-box {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  
+  .contact-image {
+    width: 50px;
+    height: 50px;
+    
+  }
+  
+  .contact-name {
+    font-size: 16px;
+  }
+  
+  .accept-button{
+    background-color:  #443806;
+  }
+  .container {
+    display: flex;
+    justify-content: flex-end;
+  }
+  .date_control{
+    padding: 10px;
+  }
+  .time_control{
+    padding: 20px;
+  }
+  .date-label
+  {
+    padding: 10px;
+  }
+  .time_label{
+    padding: 10px;
+  }

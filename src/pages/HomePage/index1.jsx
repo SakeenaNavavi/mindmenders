@@ -12,7 +12,7 @@ const Home2=()=>{
                         </Col>
                         <Col md={6} className="directory-about">
                             <p className="directory-about-description">
-                            Explore our curated directory of highly credentialed and devoted mental health professionals <br/>
+                            Take a look at our curated directory of highly credentialed and devoted mental health professionals <br/>
                             who share our unwavering commitment to your emotional and psychological well-being.
                             </p>
                              <div className="getstart-button-container">

@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Arapey&display=swap');
 @keyframes Bounce {
   from {
     opacity: 0;
@@ -19,13 +20,18 @@
   background-size: cover;
   position:justify;
   z-index: -1;
+  height: 1000px;
 
 }
 
 .about-content {
   color: #ffffff;
-  text-shadow: 1px 1px 2px #000000;
+  text-shadow: #ffffff;
   text-align:left;
   padding-right: 50px;
-  animation: Bounce 1s ease-out; /* Add the animation to the paragraph */
+}
+.aboutush2{
+  font-family: "Arapey",serif;
+  color: black;
+  font-weight: bold;
 }

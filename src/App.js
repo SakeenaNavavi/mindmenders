@@ -20,12 +20,12 @@ function App() {
             
       <Routes>
       <Route path="/" element={<Home/>} />
-        <Route path="/ProfessionalDirectory" element={<ProfessionalDirectory />} />
-        <Route path="/AboutUs" element={<AboutUs />} />
-        <Route path="/Quizzes" element={<Quizzes />} />
-        <Route path="/ResourceLibrary" element={< ResourceLibrary/>} />
-        <Route path="/OnlineCommunity" element={<OnlineCommunity />} />
-        <Route path="/terms-and-conditions" element={<TermsAndConditions/>} /> 
+        <Route path="ProfessionalDirectory" element={<ProfessionalDirectory />} />
+        <Route path="AboutUs" element={<AboutUs />} />
+        <Route path="Quizzes" element={<Quizzes />} />
+        <Route path="ResourceLibrary" element={< ResourceLibrary/>} />
+        <Route path="OnlineCommunity" element={<OnlineCommunity />} />
+        <Route path="/terms-and-conditions" element={<TermsAndConditions/>} />
         <Route path="/privacy-policy" element={<PrivacyPolicy/>}/>
         <Route path="/add-quizzes" element={<AddQuizzes/>}/>
         <Route path="/loginRegister" element={<LoginRegister/>}/>

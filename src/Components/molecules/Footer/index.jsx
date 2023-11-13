@@ -29,7 +29,9 @@ const YourComponent = () => {
       event.target.Comment.value = '';
   
     Swal.fire({
-      text: "Thank You For Your Feedback",
+      title: 'MindMender',
+      text: " Your feedback is the cornerstone of our progress:Thank you for your thoughtful feedback!",
+      confirmButtonColor: '#443806'
     });
   } catch (error) {
     alert('Your Feedback did not get saved due to an error. Please try again later!');
@@ -64,22 +66,14 @@ const YourComponent = () => {
                     Terms and Conditions
                   </a>
                 </li> <br /> 
-                <OverlayTrigger
-  trigger="hover"
-  placement="right"
-  overlay={
-    <Popover id="popover-right" className="custom-popover">
-      <div className="crisis-helping">
-        <h3>Crisis Helpline</h3>
-        <h5> Hotline: 1990</h5>
-      </div>
-    </Popover>
-  }
->
-  <button type="button" className="custom-button faphone-button">
-    <FaPhone size={30} className="faphone-icon" /> <p className="faphonep">Crisis Helpling</p>
-  </button>
-</OverlayTrigger>
+                <h5 className="h5">
+                <b>Crisis Healpline</b> <br /> <br />
+                <a  href= "http://1333.lk/" className="text-white">
+                <p> http://1333.lk/</p>
+                  </a>
+                  <a  href= "https://findahelpline.com/organizations/sri-lanka-sumithrayo" className="text-white">  <p>https://findahelpline.com/organizations/sri-lanka-sumithrayo</p>
+                  </a>
+              </h5>
 
               </ul>
             </Col>
@@ -106,7 +100,7 @@ const YourComponent = () => {
               </ul>
             </Col>
 
-            <Col md={3} xs={6}>
+            <Col md={3} xs={6}><br /> <br />
               <div className="rating-box">
                 <div className="border p-3">
                   <h5>Rate our service</h5>
@@ -131,7 +125,7 @@ const YourComponent = () => {
               </div>
             </Col>
 
-            <Col md={3} xs={6}>
+            <Col md={3} xs={6}> <br /> <br />
               <div>
                 <FaFacebook size={30} /> <p>Facebook page </p><br />
                 <FaTwitter size={30} /><p>Twitter page </p> <br />

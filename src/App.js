@@ -1,7 +1,6 @@
-import logo from './logo.svg';
 import './App.css';
 import './style.css';
-import { BrowserRouter,Routes,Route } from 'react-router-dom';
+import { Routes,Route } from 'react-router-dom';
 import Navbar from './Components/molecules/Navbar';
 import Home from './pages/HomePage';
 import ProfessionalDirectory from './pages/ProfessionalDirectory';
@@ -12,26 +11,26 @@ import OnlineCommunity from './pages/OnlineCommunity';
 import Footer from './Components/molecules/Footer';
 import TermsAndConditions from './pages/TermsAndConditions';
 import PrivacyPolicy from './pages/PrivacyPolicy';
-import LoginPage from './pages/LoginPage';
 import AddQuizzes from './pages/AddQuizzes';
+import LoginRegister from './pages/LoginRegister';
 function App() {
   return (
     <div className="App">
       <Navbar/>
-            <BrowserRouter>
+            
       <Routes>
       <Route path="/" element={<Home/>} />
-      <Route path="Login" element={<LoginPage/>}/>
-        <Route path="ProfessionalDirectory" element={<ProfessionalDirectory />} />
-        <Route path="AboutUs" element={<AboutUs />} />
-        <Route path="Quizzes" element={<Quizzes />} />
-        <Route path="ResourceLibrary" element={< ResourceLibrary/>} />
-        <Route path="OnlineCommunity" element={<OnlineCommunity />} />
-        <Route path="/terms-and-conditions" element={<TermsAndConditions/>} /> {/* Route for the TermsAndConditions component */}
+        <Route path="/ProfessionalDirectory" element={<ProfessionalDirectory />} />
+        <Route path="/AboutUs" element={<AboutUs />} />
+        <Route path="/Quizzes" element={<Quizzes />} />
+        <Route path="/ResourceLibrary" element={< ResourceLibrary/>} />
+        <Route path="/OnlineCommunity" element={<OnlineCommunity />} />
+        <Route path="/terms-and-conditions" element={<TermsAndConditions/>} /> 
         <Route path="/privacy-policy" element={<PrivacyPolicy/>}/>
         <Route path="/add-quizzes" element={<AddQuizzes/>}/>
+        <Route path="/loginRegister" element={<LoginRegister/>}/>
       </Routes>
-      </BrowserRouter>
+      
       <Footer/>
     </div>
   );

@@ -1,13 +1,9 @@
-import Navitems from "../../atoms/Navitems";
 import logo from './Capture.PNG';
 import './index.css';
-import { useState, useEffect, useRef} from 'react';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faUserCircle } from '@fortawesome/free-solid-svg-icons'; 
-import LoginPage from "../../../pages/LoginPage";
+import { Link } from 'react-router-dom';
+import loginRegister from '../../../pages/LoginRegister';
 const Navbar=()=>
 {
-
     return (
         <div>
             <nav class="navbar navbar-expand-lg" style={{backgroundColor:"#70663E"}}>
@@ -41,28 +37,8 @@ const Navbar=()=>
         <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search for conditions"/>
         <button class="btn btn-outline-success" type="submit">Search</button>
       </form>
-      <button data-bs-toggle="modal" data-bs-target="#exampleModal">
-        <div className="login-icon" >
-        <FontAwesomeIcon icon={faUserCircle} />
-      </div></button>
-      <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h1 class="modal-title fs-4" id="exampleModalLabel">Welcome to MindMenders!</h1>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-      Hello and welcome to MindMenders! To access our exclusive services, tailored specifically for registered users,<br/> kindly proceed by:
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-primary" data-bs-target="#exampleModalToggle2" data-bs-toggle="modal">Login</button>
+      <button class="btn btn-user"><Link to="/loginRegister" className="custom-link"><i class="fa fa-user"></i></Link></button>
 
-        <button type="button" class="btn btn-primary" data-bs-target="#exampleModalToggle2" data-bs-toggle="modal">Sign-up</button>
-      </div>
-    </div>
-  </div>
-</div>
     </div>
   </div>
 </nav>

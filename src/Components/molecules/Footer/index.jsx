@@ -4,6 +4,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { FaFacebook, FaTwitter, FaWhatsapp, FaStar,FaPhone } from 'react-icons/fa';
 import './index.css';
 import Swal from 'sweetalert2';
+import { supabase } from '../../../supabaseClient';
 
 
 const YourComponent = () => {
@@ -13,11 +14,26 @@ const YourComponent = () => {
     setSelectedRating(rating);
   };
 
-  const handleFormSubmit = () => {
+  const handleFormSubmit = async (event) => {
+    event.preventDefault();
+    const Rating = event.target.Rating.value;
+    const Comment = event.target.Comment.value;
+    const User_id = event.target.User_id.value;
+
+    try {
+      await supabase.from('tblFeedbacks').insert([
+        { Rating, Comment, User_id},
+      ]);
+  
+      event.target.Rating.value = '';
+      event.target.Comment.value = '';
+  
     Swal.fire({
-      title: 'MindMender',
-      text: "Thank You For You'r Feadback",
+      text: "Thank You For Your Feedback",
     });
+  } catch (error) {
+    alert('Your Feedback did not get saved due to an error. Please try again later!');
+  }
   };
  
 
@@ -105,6 +121,7 @@ const YourComponent = () => {
                     ))}
                     <br /> <br />
                     <textarea id="reviewInput" className="form-control mb-3" placeholder="Write your review here"></textarea>
+                    <input type="hidden" name="userId" value={supabase.auth.user?.id} />
                     <button type="submit" className="custom-submit-button" onClick={handleFormSubmit}>
                       Submit
                     </button>

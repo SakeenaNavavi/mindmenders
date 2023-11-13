@@ -1,28 +1,29 @@
 import {Container, Row, Col, Button} from 'react-bootstrap';
-import quiz from './quiz.png';
+import OnlineCommunity from './onlineCommunity.png';
 import { Link } from 'react-router-dom';
-const Home3=()=>{
+const Home5=()=>{
     return(
         <section>
             <Container fluid className="home-quizzes">
                 <Row>
                     <Col md={6} className="quiz-about">
-                        <p className="quiz-about-description">To assess your mental well-being with accuracy and authenticity,<br/>
-                         we invite you to engage in our reliable and professionally crafted mental health assessments.</p>
+                        <p className="quiz-about-description">Join our vibrant online community, where individuals 
+                        come together to share experiences, offer support, and foster connections. This peer network 
+                        provides a safe and sound space to connect with like-minded individuals on your mental health journey.</p>
                          <div className="quizzes-button-container">
                                  <button className="quizzes-button">
-                                     <Link to="/Quizzes" className="custom-link">
-                                        Start Now!
+                                     <Link to="/OnlineCommunity" className="custom-link">
+                                        Join Now!
                                      </Link>
                                  </button>
                              </div>
                     </Col>
                     <Col md={6} className="quiz-picture">
-                        <img src={quiz} class="img-fluid" alt="quiz assessments"/>
+                        <img src={OnlineCommunity} class="img-fluid" alt="quiz assessments"/>
                     </Col>
                 </Row>
             </Container>
         </section>
     );
 }
-export default Home3;
+export default Home5;

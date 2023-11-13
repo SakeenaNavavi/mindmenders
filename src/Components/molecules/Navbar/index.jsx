@@ -38,9 +38,7 @@ const Navbar=()=>
         <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search for conditions"/>
         <button class="btn btn-outline-success" type="submit">Search</button>
       </form>
-      <button>
-        
-      </button>
+      <button class="btn btn-user"><Link to="/loginRegister" className="custom-link"><i class="fa fa-user"></i></Link></button>
 
     </div>
   </div>

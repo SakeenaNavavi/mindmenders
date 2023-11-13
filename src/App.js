@@ -1,6 +1,6 @@
 import './App.css';
 import './style.css';
-import { BrowserRouter,Routes,Route } from 'react-router-dom';
+import { Routes,Route } from 'react-router-dom';
 import Navbar from './Components/molecules/Navbar';
 import Home from './pages/HomePage';
 import ProfessionalDirectory from './pages/ProfessionalDirectory';
@@ -12,13 +12,13 @@ import Footer from './Components/molecules/Footer';
 import TermsAndConditions from './pages/TermsAndConditions';
 import PrivacyPolicy from './pages/PrivacyPolicy';
 import AddQuizzes from './pages/AddQuizzes';
+import LoginRegister from './pages/LoginRegister';
 import AppointmentBooking from './pages/AppointmentBooking';
-import Loginregister from './pages/LoginRegister';
 function App() {
   return (
     <div className="App">
       <Navbar/>
-            <BrowserRouter>
+            
       <Routes>
       <Route path="/" element={<Home/>} />
         <Route path="ProfessionalDirectory" element={<ProfessionalDirectory />} />
@@ -29,10 +29,10 @@ function App() {
         <Route path="/terms-and-conditions" element={<TermsAndConditions/>} />
         <Route path="/privacy-policy" element={<PrivacyPolicy/>}/>
         <Route path="/add-quizzes" element={<AddQuizzes/>}/>
-        <Route path="/book-appointment" element={<AppointmentBooking/>}/>
-        <Route path="/login-register" element={<Loginregister/>}/>
+        <Route path="/loginRegister" element={<LoginRegister/>}/>
+        <Route path="/AppointmentBooking" element ={<AppointmentBooking/>}/>
       </Routes>
-      </BrowserRouter>
+      
       <Footer/>
     </div>
   );

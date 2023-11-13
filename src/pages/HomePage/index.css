@@ -59,7 +59,7 @@
   font-family: "Arapey",serif;
 }
 .home-quizzes{
-  padding-bottom: 130px;
+  padding-bottom: 131px;
 }
 .quiz-about-description{
   color: #443806;
@@ -80,9 +80,21 @@
   width: 125px;
   height: 50px;
 }
+.lib-button{
+  background-color: #443806; 
+  color:#fff ; 
+  border: none; 
+  float: center; 
+  font-family: "Arapey",serif;
+  border-radius: 5px;
+  width: 125px;
+  height: 60px;
+}
+
 .getstart-button-container {
   text-align: center;
   padding: 10px; 
+  font-size: medium;
 }
 .quizzes-button-container{
   text-align: center;

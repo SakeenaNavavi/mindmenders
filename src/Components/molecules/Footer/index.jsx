@@ -50,7 +50,7 @@ const YourComponent = () => {
               </h5>
               <ul className="list-unstyled">
                 <li>
-                  <a href="/Home" className="text-white">
+                  <a href="/" className="text-white">
                     Home
                   </a>
                 </li>

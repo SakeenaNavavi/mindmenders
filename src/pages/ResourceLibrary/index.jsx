@@ -3,7 +3,6 @@ import { Row, Col } from 'react-bootstrap';
 import './index.css';
 
 const spacing = '10px';
-
 const ResourceLibrary = () => {
   const openYoutubeVideo = (videoUrl) => {
     window.open(videoUrl, '_blank');
@@ -635,8 +634,8 @@ const ResourceLibrary = () => {
       </div>
     </div>
   </div>
- </Col>
- <Col>
+</Col>
+<Col>
         <div class="card mb-3">
          <div class="row g-0">
            <div class="col-md-4">
@@ -666,7 +665,6 @@ const ResourceLibrary = () => {
     </div>
   </div>
  </Col>
-
  <Col>
         <div class="card mb-3">
          <div class="row g-0">

@@ -15,7 +15,7 @@ const AboutUs = () => {
               <br />It should reflect your organization's mission and values, 
              <br /> ensuring that visitors to your website can connect with the compassionate and comprehensive services you provide.</p>
 
-                <p className="aboutusp">Welcome to MindMenders, a digital haven dedicated to nurturing mental health, 
+                <p className="aboutush2">Welcome to MindMenders, a digital haven dedicated to nurturing mental health, 
                    <br />eradicating stigma, and fostering a community of resilience. We are the 
                    culmination of an extraordinary journey, 
                    <br />initiated by four passionate undergraduates in pursuit of a common goal: 

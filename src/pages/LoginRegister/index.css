@@ -5,6 +5,20 @@
     margin: 0;
     padding: 0;
 }
+@media (max-width: 1200px) {
+    .cont,
+    .form,
+    .sub-cont {
+        width: 80%;
+    }
+}
+@media (max-width: 768px) {
+    .cont,
+    .form,
+    .sub-cont {
+        width: 100%;
+    }
+}
 
 input,
 button {
@@ -28,6 +42,7 @@ button {
     height: 550px;
     margin: 30px auto 100px;
     background: #fff;
+    transition: transform 1.2s ease-in-out;
     box-shadow: -10px -10px 15px rgba(255, 255, 255, 0.3), 10px 10px 15px rgba(70, 70, 70, 0.15), inset -10px -10px 15px rgba(255, 255, 255, 0.3), inset 10px 10px 15px rgba(70, 70, 70, 0.15);
 }
 
@@ -77,11 +92,14 @@ button {
     overflow: hidden;
     z-index: 2;
     position: absolute;
+    background-color: #8FBC8B;
     left: 0;
     top: 0;
     width: 260px;
     height: 100%;
     padding-top: 360px;
+    transition: translate3d(-640px, 0, 0);
+    transition: -webkit-transform 1.2s ease-in-out;
 }
 
 .img:before {
@@ -127,10 +145,14 @@ button {
     transition: transform 1.2s ease-in-out;
     transition: transform 1.2s ease-in-out, -webkit-transform 1.2s ease-in-out;
 }
-
+h3{
+    font-family: 'Times New Roman', Times, serif;
+    font-size: x-large;
+}
 .img__text h2 {
     margin-bottom: 10px;
     font-weight: normal;
+    font-family: 'Times New Roman', Times, serif;
 }
 
 .img__text p {
@@ -288,3 +310,6 @@ input {
     -webkit-transform: translate3d(0, 0, 0);
     transform: translate3d(0, 0, 0);
 }
+.cont.s--signup .sub-cont {
+    transform: translate3d(-640px, 0, 0);
+  }

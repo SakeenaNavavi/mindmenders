@@ -5,18 +5,20 @@ const LoginRegister =()=>{
         const imgBtn = document.querySelector('.img__btn');
         const cont = document.querySelector('.cont');
 
-        imgBtn.addEventListener('click', function() {
+        const handleButtonClick = () => {
             cont.classList.toggle('s--signup');
-        });
+          };
+
+          imgBtn.addEventListener('click', handleButtonClick);
+
 
         return () => {
-            imgBtn.removeEventListener('click', function() {
-                cont.classList.toggle('s--signup');
-            });
-        };
+            imgBtn.removeEventListener('click', handleButtonClick);
+            };
+        
     }, []);
     return (
-        <div>
+        <div className="container">
     <div class="cont">
         <div class="form sign-in">
             <h2>Welcome</h2>
@@ -29,14 +31,14 @@ const LoginRegister =()=>{
                 <input type="password" />
             </label>
             <p class="forgot-pass">Forgot password?</p>
-            <button type="button" class="submit">Sign In</button>
+            <button type="button" className="btn btn-success submit">Sign In</button>
          
         </div>
         <div class="sub-cont">
             <div class="img">
                 <div class="img__text m--up">
                  
-                    <h3>Don't have an account? Please Sign up!</h3>
+                    <h3>You’re just one step away from joining us! <br/><br/>Create your account and explore our features!</h3>
                 </div>
                 <div class="img__text m--in">
                 
@@ -58,6 +60,10 @@ const LoginRegister =()=>{
                     <input type="text" />
                 </label>
                 <label>
+                    <span>Date of Birth</span>
+                    <input type="date" className="form-control"/>
+                </label>
+                <label>
                     <span>Email</span>
                     <input type="email" />
                 </label>
@@ -65,7 +71,7 @@ const LoginRegister =()=>{
                     <span>Password</span>
                     <input type="password" />
                 </label>
-                <button type="button" class="submit">Sign Up</button>
+                <button type="button" className="btn btn-success submit">Sign Up</button>
                 
             </div>
         </div>

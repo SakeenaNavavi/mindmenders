@@ -92,7 +92,7 @@ button {
     overflow: hidden;
     z-index: 2;
     position: absolute;
-    background-color: #8FBC8B;
+    background-color: #c0ac5a;
     left: 0;
     top: 0;
     width: 260px;
@@ -304,6 +304,8 @@ input {
 .sign-up {
     -webkit-transform: translate3d(-900px, 0, 0);
     transform: translate3d(-900px, 0, 0);
+    overflow-y: auto;
+    max-height: 600px;
 }
 
 .cont.s--signup .sign-up {

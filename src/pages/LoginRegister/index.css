@@ -245,12 +245,16 @@ label {
     width: 260px;
     margin: 25px auto 0;
     text-align: center;
+    padding-left: 30px;
+    padding-right: 30px;
 }
 
 label span {
     font-size: 12px;
     color: #cfcfcf;
     text-transform: uppercase;
+    padding-left: 30px;
+    padding-right: 30px;
 }
 
 input {
@@ -261,6 +265,8 @@ input {
     font-size: 16px;
     border-bottom: 1px solid rgba(0, 0, 0, 0.4);
     text-align: center;
+    padding-left: 30px;
+    padding-right: 30px;
 }
 
 .forgot-pass {

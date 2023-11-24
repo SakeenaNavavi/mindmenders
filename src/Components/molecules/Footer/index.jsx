@@ -4,7 +4,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { FaFacebook, FaTwitter, FaWhatsapp, FaStar,FaPhone } from 'react-icons/fa';
 import './index.css';
 import Swal from 'sweetalert2';
-import  supabase  from '../../../supabaseClient';
+import supabase from '../../../supa/supabase/supabaseClient';
 
 
 const YourComponent = () => {

@@ -23,7 +23,7 @@ const ResourceLibrary = () => {
                   alt="YouTube Video Thumbnail"
               onClick={() => openYoutubeVideo('https://www.youtube.com/embed/fWFuQR_Wt4M?si=lW5Rx3jPQzXEl32m')}
                 />
-          <p className="youtubeh"> What is Depression? Depression is a mental health condition causing persistent sadness and hopelessness.</p>
+          <p className="youtubeh"> What is Depression?</p>
           <button  className="youtubrbutton" onClick={() => openYoutubeVideo('https://www.youtube.com/embed/fWFuQR_Wt4M?si=lW5Rx3jPQzXEl32m')}>Watch Video</button>
           </Col>
           <Col>
@@ -34,7 +34,7 @@ const ResourceLibrary = () => {
                   alt="YouTube Video Thumbnail"
                   onClick={() => openYoutubeVideo('https://www.youtube.com/watch?v=tJQRsIbD110')}
                 />
-                <p className="youtubeh">Depression Explained (Major Depressive Disorder)</p> 
+                <p className="youtubeh">Depression Explained </p> 
                 <button className="youtubrbutton" onClick={() => openYoutubeVideo('https://www.youtube.com/watch?v=tJQRsIbD110')}>Watch Video</button>
              
             </Col>
@@ -45,7 +45,7 @@ const ResourceLibrary = () => {
                   alt="YouTube Video Thumbnail"
           onClick={() => openYoutubeVideo('https://youtu.be/yVKaphs9sPU?si=hEAOEL12WJN6HsEc')}
                 />
-           <p className="youtubeh"> The Science of Sadness: Neurobiology and Major Depressive Disorder</p> <br />
+           <p className="youtubeh"> The Science of Sadness</p> <br />
            <button className="youtubrbutton" onClick={() => openYoutubeVideo('https://youtu.be/yVKaphs9sPU?si=hEAOEL12WJN6HsEc')}>Watch Video</button>
           </Col>
           <Col>
@@ -76,7 +76,7 @@ const ResourceLibrary = () => {
                   alt="YouTube Video Thumbnail"
            onClick={() => openYoutubeVideo('https://youtu.be/QLjPrNe63kk?si=YX0YUQC5fk_01OJ3')}
                 />
-           <p className="youtubeh">Social Anxiety Disorder - causes, symptoms, diagnosis, treatment, pathology</p>
+           <p className="youtubeh">Social Anxiety Disorder</p>
            <button  className="youtubrbutton" onClick={() => openYoutubeVideo('https://youtu.be/QLjPrNe63kk?si=YX0YUQC5fk_01OJ3')}>Watch Video</button>
            </Col>
            <Col>
@@ -86,7 +86,7 @@ const ResourceLibrary = () => {
                   alt="YouTube Video Thumbnail"
            onClick={() => openYoutubeVideo('https://youtu.be/w_2STJAJhJM?si=Z7XqqB8nrqq9xHTE')}
                 />
-           <p className="youtubeh">Incredible animation on battling and overcoming anxiety - BBC</p>
+           <p className="youtubeh">Incredible animation on battling </p>
            <button className="youtubrbutton" onClick={() => openYoutubeVideo('https://youtu.be/w_2STJAJhJM?si=Z7XqqB8nrqq9xHTE')}>Watch Video</button>
            </Col>
            <Col>
@@ -96,7 +96,7 @@ const ResourceLibrary = () => {
                   alt="YouTube Video Thumbnail"
            onClick={() => openYoutubeVideo('https://youtu.be/zTuX_ShUrw0?si=aNW2QhuKZVFPSPnX')}
                 />
-           <p className="youtubeh">Rewiring the Anxious Brain: Neuroplasticity and the Anxiety Cycle: Anxiety Skills #21</p>
+           <p className="youtubeh">Rewiring the Anxious Brain</p>
            <button  className="youtubrbutton" onClick={() => openYoutubeVideo('https://youtu.be/zTuX_ShUrw0?si=aNW2QhuKZVFPSPnX')}>Watch Video</button>
            </Col>
            <h4 className="titalh"> Stress : </h4> <br />
@@ -126,7 +126,7 @@ const ResourceLibrary = () => {
                   src="https://img.youtube.com/vi/e7OpB6xy83Y/maxresdefault.jpg"
                   alt="YouTube Video Thumbnail"
            onClick={() => openYoutubeVideo('https://youtu.be/e7OpB6xy83Y?si=jsz-z6xF-rmypY1w')}
-                /> <p className="youtubeh">Signs of Stress | Stress Symptoms | Dr. Justin Puder</p >
+                /> <p className="youtubeh">Signs of Stress | Stress Symptoms </p >
                 <button  className="youtubrbutton" onClick={() => openYoutubeVideo('https://youtu.be/e7OpB6xy83Y?si=jsz-z6xF-rmypY1w')}>Watch Video</button>
            </Col>
            <Col>
@@ -136,7 +136,7 @@ const ResourceLibrary = () => {
                   alt="YouTube Video Thumbnail"
            onClick={() => openYoutubeVideo('https://youtu.be/v-t1Z5-oPtU?si=dTSLHcZtfhD863SE')}
                 />
-           <p className="youtubeh">How stress affects your body - Sharon Horesh Bergquist</p>
+           <p className="youtubeh">How stress affects your body </p>
            <button  className="youtubrbutton" onClick={() => openYoutubeVideo('https://youtu.be/v-t1Z5-oPtU?si=dTSLHcZtfhD863SE')}>Watch Video</button>
            </Col>
            <h4 className="titalh"> Insomnia  : </h4> <br />
@@ -147,7 +147,7 @@ const ResourceLibrary = () => {
                   alt="YouTube Video Thumbnail"
            onClick={() => openYoutubeVideo('https://youtu.be/vdc8JonEax8?si=sIkS28IUA5gOMEXb')}
                 />
-           <p className="youtubeh">Insomnia Explained Clearly - Causes, Pathophysiology & Treatment</p>
+           <p className="youtubeh">Insomnia Explained Clearly </p>
            <button  className="youtubrbutton" onClick={() => openYoutubeVideo('https://youtu.be/vdc8JonEax8?si=sIkS28IUA5gOMEXb')}>Watch Video</button>
            </Col>
            <Col>
@@ -157,7 +157,7 @@ const ResourceLibrary = () => {
                   alt="YouTube Video Thumbnail"
            onClick={() => openYoutubeVideo('https://youtu.be/WVPtF7gr1jw?si=QpsZ0qohm8CkRzNt')}
                 />
-           <p className="youtubeh">How to Fall Asleep Faster: CBT-Insomnia Treatment</p>
+           <p className="youtubeh">How to Fall Asleep Faster</p>
            <button  className="youtubrbutton" onClick={() => openYoutubeVideo('https://youtu.be/WVPtF7gr1jw?si=QpsZ0qohm8CkRzNt')}>Watch Video</button>
            </Col>
            <Col>
@@ -167,7 +167,7 @@ const ResourceLibrary = () => {
                   alt="YouTube Video Thumbnail"
            onClick={() => openYoutubeVideo('https://youtu.be/gIwU5INBV_0?si=Lxks5Scf8qPJQa19')}
                 />
-           <p className="youtubeh">What is Insomnia?Causes, Signs and symptoms, Diagnosis and treatment</p>
+           <p className="youtubeh">What is Insomnia?</p>
            <button  className="youtubrbutton" onClick={() => openYoutubeVideo('https://youtu.be/gIwU5INBV_0?si=Lxks5Scf8qPJQa19')}>Watch Video</button>
            </Col>
            <Col>
@@ -249,7 +249,7 @@ const ResourceLibrary = () => {
                   alt="YouTube Video Thumbnail"
           onClick={() => openYoutubeVideo('https://youtu.be/aBl6-UTvmn8?si=nWuLuKGPfm3u2JFA')}
                 />
-          <p className="youtubeh"> Why are eating disorders so hard to treat? - Anees Bahji</p>
+          <p className="youtubeh"> Why are eating disorders so hard to treat?</p>
           <button  className="youtubrbutton" onClick={() => openYoutubeVideo('https://youtu.be/aBl6-UTvmn8?si=nWuLuKGPfm3u2JFA')}>Watch Video</button>
           </Col>
           <Col>
@@ -280,7 +280,7 @@ const ResourceLibrary = () => {
                   alt="YouTube Video Thumbnail"
           onClick={() => openYoutubeVideo('https://youtu.be/MsSXh1BxLjE?si=Im3yCNm0oRcRqdig')}
                 />
-          <p className="youtubeh"> Bipolar disorder (depression & mania) - causes, symptoms, treatment & pathology</p>
+          <p className="youtubeh"> Bipolar disorder (depression & mania) </p>
           <button  className="youtubrbutton" onClick={() => openYoutubeVideo('https://youtu.be/MsSXh1BxLjE?si=Im3yCNm0oRcRqdig')}>Watch Video</button>
           </Col>
           <Col>
@@ -290,7 +290,7 @@ const ResourceLibrary = () => {
                   alt="YouTube Video Thumbnail"
           onClick={() => openYoutubeVideo('https://youtu.be/G9vkGCo7Gtg?si=oriUZWz1r_Yhz-MC')}
                 />
-          <p className="youtubeh">Bipolar Disorder vs Depression - 5 Signs You're Likely Bipolar</p>
+          <p className="youtubeh">Bipolar Disorder vs Depression </p>
           <button  className="youtubrbutton" onClick={() => openYoutubeVideo('https://youtu.be/G9vkGCo7Gtg?si=oriUZWz1r_Yhz-MC')}>Watch Video</button>
           </Col>
           <Col>
@@ -300,7 +300,7 @@ const ResourceLibrary = () => {
                   alt="YouTube Video Thumbnail"
           onClick={() => openYoutubeVideo('https://youtu.be/KSvk8LLBo2g?si=t5t4rqddQ_HahCB9')}
                 />
-          <p className="youtubeh"> Depressive and Bipolar Disorders: Crash Course Psychology </p>
+          <p className="youtubeh"> Depressive and Bipolar Disorders </p>
           <button  className="youtubrbutton" onClick={() => openYoutubeVideo('https://youtu.be/KSvk8LLBo2g?si=t5t4rqddQ_HahCB9')}>Watch Video</button>
           </Col>
           <h4 className="titalh"> Phobias : </h4> <br />
@@ -311,7 +311,7 @@ const ResourceLibrary = () => {
                   alt="YouTube Video Thumbnail"
           onClick={() => openYoutubeVideo('https://youtu.be/AM7vf5HJxaQ?si=nmeVDsPUZX_Ju8E8')}
                 />
-          <p className="youtubeh"> Phobias - specific phobias, agoraphobia, & social phobia</p>
+          <p className="youtubeh"> Phobias - specific phobias and social phobia</p>
           <button  className="youtubrbutton" onClick={() => openYoutubeVideo('https://youtu.be/AM7vf5HJxaQ?si=nmeVDsPUZX_Ju8E8')}>Watch Video</button>
           </Col>
           <Col>
@@ -321,7 +321,7 @@ const ResourceLibrary = () => {
                   alt="YouTube Video Thumbnail"
           onClick={() => openYoutubeVideo('https://youtu.be/ZwMlHkWKDwM?si=xk6t0FejpUXku2DO')}
                 />
-          <p className="youtubeh"> 9 Common Phobias You’ve Probably Don’t Know Much About</p>
+          <p className="youtubeh"> 9 Common Phobias</p>
           <button  className="youtubrbutton"  onClick={() => openYoutubeVideo('https://youtu.be/ZwMlHkWKDwM?si=xk6t0FejpUXku2DO')}>Watch Video</button>
           </Col>
           <Col>
@@ -331,7 +331,7 @@ const ResourceLibrary = () => {
                   alt="YouTube Video Thumbnail"
           onClick={() => openYoutubeVideo('https://youtu.be/PCOg2G797ek?si=vwgjfKEOJduaTGgW')}
                 />
-          <p className="youtubeh"> Phobia, Causes, Signs and Symptoms, Diagnosis and Treatment.</p>
+          <p className="youtubeh"> Phobia, Causes, Signs and Symptoms</p>
           <button  className="youtubrbutton" onClick={() => openYoutubeVideo('https://youtu.be/PCOg2G797ek?si=vwgjfKEOJduaTGgW')}>Watch Video</button>
           </Col>
           <Col>
@@ -362,7 +362,7 @@ const ResourceLibrary = () => {
                   alt="YouTube Video Thumbnail"
           onClick={() => openYoutubeVideo('https://youtu.be/wVTvcxEWClg?si=ewk_8b1LYwC8sGJc')}
                 />
-          <p className="youtubeh">10 Common ADHD Symptoms in Adults (with real-life examples)</p>
+          <p className="youtubeh">10 Common ADHD Symptoms in Adults </p>
           <button  className="youtubrbutton" onClick={() => openYoutubeVideo('https://youtu.be/wVTvcxEWClg?si=ewk_8b1LYwC8sGJc')}>Watch Video</button>
           </Col>
           <Col>
@@ -372,7 +372,7 @@ const ResourceLibrary = () => {
                   alt="YouTube Video Thumbnail"
           onClick={() => openYoutubeVideo('https://youtu.be/hC085F1rEDg?si=TQVfpd0ztUAQ3HuT')}
                 />
-          <p className="youtubeh">ADHD & Emotions : do you struggle with Emotional Dysregulation 😣?</p>
+          <p className="youtubeh">ADHD & Emotions </p>
           <button  className="youtubrbutton"   onClick={() => openYoutubeVideo('https://youtu.be/hC085F1rEDg?si=TQVfpd0ztUAQ3HuT')}>Watch Video</button>
           </Col>
           <Col>
@@ -388,7 +388,7 @@ const ResourceLibrary = () => {
           </Row>
         </Col>
         
-       <h3 className="h3">Explore our comprehensive articles section, curated to provide insightful resources and support for your mental health and well-being journey.</h3>
+       <h3 className="h3">Explore our comprehensive articles section</h3>
         <Col md={4} className="articalboxed">
           <Row>
           <Col>
@@ -617,13 +617,13 @@ const ResourceLibrary = () => {
            </div>
          <div class="col-md-8">
        <div class="card-body">
-        <p>Where to Start: A Survival Guide to Anxiety, Depression, and Other Mental Health Challengesby Mental Health America</p>
+        <p>Where to Start: <br /> A Survival Guide to Anxiety, Depression, and Other Mental Health Challengesby Mental Health America</p>
           <a
             href="https://www.amazon.com/Where-Start-Survival-Depression-Challenges/dp/059353140X"
             target="_blank" 
             rel="noopener noreferrer"  >
-         </a>
-           <button
+         </a> <br /> 
+           <button className="bookbutton"
             onClick={() => {
              window.location.href = "https://www.amazon.com/Where-Start-Survival-Depression-Challenges/dp/059353140X";
              }}
@@ -647,13 +647,13 @@ const ResourceLibrary = () => {
            </div>
          <div class="col-md-8">
        <div class="card-body">
-        <p>The Upside of Being Down: How Mental Health Struggles Led to My Greatest Successes in Work and Life by: Jen Gotch</p>
+        <p>The Upside of Being Down: How Mental Health Struggles Led to My Greatest Successes in Work and Life <br /> by: Jen Gotch</p>
           <a
             href="https://www.amazon.com/Upside-Being-Down-Struggles-Successes/dp/1982108819"
             target="_blank" 
             rel="noopener noreferrer"  >
-         </a>
-           <button
+         </a> <br /> 
+           <button className="bookbutton"
             onClick={() => {
              window.location.href = "https://www.amazon.com/Upside-Being-Down-Struggles-Successes/dp/1982108819";
              }}
@@ -677,13 +677,13 @@ const ResourceLibrary = () => {
            </div>
          <div class="col-md-8">
        <div class="card-body">
-        <p>Are u ok?: A Guide to Caring for Your Mental Health by Kati Morton</p>
+        <p>Are u ok?:<br /> A Guide to Caring for Your Mental Health<br /> by Kati Morton</p>
           <a
             href="https://www.amazon.com/Are-Guide-Caring-Mental-Health/dp/0738234990"
             target="_blank" 
             rel="noopener noreferrer"  >
-         </a>
-           <button
+         </a> <br /> < br /> 
+           <button className="bookbutton"
             onClick={() => {
              window.location.href = "https://www.amazon.com/Are-Guide-Caring-Mental-Health/dp/0738234990";
              }}
@@ -707,13 +707,13 @@ const ResourceLibrary = () => {
            </div>
          <div class="col-md-8">
        <div class="card-body">
-        <p>Own Your Past Change Your Future: A Not-So-Complicated Approach to Relationships, Mental Health & Wellness by John Delony & Dave Ramsey</p>
+        <p>Own Your Past Change Your Future: A Not-So-Complicated Approach to Relationships, Mental Health & Wellness<br /> <br />by :John Delony & Dave Ramsey</p>
           <a
             href="https://www.goodreads.com/book/show/60279448-own-your-past-change-your-future"
             target="_blank" 
             rel="noopener noreferrer"  >
-         </a>
-           <button
+         </a> 
+           <button className="bookbutton"
             onClick={() => {
              window.location.href = "https://www.goodreads.com/book/show/60279448-own-your-past-change-your-future";
              }}
@@ -737,13 +737,13 @@ const ResourceLibrary = () => {
            </div>
          <div class="col-md-8">
        <div class="card-body">
-        <p>You Are Not Alone: The NAMI Guide to Navigating Mental Health by Ken Duckworth</p>
+        <p>You Are Not Alone:<br /> The NAMI Guide to Navigating Mental Health <br /> <br /> by: Ken Duckworth</p>
           <a
             href="https://www.goodreads.com/book/show/61223190-you-are-not-alone"
             target="_blank" 
             rel="noopener noreferrer"  >
-         </a>
-           <button
+         </a> <br />
+           <button className="bookbutton"
             onClick={() => {
              window.location.href = "https://www.goodreads.com/book/show/61223190-you-are-not-alone";
              }}
@@ -767,13 +767,13 @@ const ResourceLibrary = () => {
            </div>
          <div class="col-md-8">
        <div class="card-body">
-        <p>This Book Will Change Your Mind About Mental Health: A journey into the heartland of psychiatry by Nathan Filer</p>
+        <p>This Book Will Change Your Mind About Mental Health:<br /> A journey into the heartland of psychiatry<br /><br /> by: Nathan Filer</p>
           <a
             href="https://www.goodreads.com/book/show/52992519-this-book-will-change-your-mind-about-mental-health"
             target="_blank" 
             rel="noopener noreferrer"  >
-         </a>
-           <button
+         </a> 
+           <button className="bookbutton"
             onClick={() => {
              window.location.href = "https://www.goodreads.com/book/show/52992519-this-book-will-change-your-mind-about-mental-health";
              }}
@@ -797,13 +797,13 @@ const ResourceLibrary = () => {
            </div>
          <div class="col-md-8">
        <div class="card-body">
-        <p>The Resilient Life: Manage Stress, Prevent Burnout, & Strengthen Your Mental and Physical Health <br />by Susan Biali M.D.</p>
+        <p>The Resilient Life:<br /> Manage Stress, Prevent Burnout, & Strengthen Your Mental and Physical Health <br /><br />by: Susan Biali M.D.</p>
           <a
             href="https://www.goodreads.com/book/show/61389729-the-resilient-life"
             target="_blank" 
             rel="noopener noreferrer"  >
-         </a>
-           <button
+         </a> 
+           <button className="bookbutton"
             onClick={() => {
              window.location.href = "https://www.goodreads.com/book/show/61389729-the-resilient-life";
              }}
@@ -827,13 +827,13 @@ const ResourceLibrary = () => {
            </div>
          <div class="col-md-8">
        <div class="card-body">
-        <p>8 Keys to Recovery from an Eating Disorder: Effective Strategies from Therapeutic Practice and Personal Experience<br />by Carolyn Costin , Gwen Schubert Grabb & Babette Rothschild</p>
+        <p>8 Keys to Recovery from an Eating Disorder: Effective Strategies from Therapeutic Practice and Personal Experience<br />by :Carolyn Costin , Gwen Schubert Grabb & Babette Rothschild</p>
           <a
             href="https://www.goodreads.com/book/show/12951039-8-keys-to-recovery-from-an-eating-disorder"
             target="_blank" 
             rel="noopener noreferrer"  >
          </a>
-           <button
+           <button className="bookbutton" 
             onClick={() => {
              window.location.href = "https://www.goodreads.com/book/show/12951039-8-keys-to-recovery-from-an-eating-disorder";
              }}
@@ -857,13 +857,13 @@ const ResourceLibrary = () => {
            </div>
          <div class="col-md-8">
        <div class="card-body">
-        <p>365 Ways to Take Control of Your Mental Health: One Revolutionary Concept a Day to Create the Life You Desire by Taylor Fischer</p>
+        <p>365 Ways to Take Control of Your Mental Health: <br />One Revolutionary Concept a Day to Create the Life You Desire <br /><br />by: Taylor Fischer</p>
           <a
             href="https://www.goodreads.com/book/show/60063563-365-ways-to-take-control-of-your-mental-health"
             target="_blank" 
             rel="noopener noreferrer"  >
-         </a>
-           <button
+         </a> 
+           <button className="bookbutton"
             onClick={() => {
              window.location.href = "https://www.goodreads.com/book/show/60063563-365-ways-to-take-control-of-your-mental-health";
              }}
@@ -887,13 +887,13 @@ const ResourceLibrary = () => {
            </div>
          <div class="col-md-8">
        <div class="card-body">
-        <p>Your Brain Needs a Hug: Life, Love, Mental Health, and Sandwiches<br/>by Rae Earl</p>
+        <p>Your Brain Needs a Hug:<br /> Life, Love, Mental Health, and Sandwiches<br/><br /> by: Rae Earl</p>
           <a
             href="https://www.goodreads.com/book/show/40864852-your-brain-needs-a-hug"
             target="_blank" 
             rel="noopener noreferrer"  >
-         </a>
-           <button
+         </a>  <br />
+           <button className="bookbutton"
             onClick={() => {
              window.location.href = "https://www.goodreads.com/book/show/40864852-your-brain-needs-a-hug";
              }}
@@ -917,13 +917,13 @@ const ResourceLibrary = () => {
            </div>
          <div class="col-md-8">
        <div class="card-body">
-        <p>You Are Not a Rock: A Step-by-Step Guide to Better Mental Health <br />by Mark Freeman</p>
+        <p>You Are Not a Rock:<br /> A Step-by-Step Guide to Better Mental Health <br /><br />by: Mark Freeman</p>
           <a
             href="https://www.goodreads.com/book/show/40231471-you-are-not-a-rock"
             target="_blank" 
             rel="noopener noreferrer"  >
-         </a>
-           <button
+         </a> <br />
+           <button className="bookbutton"
             onClick={() => {
              window.location.href = "https://www.goodreads.com/book/show/40231471-you-are-not-a-rock";
              }}
@@ -945,24 +945,24 @@ const ResourceLibrary = () => {
               alt="..."
              />
            </div>
-         <div class="col-md-8">
-       <div class="card-body">
-        <p>Mind Games: Winning the Battle for Your Mental and Emotional Health <br />by Paul Daugherty</p>
-          <a
-            href="https://www.goodreads.com/book/show/75593830-mind-games"
-            target="_blank" 
-            rel="noopener noreferrer"  >
-         </a>
-           <button
-            onClick={() => {
-             window.location.href = "https://www.goodreads.com/book/show/75593830-mind-games";
-             }}
-         >
-          Want to read
-        </button>
-       </div>
-      </div>
-    </div>
+           <div class="col-md-8">
+  <div class="card-body">
+    <p>Mind Games:<br /> Winning the Battle for Your Mental and Emotional Health <br /><br />by :Paul Daugherty</p>
+    <a
+      href="https://www.goodreads.com/book/show/75593830-mind-games"
+      target="_blank" 
+      rel="noopener noreferrer"
+    ></a> <br />
+    <button className="bookbutton"
+      onClick={() => {
+        window.location.href = "https://www.goodreads.com/book/show/75593830-mind-games";
+      }}
+    >
+      Want to read
+    </button>
+  </div>
+</div>
+</div>
   </div>
  </Col>
 </Row>
@@ -974,3 +974,20 @@ const ResourceLibrary = () => {
 };
 
 export default ResourceLibrary;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

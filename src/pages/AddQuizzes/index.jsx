@@ -57,7 +57,7 @@ const AddQuizzes = () => {
           </button>
         </div>
         <div className="submit-button-container">
-          <button className="submit-button">Submit</button>
+          <button className="submit-button">Submit Quizz</button>
         </div>
       </div>
       <br />

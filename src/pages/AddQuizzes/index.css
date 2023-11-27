@@ -1,10 +1,8 @@
-
 @import url('https://fonts.googleapis.com/css2?family=Arapey&display=swap');
   .quiz-card {
     max-width: 1500px; 
     width: 100%;
-    height: auto;
-    padding: 10px;
+    height: 170px;
     box-sizing: border-box;
   }
   
@@ -12,6 +10,7 @@
   {
     text-align: left;
     font-family: "Arapey",serif;
+    padding: 10px;
   }
   
 .submit-button-container {
@@ -47,23 +46,8 @@
   color: #fff; 
   
 }
-.but-box {
-  width: 100%; 
-  height: 100px; 
-  border: none; 
-  padding: 20px; 
-  margin: 0 auto; 
-  box-sizing: border-box; 
-}
-.but-box {
-  width: 100%; 
-  height: 100px; 
-  border: none;
-  padding: 20px;
-  margin: 0 auto;
-  box-sizing: border-box;
-  background-color: #F4F4EB;
-}
+
+
 
 .goback-button-container {
   float: left; 
@@ -75,4 +59,13 @@
   width: 50%; 
   text-align: right; 
 }
+.form-check-input{
+  text-align: left;
+  padding-top: -10px;
 
+}
+.form-check-label{
+  text-align: left;
+  padding:2px;
+  margin: 0px;
+}

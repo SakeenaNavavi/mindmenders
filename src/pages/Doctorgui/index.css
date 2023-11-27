@@ -14,16 +14,7 @@
     justify-content: center;
     align-items: center;
   }
-  .contact-image {
-    width: 50px;
-    height: 50px; 
-    border-radius: 50%; 
-    padding: 10px;
-  }
-  .contact-name {
-    margin: 0 10px; 
-  }
-    
+ 
 
 .website-container {
     display: flex;
@@ -45,26 +36,10 @@
     padding: 50px; 
   }
   
-  .contact-list.boxed h2 {
-    font-size: 18px;
-    color: #333; 
-  }
   
-  .contact-list.boxed ul {
-    list-style: none; 
-  }
-  
-  .contact-list.boxed li {
-    margin: 10px 0; 
-  }
-  
-  .contact-list.boxed .contact-image {
-    max-width: 50px; 
-    margin-right: 10px; 
-  }
 
  .chat-window {
-  height: 900px ;
+  height: 850px ;
   width: 600px;
   border: 1px solid #333;
   flex-direction: column; 
@@ -286,11 +261,7 @@
     gap: 10px;
   }
   
-  .contact-image {
-    width: 50px;
-    height: 50px;
-    
-  }
+ 
   
   .contact-name {
     font-size: 16px;
@@ -316,3 +287,144 @@
   .time_label{
     padding: 10px;
   }
+  
+  
+
+.contact-list {
+  list-style: none;
+  padding: 0;
+}
+
+.contact-button {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  margin-bottom: 10px;
+  background-color: #f0f0f0; 
+  border: 1px solid #ccc; 
+  cursor: pointer;
+  width: 300px;
+  text-align: left;
+  text-decoration: none;
+  color: #333; 
+}
+.contact-button:hover{
+  
+    transform: scale(1.02);
+    overflow: hidden;
+  
+}
+.contact-image {
+  width: 75px; 
+  height: 75px; 
+  border-radius: 50%;
+  margin-right: 10px;
+}
+
+.contact-details {
+  flex: 1;
+}
+
+.contact-name {
+  font-weight: bold;
+}
+
+.latest-message {
+  font-size: 14px;
+  color: #888; 
+}
+
+.new-box {
+  background-color: #f0f0f0; 
+  border: 1px solid #ccc; 
+  padding: 10px;
+  margin-bottom: 10px;
+  width: 575px;
+  height: 50px;
+  border: black;
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+ 
+  
+}
+
+.contact-button {
+  
+  padding: 10px;
+  margin: 5px;
+  background-color: #f0f0f0;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.contact-button img {
+  width: 50px; 
+  height: 50px;
+  margin-right: 10px;
+  border-radius: 50%;
+}
+
+
+.new-box img {
+  width: 30px; 
+  height: 30px; 
+  border-radius: 50%;
+}
+
+
+
+.new-box img {
+  width: 30px; 
+  height: 30px; 
+    margin-right: 10px;
+  border-radius: 50%;
+}
+
+.new-box h3 {
+  margin: 0;
+}
+
+
+.cameraicon {
+  margin-left: 300px; 
+  margin-right: 2px; 
+  padding:10px;
+  background-color: #f0f0f0;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.imageicon
+{
+  margin-left: 10px; 
+  margin-right: 2px; 
+  padding:10px;
+  background-color: #f0f0f0;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.cogicon{
+  margin-left: 10px; 
+  margin-right: 2px; 
+  padding:10px;
+  background-color: #f0f0f0;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.circleicon{
+  margin-left: 10px; 
+  margin-right: 2px; 
+  padding:10px;
+  background-color: #f0f0f0;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  cursor: pointer;
+}
+

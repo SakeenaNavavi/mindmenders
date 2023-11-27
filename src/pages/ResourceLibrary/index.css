@@ -15,7 +15,7 @@
 .youtubeboxed{
   background-color:#e3dac9 ;
   width: 1600px;
-  height: 3600px;
+  height: 3400px;
   border: 1px solid #ccc;
  padding: 20px;
   
@@ -110,3 +110,13 @@
   cursor: pointer; 
 }
 
+.bookbutton{
+  background-color: rgba(205, 191, 191, 0.879);
+  color: black; 
+  padding: 10px ; 
+  border: none;
+  border-radius: 5px; 
+  cursor: pointer; 
+  height: 40px;
+  
+}

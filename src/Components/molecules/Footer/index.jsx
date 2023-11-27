@@ -138,6 +138,7 @@ const Footer = () => {
                     ))}
                     <br /> <br />
 
+
                     <textarea
                       id="reviewInput"
                       className="form-control mb-3"
@@ -165,7 +166,7 @@ const Footer = () => {
                       }
                     />
                     <button onClick={handleInsert}>Insert Data</button>
-                    
+
                   </div>
                   </form>
                 </div>

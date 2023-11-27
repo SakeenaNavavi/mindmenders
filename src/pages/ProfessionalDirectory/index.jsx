@@ -1,9 +1,40 @@
 import './index.css';
-import { Link } from 'react-router-dom';
+import { Link, redirect } from 'react-router-dom';
 import 'react-bootstrap';
+import { useNavigate } from 'react-router-dom';
+import supabase from '../../supa/supabase/supabaseClient';
+import { useEffect,useState } from 'react';
 
-const directory=()=>
+const Directory=()=>
 {
+  
+  const Navigate = useNavigate();
+  const [user, setUser] = useState(null);
+
+  useEffect(() => {
+    // supabase.auth.onAuthStateChange((event, session) => {
+    //   if (!session) {
+    //     Navigate('/');
+    //   }
+    // });
+    
+    const getUser = async () => {
+      const { data: { user } } = await supabase.auth.getUser();
+      setUser(user);
+    };
+
+    getUser();
+
+    if (!user) {
+      redirect('/')
+    }
+
+  }, []);
+  if (!user) {
+    return <div>Please log in to access this component.</div>;
+  }
+  
+
     return (           
         <div>
             <div className="heading-container">
@@ -205,4 +236,4 @@ const directory=()=>
     </div>      
     )
 }
-export default directory;
+export default Directory;

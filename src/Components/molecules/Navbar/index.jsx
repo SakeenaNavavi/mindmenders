@@ -6,7 +6,9 @@ import { Link } from 'react-router-dom';
 const Navbar=()=>
 {
     return (
-        <div class="container-fluid">
+
+        <div>
+
             <nav class="navbar navbar-expand-lg" style={{backgroundColor:"#70663E"}}>
   <div class="container-fluid">
   <a class="nav-link active" href="/"><img src={logo} alt="logo" width="55" height="55"/></a>

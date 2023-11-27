@@ -2,7 +2,7 @@
 * {
     box-sizing: border-box;
 }
-.reservation{
+.appointment{
     font-family: "Arapey",serif;
     color: black;
     display: flex;
@@ -15,7 +15,7 @@
     margin-top: 30px;
     margin-bottom: 30px;
 }
-.reservation-container{
+.appointment-container{
     margin-top: 30px;
     margin-bottom: 30px;
     background-color: #C4D4A2;

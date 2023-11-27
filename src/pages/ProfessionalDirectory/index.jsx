@@ -18,7 +18,7 @@ const directory=()=>
                         <h5 class="directory-card-title">Dr. Pradeep Kumara</h5>
                         <p class="directory-title">Psychiatrist</p>
                         <p class="directory-title">Ruhunu Hospital</p>
-                        <p><button class="directory-button-1"><Link to="/book-appointment" className="custom-link">
+                        <p><button class="directory-button-1"><Link to="/AppointmentBooking" className="custom-link">
                         Book Now</Link></button></p>
                         <div className="chat-button-container">
           <button className="chat-button">
@@ -36,7 +36,7 @@ const directory=()=>
                         <h5 class="directory-card-title">Dr. Mike Ross</h5>
                         <p class="directory-title">Psychiatrist</p>
                         <p class="directory-title">Asiri Hospital</p>
-                        <p><button class="directory-button-1"><Link to="/book-appointment" className="custom-link">
+                        <p><button class="directory-button-1"><Link to="/AppointmentBooking" className="custom-link">
                         Book Now</Link></button></p>
                         <div className="chat-button-container">
           <button className="chat-button">
@@ -55,7 +55,7 @@ const directory=()=>
                         <h5 class="directory-card-title">Dr. Malika Pathirana</h5>
                         <p class="directory-title">Psychiatrist</p>
                         <p class="directory-title">Asiri Hospital</p>
-                        <p><button class="directory-button-1"><Link to="/book-appointment" className="custom-link">
+                        <p><button class="directory-button-1"><Link to="/AppointmentBooking" className="custom-link">
                         Book Now</Link></button></p>
                         <div className="chat-button-container">
           <button className="chat-button">
@@ -74,7 +74,7 @@ const directory=()=>
                         <h5 class="directory-card-title">Dr. Romesh Sangeeth</h5>
                         <p class="directory-title">Psychiatrist</p>
                         <p class="directory-title">Co-Oparative Hospital</p>
-                        <p><button class="directory-button-1"><Link to="/book-appointment" className="custom-link">
+                        <p><button class="directory-button-1"><Link to="/AppointmentBooking" className="custom-link">
                         Book Now</Link></button></p>
                         <div className="chat-button-container">
           <button className="chat-button">
@@ -93,7 +93,7 @@ const directory=()=>
                         <h5 class="directory-card-title">Dr. Mayura Gamage</h5>
                         <p class="directory-title">Psychiatrist</p>
                         <p class="directory-title">Asiri Hospital</p>
-                        <p><button class="directory-button-1"><Link to="/book-appointment" className="custom-link">
+                        <p><button class="directory-button-1"><Link to="/AppointmentBooking" className="custom-link">
                         Book Now</Link></button></p>
                         <div className="chat-button-container">
           <button className="chat-button">
@@ -112,7 +112,7 @@ const directory=()=>
                         <h5 class="directory-card-title">Dr. Chami Hewage</h5>
                         <p class="directory-title">Psychiatrist</p>
                         <p class="directory-title">Co-Oparative Hospital</p>
-                        <p><button class="directory-button-1"><Link to="/book-appointment" className="custom-link">
+                        <p><button class="directory-button-1"><Link to="/AppointmentBooking" className="custom-link">
                         Book Now</Link></button></p>
                         <div className="chat-button-container">
           <button className="chat-button">
@@ -131,7 +131,7 @@ const directory=()=>
                         <h5 class="directory-card-title">Dr. Sahan Gamage</h5>
                         <p class="directory-title">Psychiatrist</p>
                         <p class="directory-title">Asiri Hospital</p>
-                        <p><button class="directory-button-1"><Link to="/book-appointment" className="custom-link">
+                        <p><button class="directory-button-1"><Link to="/AppointmentBooking" className="custom-link">
                         Book Now</Link></button></p>
                         <div className="chat-button-container">
           <button className="chat-button">
@@ -150,7 +150,7 @@ const directory=()=>
                         <h5 class="directory-card-title">Dr. Rashmi Hewage</h5>
                         <p class="directory-title">Psychiatrist</p>
                         <p class="directory-title">Ruhunu Hospital</p>
-                        <p><button class="directory-button-1"><Link to="/book-appointment" className="custom-link">
+                        <p><button class="directory-button-1"><Link to="/AppointmentBooking" className="custom-link">
                         Book Now</Link></button></p>
                         <div className="chat-button-container">
           <button className="chat-button">
@@ -169,7 +169,7 @@ const directory=()=>
                         <h5 class="directory-card-title">Dr. Ahamed Rafeek</h5>
                         <p class="directory-title">Psychiatrist</p>
                         <p class="directory-title">Asiri Hospital</p>
-                        <p><button class="directory-button-1"><Link to="/book-appointment" className="custom-link">
+                        <p><button class="directory-button-1"><Link to="/AppointmentBooking" className="custom-link">
                         Book Now</Link></button></p>
                         <div className="chat-button-container">
           <button className="chat-button">
@@ -188,7 +188,7 @@ const directory=()=>
                         <h5 class="directory-card-title">Dr. Panith Nagoda</h5>
                         <p class="directory-title">Psychiatrist</p>
                         <p class="directory-title">Co-Oparative Hospital</p>
-                        <p><button class="directory-button-1"><Link to="/book-appointment" className="custom-link">
+                        <p><button class="directory-button-1"><Link to="/AppointmentBooking" className="custom-link">
                         Book Now</Link></button></p>
                         <div className="chat-button-container">
           <button className="chat-button">

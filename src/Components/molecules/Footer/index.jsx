@@ -50,6 +50,7 @@ const Footer = () => {
   };
 
   return (
+
     <footer style={{ backgroundColor: "#70663E" }} className="text-white">
       <div className="container p-4 ratingbox">
         <section>

@@ -1,97 +1,156 @@
-import React from 'react';
-import './index.css';
+import React, { useState, useEffect } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Swal from 'sweetalert2';
-const AppointmentBooking=()=>{
+import supabase from '../../supa/supabase/supabaseClient';
 
+const AppointmentBooking = () => {
+  const [newData, setNewData] = useState({
   
-	const validateForm = () => {
-   
+    Time: '',
+    Date: '',
+    First_Name: '',
+    Last_Name: '',
+    Phone_Number: '',
+    Email: '',
+    DOB: '',
+  });
 
-		const firstName = document.getElementById('first_name').value;
-		const lastName = document.getElementById('last_name').value;
-		const phoneNumber = document.getElementById('phone_number').value;
-		const email = document.getElementById('email').value;
-		const DOB = document.getElementById('DOB').value;
-		if (firstName.trim() === '') {
-			alert('Please enter your first name.');
-			return false;
-		  }
-	  
-		  if (lastName.trim() === '') {
-			alert('Please enter your last name.');
-			return false;
-		  }
-	  
-		  if (phoneNumber.trim() === '') {
-			alert('Please enter your phone number.');
-			return false;
-		  }
-		  if(    email.trim() === '' ||
-		  DOB.trim() === '')
-		  {
-			alert('Please fill out all fields.');
-			return false;
-		  }
+  const handleInsert = async () => {
+    try {
+      const { data, error } = await supabase.from('tblBooking').insert([newData]);
+
+      if (error) {
+        alert(error.message)
+      }
+
+      alert('insert successful!')
+      // Optionally, you can show a success message using Swal or another method.
       Swal.fire({
-        title: 'MindMenders',
-        text: "Appointment request sent! You will be notified once the request is accepted. Thank you!", 
-        confirmButtonColor: '#443806'
+        title: 'Success',
+        text: 'Appointment booked successfully!',
+        icon: 'success',
       });
+    } catch (error) {
+      alert('Error inserting data:', error.message);
+      // Optionally, you can show an error message using Swal or another method.
+      Swal.fire({
+        title: 'Error',
+        text: 'Failed to book appointment. Please try again.',
+        icon: 'error',
+      });
+    }
+  };
 
-      return false;
-      
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const { data, error } = await supabase.from('tblBooking').select('*');
 
-		};
+        if (error) {
+          throw error;
+        }
 
-	return(
-    
-		<div className="reservation">
-		<div class="reservation-container">
-			<form action="/submit-form" method="post" onSubmit={(e)=>{   
-				e.preventDefault(); // Prevent the default form submission
-          if (validateForm()) {
-            // Form is valid, submit it here
-            document.forms[0].submit();
-		  }
-          }}>
-			<h1 class="form-header" data-component="header">Book Your Appointment</h1>
-            <div class="form-subHeader">Kindly complete the form below, and we will promptly respond with a confirmation status message.</div><br/>
-  <div class="form-group">
-    <label for="first_name">First name</label>
-    <input type="text" class="form-control" id="first_name" name="first_name" placeholder="Enter your first name"/>
-  </div>
-  <div class="form-group">
-    <label for="last_name">Last name</label>
-    <input type="text" class="form-control" id="last_name" name="last_name" placeholder="Enter your last name"/>
-  </div>
-  <div class="form-group">
-    <label for="phone_number">Phone number</label>
-    <input type="tel" class="form-control" id="phone_number" name="phone_number" placeholder="Enter your phone number"/>
-  </div>
-  <div class="form-group">
-    <label for="email">Email</label>
-    <input type="email" class="form-control" id="email" name="email" placeholder="Enter your email address"/>
-  </div>
-  <div class="form-group">
-    <label for="date">Date Of Birth</label>
-    <input type="date" class="form-control" id="DOB" name="DOB"/>
-  </div>
-  <div class="form-group">
-    <label>pick your gender:</label><br/>
-  <input type="radio" id="male" name="gender" value="male"/>
-  <label className="gender-label" for="male">Male</label>
-  <input type="radio" id="female" name="gender" value="female"/>
-  <label className="gender-label" for="female">Female</label>
-  <input type="radio" id="other" name="gender" value="other"/>
-  <label className="gender-label" for="other">Other</label>
-  </div>
-  <br/>
-  <button type="submit" class="btn btn-primary" onClick={validateForm}>Submit</button>
-</form>
+        console.log('Fetched data:', data);
+      } catch (error) {
+        console.error('Error fetching data:', error.message);
+      }
+    };
 
-		</div>
-		</div>
-	)
-}
+    fetchData();
+  }, []);
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    console.log('Form submitted');
+    handleInsert();
+  };
+
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    setNewData((prevData) => ({
+      ...prevData,
+      [name]: value,
+    }));
+  };
+
+  return (
+    <div className="appointment">
+      <div className="appointment-container">
+        <form onSubmit={handleSubmit}>
+          <h1 className="form-header" data-component="header">
+            Book Your Appointment
+          </h1>
+          <div className="form-subHeader">
+            Kindly complete the form below, and we will promptly respond with a confirmation status message.
+          </div>
+          <br />
+          <div className="form-group">
+            <label htmlFor="First_Name">First name</label>
+            <input
+              type="text"
+              className="form-control"
+              id="First_Name"
+              name="First_Name"
+              placeholder="Enter your first name"
+              value={newData.First_Name}
+              onChange={handleInputChange}
+            />
+          </div>
+          <div className="form-group">
+            <label htmlFor="last_name">Last name</label>
+            <input
+              type="text"
+              className="form-control"
+              id="Last_Name"
+              name="Last_Name"
+              placeholder="Enter your last name"
+              value={newData.Last_Name}
+              onChange={handleInputChange}
+            />
+          </div>
+          <div className="form-group">
+            <label htmlFor="phone_number">Phone number</label>
+            <input
+              type="tel"
+              className="form-control"
+              id="phone_number"
+              name="Phone_Number"
+              placeholder="Enter your phone number"
+              value={newData.Phone_Number}
+              onChange={handleInputChange}
+            />
+          </div>
+          <div className="form-group">
+            <label htmlFor="email">Email</label>
+            <input
+              type="email"
+              className="form-control"
+              id="email"
+              name="Email"
+              placeholder="Enter your email address"
+              value={newData.Email}
+              onChange={handleInputChange}
+            />
+          </div>
+          <div className="form-group">
+            <label htmlFor="DOB">Date Of Birth</label>
+            <input
+              type="date"
+              className="form-control"
+              id="DOB"
+              name="DOB"
+              value={newData.DOB}
+              onChange={handleInputChange}
+            />
+          </div>
+          <br />
+          <button type="submit" className="btn btn-primary">
+            Submit
+          </button>
+        </form>
+      </div>
+    </div>
+  );
+};
+
 export default AppointmentBooking;

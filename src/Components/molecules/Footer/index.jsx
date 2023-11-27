@@ -104,6 +104,7 @@ const YourComponent = () => {
               <div className="rating-box">
                 <div className="border p-3">
                   <h5>Rate our service</h5>
+                  <form>
                   <div className="form-outline form-white mb-4">
                     {[1, 2, 3, 4, 5].map((rating) => (
                       <FaStar
@@ -119,8 +120,8 @@ const YourComponent = () => {
                     <button type="submit" className="custom-submit-button" onClick={handleFormSubmit}>
                       Submit
                     </button>
-
                   </div>
+                  </form>
                 </div>
               </div>
             </Col>

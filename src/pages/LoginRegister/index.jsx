@@ -6,6 +6,8 @@ import supabase from '../../supa/supabase/supabaseClient';
 const LoginRegister = () => {
   const Navigate = useNavigate();
   const [selectedUsername, setSelectedUsername] = useState(null);
+  const [UserId, setUserId] = useState(null);
+
   const handleInputChange = (e) => {
     const { name, value } = e.target;
     setFormData({ ...FormData, [name]: value });
@@ -126,12 +128,14 @@ const LoginRegister = () => {
         const UserID = VisitorData[0].id;
         const password = VisitorData[0].password;
 
-        // if (password === FormData.password) {
-        //   Navigate('/', { state: { UserID } });
-        // }
-        // else {
-        //   alert('Wrong password!')
-        // }
+
+        if (password === FormData.password) {
+          setUserId(UserID);
+          Navigate('/', { state: { UserID } });
+        }
+        else {
+          alert('Wrong password!')
+        }
       }
       else {
         alert('No user with that email!')

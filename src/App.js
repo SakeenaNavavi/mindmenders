@@ -1,6 +1,6 @@
 import './App.css';
 import './style.css';
-import { Routes, Route } from 'react-router-dom';
+import { Routes, Route, } from 'react-router-dom';
 import Navbar from './Components/molecules/Navbar';
 import Home from './pages/HomePage';
 import ProfessionalDirectory from './pages/ProfessionalDirectory';
@@ -15,23 +15,28 @@ import AddQuizzes from './pages/AddQuizzes';
 import LoginRegister from './pages/LoginRegister';
 import AppointmentBooking from './pages/AppointmentBooking';
 
+import Conditions from './pages/Conditions';
+
 function App() {
   return (
     <div className="App">
       <Navbar />
 
       <Routes>
-        <Route path="/" element={<Home />} />
+
+        <Route path="/" element={<Home/>} />
+
         <Route path="/ProfessionalDirectory" element={<ProfessionalDirectory />} />
         <Route path="/AboutUs" element={<AboutUs />} />
         <Route path="/Quizzes" element={<Quizzes />} />
         <Route path="/ResourceLibrary" element={< ResourceLibrary />} />
-        <Route path="/OnlineCommunity" element={<OnlineCommunity />} />
+        <Route path="/OnlineCommunity" element={< OnlineCommunity/>} />
         <Route path="/terms-and-conditions" element={<TermsAndConditions />} />
         <Route path="/privacy-policy" element={<PrivacyPolicy />} />
-        <Route path="/add-quizzes" element={<AddQuizzes />} />
+        <Route path="/add-quizzes" element={<AddQuizzes/>} />
         <Route path="/loginRegister" element={<LoginRegister />} />
         <Route path="/AppointmentBooking" element={<AppointmentBooking />} />
+        <Route path="/results" element={<Conditions/>}/>
       </Routes>
 
       <Footer />

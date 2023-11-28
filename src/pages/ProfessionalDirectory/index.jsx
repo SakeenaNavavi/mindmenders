@@ -30,9 +30,9 @@ const Directory=()=>
     }
 
   }, []);
-  if (!user) {
+  /*if (!user) {
     return <div>Please log in to access this component.</div>;
-  }
+  }*/
   
 
     return (           

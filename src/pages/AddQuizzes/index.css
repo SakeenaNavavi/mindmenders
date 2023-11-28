@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Arapey&display=swap');
+
   .quiz-card {
     max-width: 1500px; 
     width: 100%;
@@ -13,6 +14,7 @@
     padding: 10px;
   }
   
+
 .submit-button-container {
   text-align: right;
   padding: 10px; 

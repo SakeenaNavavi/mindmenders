@@ -13,9 +13,12 @@ import "./index.css";
 import Swal from "sweetalert2";
 import supabase from "../../../supa/supabase/supabaseClient";
 
+
 const Footer = () => {
+
   const location=useLocation();
   const [selectedRating, setSelectedRating] = useState(0);
+
   const [data, setData] = useState({
     Rating: '',
     comment: '',
@@ -24,8 +27,33 @@ const Footer = () => {
 
   const handleRatingChange = (rating) => {
     setSelectedRating(rating);
-    // Update Rating in the data state
+
     setData({ ...data, Rating: rating });
+  };
+
+  const handleInsert = async () => {
+    try {
+      // Replace 'your_table_name' with your actual table name
+      const { data, error: insertError } = await supabase
+        .from("tblFeedbacks")
+        .insert([data]); // Assuming 'data' is the object you want to insert
+
+      if (insertError) {
+        alert('try again later:', insertError.message)
+        // Handle error, show an alert, etc.
+      } else {
+        // You can perform any additional actions after successful insertion
+        Swal.fire({
+          title: "MindMender",
+          text: "Your feedback is the cornerstone of our progress. Thank you for your thoughtful feedback!",
+          confirmButtonColor: "#443806",
+        });
+      }
+    } catch (error) {
+      alert('Error inserting data:', error.message)
+      // Handle error, show an alert, etc.
+    }
+
   };
 
   // const handleInsert = async () => {
@@ -130,6 +158,7 @@ const Footer = () => {
             </Col>
 
             <Col md={3} xs={6}>
+
               <br /> <br />
               <div className="rating-box">
                 <div className="border p-3">
@@ -166,8 +195,12 @@ const Footer = () => {
                     </div>
                   </form>
                 </div>
+
               </div>
-            </Col>
+            </form>
+          </div>
+        </div>
+      </Col>
 
 
             <Col md={3} xs={6}>

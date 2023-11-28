@@ -12,18 +12,21 @@ import "./index.css";
 import Swal from "sweetalert2";
 import supabase from "../../../supa/supabase/supabaseClient";
 
+
 const Footer = () => {
+
   const [selectedRating, setSelectedRating] = useState(0);
-  const handleRatingChange = (rating) => {
-    setSelectedRating(rating);
-    setData({ ...data, Rating: rating });
-  };
   
   const [data, setData] = useState({
     Rating: '',
     comment: '',
     User_id: '',
   });
+
+  const handleRatingChange = (rating) => {
+    setSelectedRating(rating);
+    setData({ ...data, Rating: rating });
+  };
 
   const handleInsert = async () => {
     try {
@@ -122,56 +125,45 @@ const Footer = () => {
             </Col>
 
             <Col md={3} xs={6}>
-              <br /> <br />
-              <div className="rating-box">
-                <div className="border p-3">
-                  <h5>Rate our service</h5>
-                  <form>
-                  <div className="form-outline form-white mb-4">
-                    {[1, 2, 3, 4, 5].map((rating) => (
-                      <FaStar
-                        key={rating}
-                        size={30}
-                        className={selectedRating >= rating ? "checked" : ""}
-                        onClick={() => handleRatingChange(rating)}
-                      />
-                    ))}
-                    <br /> <br />
-
-
-                    <textarea
-                      id="reviewInput"
-                      className="form-control mb-3"
-                      placeholder="Write your review here"
-                    ></textarea>
-                    <input
-                      type="text"
-                      value={data.Rating}
-                      onChange={(e) =>
-                        setData({ ...data, Rating: e.target.value })
-                      }
-                    />
-                    <input
-                      type="text"
-                      value={data.comment}
-                      onChange={(e) =>
-                        setData({ ...data, comment: e.target.value })
-                      }
-                    />
-                    <input
-                      type="text"
-                      value={data.User_id}
-                      onChange={(e) =>
-                        setData({ ...data, User_id: e.target.value })
-                      }
-                    />
-                    <button onClick={handleInsert}>Insert Data</button>
-
-                  </div>
-                  </form>
-                </div>
+        <br /> <br />
+        <div className="rating-box">
+          <div className="border p-3">
+            <h5>Rate our service</h5>
+            <form>
+              <div className="form-outline form-white mb-4">
+                {[1, 2, 3, 4, 5].map((rating) => (
+                  <FaStar
+                    key={rating}
+                    size={30}
+                    className={selectedRating >= rating ? "checked" : ""}
+                    onClick={() => handleRatingChange(rating)}
+                  />
+                ))}
+                <br /> <br />
+                <textarea
+                  id="reviewInput"
+                  className="form-control mb-3"
+                  placeholder="Write your review here"
+                  value={data.comment}
+                  onChange={(e) => setData({ ...data, comment: e.target.value })}
+                />
+                {/* Use state for input values */}
+                <input
+                  type="text"
+                  className="form-control mb-3"
+                  placeholder="Rating"
+                  value={selectedRating}
+                  readOnly
+                />
+               
+                <button type="button" onClick={handleInsert}>
+                  Submit
+                </button>
               </div>
-            </Col>
+            </form>
+          </div>
+        </div>
+      </Col>
 
             <Col md={3} xs={6}>
               {" "}

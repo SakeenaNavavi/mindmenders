@@ -128,6 +128,7 @@ const LoginRegister = () => {
         const UserID = VisitorData[0].id;
         const password = VisitorData[0].password;
 
+
         if (password === FormData.password) {
           setUserId(UserID);
           Navigate('/', { state: { UserID } });
@@ -159,12 +160,12 @@ const LoginRegister = () => {
         const UserID = ConsultantData[0].id;
         const password = ConsultantData[0].password;
 
-        if (password === FormData.password) {
-          Navigate('/', { state: { UserID } });
-        }
-        else {
-          alert('Wrong password!')
-        }
+        // if (password === FormData.password) {
+        //   Navigate('/', { state: { UserID } });
+        // }
+        // else {
+        //   alert('Wrong password!')
+        // }
       }
       else {
         alert('No user with that email!')

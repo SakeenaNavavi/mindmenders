@@ -1,8 +1,9 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-import './index.css';
+import React, { useEffect, useState } from "react";
+import { Link, useNavigate, useParams } from "react-router-dom";
+import supabase from "../../supa/supabase/supabaseClient";
 
 const AddQuizzes = () => {
+
   const modal=()=>{
     alert('Your answers have been sent for review to the relevant consultant! Will get back to you soon!');
   }
@@ -35,32 +36,146 @@ const AddQuizzes = () => {
                   Disagree
                 </label>
 
-                <input type="radio" name={radioGroupName} id={`stronglyDisagree${i}`} className="radiobtn" />
-                <label htmlFor={`stronglyDisagree${i}`} className="form-check-label">
-                  Strongly Disagree
-                </label>
 
-                <input type="radio" name={radioGroupName} id={`agree${i}`} className="radiobtn" />
-                <label htmlFor={`agree${i}`} className="form-check-label">
-                  Agree
-                </label>
+        if (data) {
+          setQuestions(data);
+        } else if (error) {
+          console.error("Error fetching questions:", error.message);
+        }
+      } catch (error) {
+        console.error("Error fetching questions:", error.message);
+      }
+    };
 
-                <input type="radio" name={radioGroupName} id={`stronglyAgree${i}`} className="radiobtn" />
-                <label htmlFor={`stronglyAgree${i}`} className="form-check-label">
-                  Strongly Agree
-                </label>
-              </div>
-            </p>
+    fetchQuestions();
+  }, [Questionnaire_id]);
+
+  const handleRadioChange = (questionId, selectedOption) => {
+    console.log(`Question ${questionId} selected option: ${selectedOption}`);
+    const numCards = 10;
+    const cards = [];
+
+    for (let i = 1; i <= numCards; i++) {
+      const radioGroupName = `flexRadioDefault${i}`;
+      cards.push(
+        <div
+          key={i}
+          className="d-flex justify-content-center vh-20"
+          style={{ padding: "10px" }}
+        >
+          <div className="quiz-card card custom-card custom-card-width">
+            <div className="quiz-card-body">
+              <p className="quiz-card-text">
+                {i}. You can customize this text to make each card unique.{" "}
+                <br />
+                <div className="form-check form-check-inline">
+                  <input
+                    type="radio"
+                    name={radioGroupName}
+                    id={`disagree${i}`}
+                    className="form-check-input"
+                  />
+                  <label htmlFor={`disagree${i}`} className="form-check-label">
+                    Disagree
+                  </label>
+
+                  <input
+                    type="radio"
+                    name={radioGroupName}
+                    id={`stronglyDisagree${i}`}
+                    className="form-check-input"
+                  />
+                  <label
+                    htmlFor={`stronglyDisagree${i}`}
+                    className="form-check-label"
+                  >
+                    Strongly Disagree
+                  </label>
+
+                  <input
+                    type="radio"
+                    name={radioGroupName}
+                    id={`agree${i}`}
+                    className="form-check-input"
+                  />
+                  <label htmlFor={`agree${i}`} className="form-check-label">
+                    Agree
+                  </label>
+
+                  <input
+                    type="radio"
+                    name={radioGroupName}
+                    id={`stronglyAgree${i}`}
+                    className="form-check-input"
+                  />
+                  <label
+                    htmlFor={`stronglyAgree${i}`}
+                    className="form-check-label"
+                  >
+                    Strongly Agree
+                  </label>
+                </div>
+              </p>
+            </div>
           </div>
         </div>
-      </div>
-    );
-  }
+      );
+    }
+  };
 
   return (
     <div className="button-box">
       <div className="padded-card">
-        {cards}
+        {questions.map((question, index) => (
+          <div
+            key={index}
+            className="d-flex justify-content-center vh-20"
+            style={{ padding: "10px" }}
+          >
+            <div className="quiz-card card custom-card custom-card-width">
+              <div className="quiz-card-body">
+                <p className="quiz-card-text">
+                  {index + 1}. {question.Question}
+                  <div className="form-check form-check-inline">
+                    <input
+                      type="radio"
+                      name={`radioGroup${index}`}
+                      id={`option1_${index}`}
+                      value="option1"
+                      onChange={() =>
+                        handleRadioChange(question.Question_id, "option1")
+                      }
+                    />
+                    <label
+                      htmlFor={`option1_${index}`}
+                      className="form-check-label"
+                    >
+                      Option 1
+                    </label>
+
+                    <input
+                      type="radio"
+                      name={`radioGroup${index}`}
+                      id={`option2_${index}`}
+                      value="option2"
+                      onChange={() =>
+                        handleRadioChange(question.Question_id, "option2")
+                      }
+                    />
+                    <label
+                      htmlFor={`option2_${index}`}
+                      className="form-check-label"
+                    >
+                      Option 2
+                    </label>
+
+                    {/* Add more options as needed */}
+                  </div>
+                </p>
+              </div>
+            </div>
+          </div>
+        ))}
       </div>
       <div className="but-box">
         <div className="goback-button-container">
@@ -71,7 +186,9 @@ const AddQuizzes = () => {
           </button>
         </div>
         <div className="submit-button-container">
+
           <button className="submit-button" onClick={modal}>Submit Quizz</button>
+
         </div>
       </div>
       <br />
@@ -79,6 +196,7 @@ const AddQuizzes = () => {
       <br />
     </div>
   );
+
 };
 
 export default AddQuizzes;

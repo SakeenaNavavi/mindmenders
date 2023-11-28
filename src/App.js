@@ -14,14 +14,18 @@ import PrivacyPolicy from './pages/PrivacyPolicy';
 import AddQuizzes from './pages/AddQuizzes';
 import LoginRegister from './pages/LoginRegister';
 import AppointmentBooking from './pages/AppointmentBooking';
+
 import Conditions from './pages/Conditions';
+
 function App() {
   return (
     <div className="App">
       <Navbar />
 
       <Routes>
+
         <Route path="/" element={<Home/>} />
+
         <Route path="/ProfessionalDirectory" element={<ProfessionalDirectory />} />
         <Route path="/AboutUs" element={<AboutUs />} />
         <Route path="/Quizzes" element={<Quizzes />} />

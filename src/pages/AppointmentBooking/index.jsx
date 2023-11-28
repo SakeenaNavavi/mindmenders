@@ -2,12 +2,15 @@ import React, { useState, useEffect } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Swal from 'sweetalert2';
 import supabase from '../../supa/supabase/supabaseClient';
-
-const AppointmentBooking = () => {
-  const [newData, setNewData] = useState({
-  
-    Time: '',
-    Date: '',
+import './index.css';
+const AppointmentBooking = (location) => {
+ // const UserId = location.state?.UserId;
+  /*const newDataWithUserId = {
+    ...newData,
+    User_id: UserId,
+  };*/
+  /*const [newData, setNewData] = useState({
+    UserId:'',
     First_Name: '',
     Last_Name: '',
     Phone_Number: '',
@@ -21,23 +24,17 @@ const AppointmentBooking = () => {
 
       if (error) {
         alert(error.message)
-      }
-
+      }else{
       alert('insert successful!')
       // Optionally, you can show a success message using Swal or another method.
       Swal.fire({
         title: 'Success',
         text: 'Appointment booked successfully!',
         icon: 'success',
-      });
+      });}
     } catch (error) {
       alert('Error inserting data:', error.message);
-      // Optionally, you can show an error message using Swal or another method.
-      Swal.fire({
-        title: 'Error',
-        text: 'Failed to book appointment. Please try again.',
-        icon: 'error',
-      });
+      
     }
   };
 
@@ -57,21 +54,25 @@ const AppointmentBooking = () => {
     };
 
     fetchData();
-  }, []);
+  }, []);*/
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log('Form submitted');
-    handleInsert();
-  };
+    Swal.fire({
+      title: 'Request Pending!',
+      text: 'You will be notified when the Consultant confirms your appointment request!',
+      icon: 'success',
+    });}
+    //handleInsert();
+  
 
-  const handleInputChange = (e) => {
+  /*const handleInputChange = (e) => {
     const { name, value } = e.target;
     setNewData((prevData) => ({
       ...prevData,
       [name]: value,
     }));
-  };
+  };*/
 
   return (
     <div className="appointment">
@@ -92,8 +93,9 @@ const AppointmentBooking = () => {
               id="First_Name"
               name="First_Name"
               placeholder="Enter your first name"
-              value={newData.First_Name}
-              onChange={handleInputChange}
+              //value={newData.First_Name}
+              //onChange={handleInputChange}
+              required
             />
           </div>
           <div className="form-group">
@@ -104,8 +106,9 @@ const AppointmentBooking = () => {
               id="Last_Name"
               name="Last_Name"
               placeholder="Enter your last name"
-              value={newData.Last_Name}
-              onChange={handleInputChange}
+              //value={newData.Last_Name}
+              //onChange={handleInputChange}
+              required
             />
           </div>
           <div className="form-group">
@@ -116,8 +119,9 @@ const AppointmentBooking = () => {
               id="phone_number"
               name="Phone_Number"
               placeholder="Enter your phone number"
-              value={newData.Phone_Number}
-              onChange={handleInputChange}
+              //value={newData.Phone_Number}
+              //onChange={handleInputChange}
+              required
             />
           </div>
           <div className="form-group">
@@ -128,8 +132,9 @@ const AppointmentBooking = () => {
               id="email"
               name="Email"
               placeholder="Enter your email address"
-              value={newData.Email}
-              onChange={handleInputChange}
+              //value={newData.Email}
+              //onChange={handleInputChange}
+              required
             />
           </div>
           <div className="form-group">
@@ -139,8 +144,9 @@ const AppointmentBooking = () => {
               className="form-control"
               id="DOB"
               name="DOB"
-              value={newData.DOB}
-              onChange={handleInputChange}
+              //value={newData.DOB}
+              //onChange={handleInputChange}
+              required
             />
           </div>
           <br />

@@ -3,8 +3,23 @@ import { Link } from 'react-router-dom';
 import './index.css';
 
 const AddQuizzes = () => {
+  const modal=()=>{
+    alert('Your answers have been sent for review to the relevant consultant! Will get back to you soon!');
+  }
   const numCards = 10;
   const cards = [];
+  const stressSentences = [
+    "I often feel overwhelmed by the demands of daily life.",
+    "I have experienced withdrawal symptoms when attempting to cut down or stop my substance use.",
+    "I find it challenging to relax and unwind after a long day.",
+    "I frequently experience physical symptoms of stress (e.g., headaches, tension).",
+    "I often feel anxious about the future.",
+    "I have trouble sleeping due to stress.",
+    "I feel pressure to meet others' expectations.",
+    "I struggle to find time for self-care activities.",
+    "I have difficulty concentrating due to stress.",
+    "I often feel irritable or moody.",
+  ];
 
   for (let i = 1; i <= numCards; i++) {
     const radioGroupName = `flexRadioDefault${i}`;
@@ -13,7 +28,7 @@ const AddQuizzes = () => {
         <div className="quiz-card card custom-card custom-card-width">
           <div className="quiz-card-body">
             <p className="quiz-card-text">
-              {i}. You can customize this text to make each card unique. <br />
+            {stressSentences[i - 1]}
               <div className="form-check form-check-inline">
                 <input type="radio" name={radioGroupName} id={`disagree${i}`} className="radiobtn" />
                 <label htmlFor={`disagree${i}`} className="form-check-label">
@@ -56,7 +71,7 @@ const AddQuizzes = () => {
           </button>
         </div>
         <div className="submit-button-container">
-          <button className="submit-button">Submit Quizz</button>
+          <button className="submit-button" onClick={modal}>Submit Quizz</button>
         </div>
       </div>
       <br />

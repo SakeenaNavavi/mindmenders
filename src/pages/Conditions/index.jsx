@@ -1,73 +1,59 @@
 import { useEffect, useState } from 'react';
-import { supabase } from './your-supabase-config-file';
-const supabaseUrl = 'https://brxyhorsxcsfbiivubin.supabase.co'; 
-const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImJyeHlob3JzeGNzZmJpaXZ1YmluIiwicm9sZSI6ImFub24iLCJpYXQiOjE2OTkxNjAyMTQsImV4cCI6MjAxNDczNjIxNH0._RS1Z6BydY99zFyVtseR1HKH_KNVSOU1IsPj7i019l0'; 
+import { useLocation } from 'react-router';
+import supabase from '../../supa/supabase/supabaseClient';
 
-const supabase = createClient(supabaseUrl, supabaseKey);
 const Conditions = () => {
+  const location = useLocation();
+  const query = location.state?.query;
   const [conditionsData, setConditionsData] = useState([]);
-  const [symptomsData, setSymptomsData] = useState([]);
 
   useEffect(() => {
-    const fetchConditionsData = async () => {
-      try {
-        const { data, error } = await supabase
-          .from('tblMentalHealthConditions')
-          .select('Condition_name, Description');
+    getConditions();
+  }, [query]);
 
-        if (error) {
-          throw error;
-        }
+  const getConditions = async () => {
+    let { data: conditions } = await supabase
+      .from('tblMentalHealthConditions')
+      .select()
+      .textSearch('fts', query);
 
-        setConditionsData(data);
-      } catch (error) {
-        console.error('Error fetching conditions data:', error.message);
-      }
-    };
-
-    const fetchSymptomsData = async () => {
-      try {
-        const { data, error } = await supabase
-          .from('tblSymptoms')
-          .select('Symptoms');
-
-        if (error) {
-          throw error;
-        }
-
-        setSymptomsData(data);
-      } catch (error) {
-        console.error('Error fetching symptoms data:', error.message);
-      }
-    };
-
-    fetchConditionsData();
-    fetchSymptomsData();
-  }, []);
+    setConditionsData(conditions);
+  };
 
   return (
     <div>
-      <h1>Data from tblMentalHealthConditions</h1>
-      <ul>
-        {conditionsData.map((item) => (
-          <li key={item.id}>
-            <h3>{item.Condition_name}</h3>
-            <p>{item.Description}</p>
-          </li>
-        ))}
-      </ul>
+      <p>showing results for {query}</p>
+      {conditionsData.map((condition) => (
+        <div key={condition.Condition_id}>
+          <h3>{condition.Condition_name}</h3>
+          <p>{condition.Description}</p>
 
-      <h1>Data from tblSymptoms</h1>
-      <ul>
-        {symptomsData.map((item) => (
-          <li key={item.id}>
-            <h3>{item.Symptoms}</h3> 
-          </li>
-        ))}
-      </ul>
+          {/* Fetch and display symptoms */}
+          {condition.symptoms && condition.symptoms.length > 0 && (
+            <>
+              <h4>Symptoms</h4>
+              <ul>
+                {condition.symptoms.map((symptom) => (
+                  <li key={symptom.Symptom_id}>{symptom.Symptoms}</li>
+                ))}
+              </ul>
+            </>
+          )}
+
+          {condition.selfHelpStrategies && condition.selfHelpStrategies.length > 0 && (
+            <>
+              <h4>Self-Help Strategies</h4>
+              <ul>
+                {condition.selfHelpStrategies.map((strategy) => (
+                  <li key={strategy.Strategy_id}>{strategy.Strategy}</li>
+                ))}
+              </ul>
+            </>
+          )}
+        </div>
+      ))}
     </div>
   );
 };
 
 export default Conditions;
-

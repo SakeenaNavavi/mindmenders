@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Arapey&display=swap');
+
   /* Add this style for the radiobtn class */
 .radiobtn {
   width: 10px; /* Adjust the width as needed */
@@ -30,6 +31,7 @@
   font-family: "Arapey", serif;
   padding: 10px;
 }
+
 
 .submit-button-container {
   text-align: right;

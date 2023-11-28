@@ -14,7 +14,7 @@ import PrivacyPolicy from './pages/PrivacyPolicy';
 import AddQuizzes from './pages/AddQuizzes';
 import LoginRegister from './pages/LoginRegister';
 import AppointmentBooking from './pages/AppointmentBooking';
-import Doctorgui from './pages/Doctorgui';
+
 function App() {
   return (
     <div className="App">
@@ -22,7 +22,6 @@ function App() {
 
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/Consultant-interface" element={<Doctorgui />} />
         <Route path="/ProfessionalDirectory" element={<ProfessionalDirectory />} />
         <Route path="/AboutUs" element={<AboutUs />} />
         <Route path="/Quizzes" element={<Quizzes />} />

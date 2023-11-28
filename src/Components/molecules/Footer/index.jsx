@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Row, Col } from "react-bootstrap";
+import { Location, useLocation } from "react-router";
 import "bootstrap/dist/css/bootstrap.min.css";
 import {
   FaFacebook,
@@ -13,41 +14,48 @@ import Swal from "sweetalert2";
 import supabase from "../../../supa/supabase/supabaseClient";
 
 const Footer = () => {
+  const location=useLocation();
   const [selectedRating, setSelectedRating] = useState(0);
-  const handleRatingChange = (rating) => {
-    setSelectedRating(rating);
-    setData({ ...data, Rating: rating });
-  };
-  
   const [data, setData] = useState({
     Rating: '',
     comment: '',
     User_id: '',
   });
 
-  const handleInsert = async () => {
-    try {
-      // Replace 'your_table_name' with your actual table name
-      const { data, error: insertError } = await supabase
-        .from("tblFeedbacks")
-        .insert([data]); // Assuming 'data' is the object you want to insert
-
-      if (insertError) {
-        alert('try again later:', insertError.message)
-        // Handle error, show an alert, etc.
-      } else {
-        // You can perform any additional actions after successful insertion
-        Swal.fire({
-          title: "MindMender",
-          text: "Your feedback is the cornerstone of our progress. Thank you for your thoughtful feedback!",
-          confirmButtonColor: "#443806",
-        });
-      }
-    } catch (error) {
-      alert('Error inserting data:', error.message)
-      // Handle error, show an alert, etc.
-    }
+  const handleRatingChange = (rating) => {
+    setSelectedRating(rating);
+    // Update Rating in the data state
+    setData({ ...data, Rating: rating });
   };
+
+  // const handleInsert = async () => {
+  //   try {
+  //     // Assuming you have a user ID from somewhere, replace 'User_id' with the actual user ID
+  //     const User_ID =location.state?.query; // Replace this with the actual user ID
+  
+  //     // Set the user ID in the data state
+  //     setData({ ...data, UserID: UserID });
+  
+  //     // Replace 'your_table_name' with your actual table name
+  //     const { data: insertedData, error: insertError } = await supabase
+  //       .from("tblFeedbacks")
+  //       .insert([data]);
+  
+  //     if (insertError) {
+  //       console.error('Error inserting data:', insertError.message);
+  //     } else {
+  //       console.log('Inserted data:', insertedData);
+  //       Swal.fire({
+  //         title: "MindMender",
+  //         text: "Your feedback is the cornerstone of our progress. Thank you for your thoughtful feedback!",
+  //         confirmButtonColor: "#443806",
+  //       });
+  //     }
+  //   } catch (error) {
+  //     console.error('Error inserting data:', error.message);
+  //   }
+  // };
+  
 
   return (
 
@@ -127,51 +135,40 @@ const Footer = () => {
                 <div className="border p-3">
                   <h5>Rate our service</h5>
                   <form>
-                  <div className="form-outline form-white mb-4">
-                    {[1, 2, 3, 4, 5].map((rating) => (
-                      <FaStar
-                        key={rating}
-                        size={30}
-                        className={selectedRating >= rating ? "checked" : ""}
-                        onClick={() => handleRatingChange(rating)}
+                    <div className="form-outline form-white mb-4">
+                      {[1, 2, 3, 4, 5].map((rating) => (
+                        <FaStar
+                          key={rating}
+                          size={30}
+                          className={selectedRating >= rating ? "checked" : ""}
+                          onClick={() => handleRatingChange(rating)}
+                        />
+                      ))}
+                      <br /> <br />
+                      <textarea
+                        id="reviewInput"
+                        className="form-control mb-3"
+                        placeholder="Write your review here"
+                        value={data.comment}
+                        onChange={(e) => setData({ ...data, comment: e.target.value })}
                       />
-                    ))}
-                    <br /> <br />
-
-
-                    <textarea
-                      id="reviewInput"
-                      className="form-control mb-3"
-                      placeholder="Write your review here"
-                    ></textarea>
-                    <input
-                      type="text"
-                      value={data.Rating}
-                      onChange={(e) =>
-                        setData({ ...data, Rating: e.target.value })
-                      }
-                    />
-                    <input
-                      type="text"
-                      value={data.comment}
-                      onChange={(e) =>
-                        setData({ ...data, comment: e.target.value })
-                      }
-                    />
-                    <input
-                      type="text"
-                      value={data.User_id}
-                      onChange={(e) =>
-                        setData({ ...data, User_id: e.target.value })
-                      }
-                    />
-                    <button onClick={handleInsert}>Insert Data</button>
-
-                  </div>
+                      {/* Use state for input values */}
+                      <input
+                        type="text"
+                        className="form-control mb-3"
+                        placeholder="Rating"
+                        value={selectedRating}
+                        readOnly
+                      />
+                      <button type="button" >
+                        Submit
+                      </button>
+                    </div>
                   </form>
                 </div>
               </div>
             </Col>
+
 
             <Col md={3} xs={6}>
               {" "}

@@ -22,7 +22,6 @@ const AddQuizzes = () => {
   ];
 
   for (let i = 1; i <= numCards; i++) {
-    
     const radioGroupName = `flexRadioDefault${i}`;
     cards.push(
       <div key={i} className="d-flex justify-content-center vh-20" style={{ padding: '10px' }}>
@@ -31,22 +30,22 @@ const AddQuizzes = () => {
             <p className="quiz-card-text">
             {stressSentences[i - 1]}
               <div className="form-check form-check-inline">
-                <input type="radio" name={radioGroupName} id={`disagree${i}`} className="form-check-input" />
-                <label htmlFor={`disagree${i}`} className="form-check-label" >
+                <input type="radio" name={radioGroupName} id={`disagree${i}`} className="radiobtn" />
+                <label htmlFor={`disagree${i}`} className="form-check-label">
                   Disagree
                 </label>
-    
-                <input type="radio" name={radioGroupName} id={`stronglyDisagree${i}`} className="form-check-input" />
-                <label htmlFor={`stronglyDisagree${i}`} className="form-check-label" >
+
+                <input type="radio" name={radioGroupName} id={`stronglyDisagree${i}`} className="radiobtn" />
+                <label htmlFor={`stronglyDisagree${i}`} className="form-check-label">
                   Strongly Disagree
                 </label>
-    
-                <input type="radio" name={radioGroupName} id={`agree${i}`} className="form-check-input" />
-                <label htmlFor={`agree${i}`} className="form-check-label" >
+
+                <input type="radio" name={radioGroupName} id={`agree${i}`} className="radiobtn" />
+                <label htmlFor={`agree${i}`} className="form-check-label">
                   Agree
                 </label>
-    
-                <input type="radio" name={radioGroupName} id={`stronglyAgree${i}`} className="form-check-input" />
+
+                <input type="radio" name={radioGroupName} id={`stronglyAgree${i}`} className="radiobtn" />
                 <label htmlFor={`stronglyAgree${i}`} className="form-check-label">
                   Strongly Agree
                 </label>
@@ -79,8 +78,6 @@ const AddQuizzes = () => {
       <br />
       <br />
     </div>
-    
-    
   );
 };
 

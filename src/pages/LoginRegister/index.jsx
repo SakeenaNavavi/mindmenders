@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import './index.css';
 import { Navigate, useNavigate } from 'react-router';
 import supabase from '../../supa/supabase/supabaseClient';
+import Navbar from "../../Components/molecules/Navbar/index.jsx";
 
 const LoginRegister = () => {
   const Navigate = useNavigate();
@@ -177,6 +178,7 @@ const LoginRegister = () => {
   };
   return (
     <div className="container">
+      <Navbar/>
       <div className="cont">
         <div className="form sign-in">
           <form>

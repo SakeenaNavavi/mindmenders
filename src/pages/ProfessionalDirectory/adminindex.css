@@ -1,0 +1,107 @@
+.column {
+    width: 18.3%;
+    margin-bottom: 16px;
+    padding-left:40px;
+    padding-right: 10px;
+    padding-bottom: 5px;
+}
+  
+@media screen and (max-width: 650px) {
+    .directory-card {
+        width: 40%;
+    }
+}
+  
+.directory-card {
+    margin: 10px;
+    width: 100%; 
+    height: 100;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    font-size: 14px;
+    transition: transform 0.3s ease;
+    border-radius: 15px;
+    overflow: hidden;
+    margin-left: 40px;
+}
+
+.directory-card:hover {
+    transform: scale(1.1);
+}
+
+.directory-card-image{
+    width: 200px;
+    height: 190px;
+
+}
+
+.heading {
+    font-family: "Arapey",serif;
+    font-weight: 200; 
+    font-size: 3em;
+    background-color: transparent;
+    color: aliceblue;
+} 
+
+.para{
+    font-size: x-large;
+    font-family: "Arapey",serif;
+}
+
+.directory-card-title {
+    font-size: 18px;
+    font-weight: bold;
+    font-family: 'Times New Roman', Times, serif ;
+}
+  .container {
+    padding: 0 16px;
+    
+}
+.container::after, .row::after {
+    content: "";
+    clear: both;
+    display: table;
+}
+  
+.directory-title {
+    color: #333333;
+}
+  
+.chat-button {
+    border: none;
+    outline: 0;
+    display: inline-block;
+    padding: 1px;
+    color: #000;
+    background-color: #70663E;
+    text-align: center;
+    cursor: pointer;
+    width: 70%;
+    border-radius: 12px;
+    margin-bottom: 10px;
+}
+
+.directory-button-1 {
+    border: none;
+    outline: 0;
+    display: inline-block;
+    padding: 1px;
+    color: #FFFFFF;
+    background-color: #70663E;
+    text-align: center;
+    cursor: pointer;
+    width: 70%;
+    border-radius: 12px;
+}
+
+.heading-container{
+    padding-top: 10px;
+    padding-bottom: 10px;
+    background-color: transparent;
+}
+.h3
+{
+    font-family: "Arapey",serif;
+    color: #333333;
+}

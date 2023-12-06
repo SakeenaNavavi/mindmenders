@@ -3,6 +3,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import Swal from 'sweetalert2';
 import supabase from '../../supa/supabase/supabaseClient';
 import './index.css';
+import Navbar from "../../Components/molecules/Navbar/index.jsx";
 const AppointmentBooking = (location) => {
  // const UserId = location.state?.UserId;
   /*const newDataWithUserId = {
@@ -75,7 +76,9 @@ const AppointmentBooking = (location) => {
   };*/
 
   return (
+    
     <div className="appointment">
+       <Navbar/>
       <div className="appointment-container">
         <form onSubmit={handleSubmit}>
           <h1 className="form-header" data-component="header">

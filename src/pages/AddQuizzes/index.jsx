@@ -1,12 +1,15 @@
 import React, { useEffect, useState } from "react";
 import { Link, useNavigate, useParams } from "react-router-dom";
 import supabase from "../../supa/supabase/supabaseClient";
+import './index.css';
 
 const AddQuizzes = () => {
+  const modal = () => {
+    alert(
+      "Your answers have been sent for review to the relevant consultant! Will get back to you soon!"
+    );
+  };
 
-  const modal=()=>{
-    alert('Your answers have been sent for review to the relevant consultant! Will get back to you soon!');
-  }
   const numCards = 10;
   const cards = [];
   const stressSentences = [
@@ -25,17 +28,80 @@ const AddQuizzes = () => {
   for (let i = 1; i <= numCards; i++) {
     const radioGroupName = `flexRadioDefault${i}`;
     cards.push(
-      <div key={i} className="d-flex justify-content-center vh-20" style={{ padding: '10px' }}>
+      <div
+        key={i}
+        className="d-flex justify-content-center vh-20"
+        style={{ padding: "10px" }}
+      >
         <div className="quiz-card card custom-card custom-card-width">
           <div className="quiz-card-body">
             <p className="quiz-card-text">
-            {stressSentences[i - 1]}
+              {stressSentences[i - 1]}
               <div className="form-check form-check-inline">
-                <input type="radio" name={radioGroupName} id={`disagree${i}`} className="radiobtn" />
+                <input
+                  type="radio"
+                  name={radioGroupName}
+                  id={`disagree${i}`}
+                  className="form-check-input"
+                />
                 <label htmlFor={`disagree${i}`} className="form-check-label">
                   Disagree
                 </label>
 
+                <input
+                  type="radio"
+                  name={radioGroupName}
+                  id={`stronglyDisagree${i}`}
+                  className="form-check-input"
+                />
+                <label
+                  htmlFor={`stronglyDisagree${i}`}
+                  className="form-check-label"
+                >
+                  Strongly Disagree
+                </label>
+
+                <input
+                  type="radio"
+                  name={radioGroupName}
+                  id={`agree${i}`}
+                  className="form-check-input"
+                />
+                <label htmlFor={`agree${i}`} className="form-check-label">
+                  Agree
+                </label>
+
+                <input
+                  type="radio"
+                  name={radioGroupName}
+                  id={`stronglyAgree${i}`}
+                  className="form-check-input"
+                />
+                <label
+                  htmlFor={`stronglyAgree${i}`}
+                  className="form-check-label"
+                >
+                  Strongly Agree
+                </label>
+              </div>
+            </p>
+          </div>
+        </div>
+      </div>
+    );
+  }
+
+  const [questions, setQuestions] = useState([]);
+
+  const { Questionnaire_id } = useParams();
+
+  useEffect(() => {
+    const fetchQuestions = async () => {
+      try {
+        const { data, error } = await supabase
+          .from("questions")
+          .select("*")
+          .eq("Questionnaire_id", Questionnaire_id);
 
         if (data) {
           setQuestions(data);
@@ -52,75 +118,7 @@ const AddQuizzes = () => {
 
   const handleRadioChange = (questionId, selectedOption) => {
     console.log(`Question ${questionId} selected option: ${selectedOption}`);
-    const numCards = 10;
-    const cards = [];
-
-    for (let i = 1; i <= numCards; i++) {
-      const radioGroupName = `flexRadioDefault${i}`;
-      cards.push(
-        <div
-          key={i}
-          className="d-flex justify-content-center vh-20"
-          style={{ padding: "10px" }}
-        >
-          <div className="quiz-card card custom-card custom-card-width">
-            <div className="quiz-card-body">
-              <p className="quiz-card-text">
-                {i}. You can customize this text to make each card unique.{" "}
-                <br />
-                <div className="form-check form-check-inline">
-                  <input
-                    type="radio"
-                    name={radioGroupName}
-                    id={`disagree${i}`}
-                    className="form-check-input"
-                  />
-                  <label htmlFor={`disagree${i}`} className="form-check-label">
-                    Disagree
-                  </label>
-
-                  <input
-                    type="radio"
-                    name={radioGroupName}
-                    id={`stronglyDisagree${i}`}
-                    className="form-check-input"
-                  />
-                  <label
-                    htmlFor={`stronglyDisagree${i}`}
-                    className="form-check-label"
-                  >
-                    Strongly Disagree
-                  </label>
-
-                  <input
-                    type="radio"
-                    name={radioGroupName}
-                    id={`agree${i}`}
-                    className="form-check-input"
-                  />
-                  <label htmlFor={`agree${i}`} className="form-check-label">
-                    Agree
-                  </label>
-
-                  <input
-                    type="radio"
-                    name={radioGroupName}
-                    id={`stronglyAgree${i}`}
-                    className="form-check-input"
-                  />
-                  <label
-                    htmlFor={`stronglyAgree${i}`}
-                    className="form-check-label"
-                  >
-                    Strongly Agree
-                  </label>
-                </div>
-              </p>
-            </div>
-          </div>
-        </div>
-      );
-    }
+    // Handle radio change logic if needed
   };
 
   return (
@@ -186,9 +184,9 @@ const AddQuizzes = () => {
           </button>
         </div>
         <div className="submit-button-container">
-
-          <button className="submit-button" onClick={modal}>Submit Quizz</button>
-
+          <button className="submit-button" onClick={modal}>
+            Submit Quiz
+          </button>
         </div>
       </div>
       <br />
@@ -196,7 +194,6 @@ const AddQuizzes = () => {
       <br />
     </div>
   );
-
 };
 
 export default AddQuizzes;

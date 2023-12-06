@@ -4,9 +4,9 @@ import 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
 import supabase from '../../supa/supabase/supabaseClient';
 import { useEffect,useState } from 'react';
-import Navbar from "../../Components/molecules/Navbar/index.jsx";
+import AdminNavbar from '../../AdminNavbar';
 
-const Directory=()=>
+const AdminProfessionalDirectory=()=>
 {
   
   const Navigate = useNavigate();
@@ -38,7 +38,7 @@ const Directory=()=>
 
     return (           
         <div>
-          <Navbar/>
+          <AdminNavbar/>
             <div className="heading-container">
           <h1 className="h1">FIND YOUR THERAPIST</h1>
             <p className="para">Discover Our Distinguished Network of Dedicated Mental Health Professionals</p>
@@ -235,7 +235,40 @@ const Directory=()=>
             </div>
         </div>
 
+        <form >
+      <label>
+        Add Name:
+        <input
+          type="text"
+          name="firstName"
+        //  value={formData.firstName}
+          //onChange={handleChange}
+        />
+      </label>
+      <br />
+      <label>
+        Bio:
+        <input
+          type="text"
+          name="lastName"
+          //value={formData.lastName}
+          //onChange={handleChange}
+        />
+      </label>
+      <br />
+      <label>
+        Spectiolis:
+        <input
+          type="email"
+          name="email"
+          //value={formData.email}
+          //onChange={handleChange}
+        />
+      </label>
+      <br />
+      <button type="submit">Submit</button>
+    </form>
     </div>      
     )
 }
-export default Directory;
+export default AdminProfessionalDirectory;

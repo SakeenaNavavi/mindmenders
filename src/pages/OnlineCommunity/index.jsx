@@ -1,7 +1,9 @@
 import './index.css';
+import Navbar from "../../Components/molecules/Navbar/index.jsx";
 const OnlineCommunity=()=>{
     return( 
 <div class="container">
+    <Navbar/>
 <div class="row clearfix">
     <div class="col-lg-12">
         <div class="chat-card chat-app">

@@ -1,72 +1,90 @@
 @import url('https://fonts.googleapis.com/css2?family=Arapey&display=swap');
-  .quiz-card {
-    max-width: 1500px; 
-    width: 100%;
-    height: 170px;
-    box-sizing: border-box;
-  }
-  
-  .quiz-card-text
-  {
-    text-align: left;
-    font-family: "Arapey",serif;
-    padding: 10px;
-    margin-bottom: 100px;
-  }
-  
+
+  /* Add this style for the radiobtn class */
+.radiobtn {
+  width: 10px; /* Adjust the width as needed */
+  height: 10px; /* Adjust the height as needed */
+  border-radius: 50%;
+}
+
+/* Set labels and radio buttons to appear on the same line and one under the other */
+.form-check {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.form-check-input {
+  margin-bottom: 5px; /* Adjust the margin as needed */
+}
+
+/* Your existing styles */
+.quiz-card {
+  max-width: 1500px;
+  width: 100%;
+  height: 170px;
+  box-sizing: border-box;
+}
+
+.quiz-card-text {
+  text-align: left;
+  font-family: "Arapey", serif;
+  padding: 10px;
+}
+
+
 .submit-button-container {
   text-align: right;
-  padding: 10px; 
+  padding: 10px;
 }
 
 .submit-button {
-  background-color: #443806; 
-  color: #fff; 
-  border: none; 
+  background-color: #443806;
+  color: #fff;
+  border: none;
   padding: 10px 20px;
-  font-family: "Arapey",serif;
+  font-family: "Arapey", serif;
   border-radius: 5px;
 }
 
 .goback-button {
-  background-color: #443806; 
-  color:#fff ; 
-  border: none; 
-  padding: 10px 20px; 
-  float: left; 
-  font-family: "Arapey",serif;
+  background-color: #443806;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  float: left;
+  font-family: "Arapey", serif;
   border-radius: 5px;
 }
+
+.goback-button-container,
+.submit-button-container {
+  width: 50%;
+  padding: 10px;
+}
+
 .goback-button-container {
   text-align: left;
-  padding: 10px; 
+  float: left;
+}
+
+.submit-button-container {
+  text-align: right;
+  float: right;
 }
 
 .custom-link {
   text-decoration: none;
-  color: #fff; 
-  
+  color: #fff;
 }
 
-
-
-.goback-button-container {
-  float: left; 
-  width: 50%; 
-}
-
-.submit-button-container {
-  float: right;
-  width: 50%; 
-  text-align: right; 
-}
-.form-check-input{
+.form-check-input {
   text-align: left;
   padding-top: -10px;
-
 }
-.form-check-label{
+
+.form-check-label {
   text-align: left;
-  padding:2px;
+  padding: 2px;
   margin: 0px;
 }

@@ -122,10 +122,16 @@ const YourComponent = () => {
 
                   </div>
                 </div>
-              </div>
-            </Col>
 
-            <Col md={3} xs={6}> <br /> <br />
+                </div>
+                </Col>
+          
+             
+            <Col md={3} xs={6}>
+              {" "}
+              <br /> <br />
+
+
               <div>
                 <FaFacebook size={30} /> <p>Facebook page </p><br />
                 <FaTwitter size={30} /><p>Twitter page </p> <br />

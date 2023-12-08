@@ -1,0 +1,429 @@
+@import url('https://fonts.googleapis.com/css2?family=Arapey&display=swap');
+.website-container {
+    display: flex;
+  }
+  
+  .body{
+    background-color:  #efefef;
+  }
+  
+  .mental-health-chat-docgui {
+    flex: 2; 
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+ 
+
+.website-container-docgui {
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  
+  .mental-health-chat-docgui {
+    width: 60%; 
+  padding-left: 180px;
+  padding-top: 20px;
+  }
+  
+  .patient-requests-docgui {
+    width: 20%; 
+  }
+  
+  .website-container-docgui {
+    padding: 50px; 
+  }
+  
+  
+
+ .chat-window-docgui {
+  height: 850px ;
+  width: 600px;
+  border: 1px solid #333;
+  flex-direction: column; 
+  align-items: center; 
+  background-color: #f9f9f9;
+  display: flex;
+   
+    gap: 10px;
+  
+}
+
+.message-docgui {
+  margin: 10px 0;
+  padding: 10px;
+  border-radius: 10px;
+  clear: both;
+}
+
+
+.message-docgui.user {
+  background-color: #DCF8C6; 
+  float: right;
+}
+
+
+.message-docgui.professional {
+  background-color: #EDEDED; 
+  float: left;
+}
+
+
+.sender-docgui {
+  font-weight: bold;
+}
+
+
+.input-area-docgui {
+  margin-top: 10px;
+}
+
+
+.input-container-docgui button {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 4px;
+    cursor: pointer;
+    align-items: right;
+}
+.input-container-docgui {
+    display: flex;
+    margin-top: 10px;
+    padding-left: 20px;
+}
+.input-container-docgui input {
+  
+    width: 500px;
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-right: 10px; 
+}
+  
+  .mental-health-chatdocgui.boxed h2 {
+    font-size: 18px;
+    color: #007BFF; 
+  }
+  
+  .mental-health-chat-docgui.boxed .chat-window {
+    max-height: 200px; 
+    overflow-y: scroll; 
+  }
+  
+  .mental-health-chat-docgui.boxed .input-area {
+    display: flex;
+    margin-top: 10px; 
+  }
+  
+  .mental-health-chat-docgui.boxed input[type="text"] {
+    flex: 1; 
+    padding: 5px;
+  }
+  
+  .mental-health-chat-docgui.boxed button {
+    background-color: #007BFF; 
+    color: #fff; 
+    border: none;
+    padding: 5px 10px; 
+     
+  }
+
+.patient-requests-docgui.boxed {
+    border: 1px solid #ccc;
+    padding: 20px; 
+    background-color: #e3dac9;
+    width: 275px;
+    height: 1000px;
+  }
+  
+  .patient-requests-docgui.boxed h2 {
+    font-size: 18px; 
+    color:  #443806;
+    font-family: "Arapey",serif;
+  }
+  .contactlisth-docgui{
+    font-size: 18px; 
+    color:  #443806;
+    font-family: "Arapey",serif;
+  }
+  
+  .patient-requests-docgui.boxed ul {
+    list-style: none; 
+  }
+  
+  .patient-requests-docgui.boxed li {
+    margin: 10px 0;
+  }
+  
+  .patient-requests-docgui.boxed button {
+    background-color: #C4D4A2;
+    color: #443806; 
+    border: none; 
+    padding: 5px 10px; 
+    margin-left: 5px; 
+  }
+  .boxed-docgui{
+    background-color:#e3dac9;
+    width: 350px;
+    height: 1000px;
+    border: 1px solid #ccc;
+    padding: 20px;
+     display: flex;
+    flex-direction: column;
+    align-items: center; 
+    
+  }
+  .boxedh-docgui {
+    border: 1px solid  #ccc;
+    padding: 20px; 
+    background-color: #e3dac9;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 650px;
+    height: 1000px;
+  
+  }
+  
+
+  
+  .request-info-docgui {
+    flex-grow: 1;
+    text-align: left;
+    width: 200px;
+    
+  }
+  
+  .button-container-docgui {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    margin-left: 10px; }
+  
+  .button-container-docgui button {
+    margin-bottom: 5px; 
+  }
+  .patient-request-docgui {
+    margin-bottom: 20px;
+    padding: 15px; 
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background-color: #f9f9f9;
+  }
+  
+  .request-name-docgui {
+    font-weight: bold;
+    
+    margin-bottom: 10px; 
+    
+  }
+  
+  .button-container-docgui {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    justify-content: space-between;
+  }
+  
+  .popup-msg-docgui {
+    background-color: #fff;
+    border: 1px solid #ccc;
+    padding: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+    width: 100px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    text-align: center;
+    border-radius: 4px;
+    height: 50px;
+  }
+  .contact-item-docgui {
+    border: 1px solid #ccc;
+    margin: 10px;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    width: 250px;
+    height: 50px;
+    background-color: #fff;
+  }
+  
+  .contact-box-docgui {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  
+ 
+  
+  .contact-name-docgui {
+    font-size: 16px;
+  }
+  
+  .accept-button-docgui{
+    background-color:  #443806;
+  }
+  .container-docgui {
+    display: flex;
+    justify-content: flex-end;
+  }
+  .date_control-docgui{
+    padding: 10px;
+  }
+  .time_control-docgui{
+    padding: 20px;
+  }
+  .date-label-docgui
+  {
+    padding: 10px;
+  }
+  .time_label-docgui{
+    padding: 10px;
+  }
+  
+  
+
+.contact-list-docgui {
+  list-style: none;
+  padding: 0;
+}
+
+.contact-button-docgui {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  margin-bottom: 10px;
+  background-color: #f0f0f0; 
+  border: 1px solid #ccc; 
+  cursor: pointer;
+  width: 300px;
+  text-align: left;
+  text-decoration: none;
+  color: #333; 
+}
+.contact-button-docgui:hover{
+  
+    transform: scale(1.02);
+    overflow: hidden;
+  
+}
+.contact-image-docgui {
+  width: 75px; 
+  height: 75px; 
+  border-radius: 50%;
+  margin-right: 10px;
+}
+
+.contact-details-docgui {
+  flex: 1;
+}
+
+.contact-name-docgui {
+  font-weight: bold;
+}
+
+.latest-message-docgui {
+  font-size: 14px;
+  color: #888; 
+}
+
+.new-box-docgui {
+  background-color: #f0f0f0; 
+  border: 1px solid #ccc; 
+  padding: 10px;
+  margin-bottom: 10px;
+  width: 575px;
+  height: 50px;
+  border: black;
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+ 
+  
+}
+
+.contact-button-docgui {
+  
+  padding: 10px;
+  margin: 5px;
+  background-color: #f0f0f0;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.contact-button-docgui img {
+  width: 50px; 
+  height: 50px;
+  margin-right: 10px;
+  border-radius: 50%;
+}
+
+
+.new-box-docgui img {
+  width: 30px; 
+  height: 30px; 
+  border-radius: 50%;
+}
+
+
+
+.new-box-docgui img {
+  width: 30px; 
+  height: 30px; 
+    margin-right: 10px;
+  border-radius: 50%;
+}
+
+.new-box-docgui h3 {
+  margin: 0;
+}
+
+
+.cameraicon-docgui {
+  margin-left: 300px; 
+  margin-right: 2px; 
+  padding:10px;
+  background-color: #f0f0f0;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.imageicon-docgui
+{
+  margin-left: 10px; 
+  margin-right: 2px; 
+  padding:10px;
+  background-color: #f0f0f0;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.cogicon-docgui{
+  margin-left: 10px; 
+  margin-right: 2px; 
+  padding:10px;
+  background-color: #f0f0f0;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.circleicon-docgui{
+  margin-left: 10px; 
+  margin-right: 2px; 
+  padding:10px;
+  background-color: #f0f0f0;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  cursor: pointer;
+}

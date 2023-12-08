@@ -1,12 +1,14 @@
 import React from 'react';
 import { Container, Row, Col } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
-
+import Navbar from "../../Components/molecules/Navbar/index.jsx";
 import './index.css';
 
 const AboutUs = () => {
   return (
-    <div className="about-container">
+    <div>
+      <Navbar/>
+          <div className="about-container">
       <Container className="about-content">
         <Row>
           <Col>
@@ -49,6 +51,7 @@ const AboutUs = () => {
         </Row>
         {/* Add other sections here */}
       </Container>
+    </div>
     </div>
   );
 };

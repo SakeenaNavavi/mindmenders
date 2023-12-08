@@ -1,29 +1,13 @@
 @import url('https://fonts.googleapis.com/css2?family=Arapey&display=swap');
 
-  /* Add this style for the radiobtn class */
-.radiobtn {
-  width: 10px; /* Adjust the width as needed */
-  height: 10px; /* Adjust the height as needed */
-  border-radius: 50%;
-}
+  /* Your existing code ... */
 
-/* Set labels and radio buttons to appear on the same line and one under the other */
-.form-check {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-}
-
-.form-check-input {
-  margin-bottom: 5px; /* Adjust the margin as needed */
-}
-
-/* Your existing styles */
 .quiz-card {
   max-width: 1500px;
   width: 100%;
   height: 170px;
   box-sizing: border-box;
+  margin-bottom: 20px; /* Adjust the value to set the desired gap between cards */
 }
 
 .quiz-card-text {
@@ -31,7 +15,6 @@
   font-family: "Arapey", serif;
   padding: 10px;
 }
-
 
 .submit-button-container {
   text-align: right;
@@ -57,20 +40,9 @@
   border-radius: 5px;
 }
 
-.goback-button-container,
-.submit-button-container {
-  width: 50%;
-  padding: 10px;
-}
-
 .goback-button-container {
   text-align: left;
-  float: left;
-}
-
-.submit-button-container {
-  text-align: right;
-  float: right;
+  padding: 10px;
 }
 
 .custom-link {
@@ -78,13 +50,45 @@
   color: #fff;
 }
 
-.form-check-input {
-  text-align: left;
-  padding-top: -10px;
+.goback-button-container {
+  float: left;
+  width: 50%;
 }
 
-.form-check-label {
+.submit-button-container {
+  float: right;
+  width: 50%;
+  text-align: right;
+}
+
+.label-addquizzes {
   text-align: left;
   padding: 2px;
-  margin: 0px;
+  margin: -10px;
+}
+
+.padded-card {
+  display: flex;
+  flex-direction: column; /* Ensure cards are in a column layout */
+  padding-left: 10px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  gap: 10px;
+}
+
+.form-check { 
+  display: flex;
+  align-items: center; /* Center align the radio buttons and labels */
+  margin-bottom: 10px; /* Adjust the value to set the desired gap between radio buttons and labels */
+}
+
+
+.vertical-radio-container {
+  display: flex;
+  flex-direction: column;
+}
+.quiz-card-text {
+  text-align: left;
+  font-family: "Arapey", serif;
+  padding: 10px;
 }

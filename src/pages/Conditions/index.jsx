@@ -1,6 +1,8 @@
 import { useEffect, useState } from 'react';
 import { useLocation } from 'react-router';
 import supabase from '../../supa/supabase/supabaseClient';
+import Navbar from "../../Components/molecules/Navbar/index.jsx";
+
 
 const Conditions = () => {
   const location = useLocation();
@@ -22,6 +24,7 @@ const Conditions = () => {
 
   return (
     <div>
+      <Navbar/>
       <p>showing results for {query}</p>
       {conditionsData.map((condition) => (
         <div key={condition.Condition_id}>

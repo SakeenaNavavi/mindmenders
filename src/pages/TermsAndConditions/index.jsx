@@ -1,8 +1,10 @@
 import React from 'react';
 import './index.css';
+import Navbar from "../../Components/molecules/Navbar/index.jsx";
 const TermsAndConditions = () => {
   return (
     <div>
+      <Navbar/>
       <h1 className="h1">Terms and Conditions</h1> 
 
 <h5 className="h5" >Welcome to our Mental Health Oasis:</h5>

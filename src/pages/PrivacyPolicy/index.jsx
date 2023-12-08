@@ -1,8 +1,9 @@
 import React from 'react';
-
+import Navbar from "../../Components/molecules/Navbar/index.jsx";
 const PrivacyPolicy = () => {
   return (
     <div>
+      <Navbar/>
       <h1 className= "h1" >Privacy Policy</h1>
       <h5 className= "h5">Privacy Policy</h5>
       <p className= "p">Our commitment to safeguarding your privacy and ensuring the security of your personal data is at the core of NIBM's mental health services. This Privacy Policy is designed to articulate how we collect, use, and protect the personal information of our valued users . 

@@ -4,6 +4,7 @@ import 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
 import supabase from '../../supa/supabase/supabaseClient';
 import { useEffect,useState } from 'react';
+import Navbar from "../../Components/molecules/Navbar/index.jsx";
 
 const Directory=()=>
 {
@@ -37,6 +38,7 @@ const Directory=()=>
 
     return (           
         <div>
+          <Navbar/>
             <div className="heading-container">
           <h1 className="h1">FIND YOUR THERAPIST</h1>
             <p className="para">Discover Our Distinguished Network of Dedicated Mental Health Professionals</p>

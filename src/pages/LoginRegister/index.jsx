@@ -3,6 +3,7 @@ import './index.css';
 import { useNavigate } from 'react-router';
 import Swal from 'sweetalert2';
 import supabase from '../../supa/supabase/supabaseClient';
+import Navbar from "../../Components/molecules/Navbar/index.jsx";
 
 const LoginRegister = () => {
   const Navigate = useNavigate();
@@ -132,6 +133,7 @@ const LoginRegister = () => {
         const password = VisitorData[0].password;
         const F_Name=VisitorData[0].F_Name;
 
+
         if (password === FormData.password) {
           Swal.fire({
             title: `Hello ${F_Name}`,
@@ -186,6 +188,7 @@ const LoginRegister = () => {
   };
   return (
     <div className="container">
+      <Navbar/>
       <div className="cont">
         <div className="form sign-in">
           <form>

@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Arapey&display=swap');
 .column {
     width: 18.3%;
     margin-bottom: 16px;
@@ -105,3 +106,116 @@
     font-family: "Arapey",serif;
     color: #333333;
 }
+.directoryform{
+    margin-top: 20px; /* Adjust the margin as needed */
+  max-width: 400px; /* Adjust the maximum width as needed */
+  margin-left: auto;
+  margin-right: auto;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+.directoryformlabel{
+    display: block;
+  margin-bottom: 8px;
+  font-weight: bold;
+  color: #333;
+}
+.directoryforminput{
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 16px;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+.directoryformbutton{
+    background-color: #4caf50;
+  color: #fff;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+}
+.admindirectory-card{
+    margin-left: 70px;
+    width: 235px; 
+    height: 400px;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    font-size: 14px;
+    transition: transform 0.3s ease;
+    border-radius: 15px;
+    overflow: hidden;
+
+    
+}
+.admindirectory-card-image{
+    width: 230px;
+    height: 200px;
+    padding: 10px;
+}
+.admindirectory-button-1{
+    border: none;
+    outline: 0;
+    display: inline-block;
+    padding: 1px;
+    color: #FFFFFF;
+    background-color: #70663E;
+    text-align: center;
+    cursor: pointer;
+    width: 70%;
+    border-radius: 12px;
+}
+.adimidirectory-chat-button{
+    border: none;
+    outline: 0;
+    display: inline-block;
+    padding: 1px;
+    color: #000;
+    background-color: #70663E;
+    text-align: center;
+    cursor: pointer;
+    width: 70%;
+    border-radius: 12px;
+    margin-bottom: 10px;
+}
+.admindirectory-card-title{
+    font-size: 18px;
+    font-weight: bold;
+    font-family: 'Times New Roman', Times, serif ;
+}
+
+.directoryformlabel {
+    display: block;
+    margin-bottom: 8px; 
+    font-size: 16px; 
+    background-origin: padding-box;
+  }
+  .button-container-admindirectorform
+  {
+    display: flex;
+    gap: 16px; 
+    margin-left: 75px;
+  }
+ .directoryformbutton{
+    background-color: #70663E;
+    color: white;
+    padding: 10px 15px;
+    font-size: 16px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    width: 100px;
+    height: 50px;
+ }
+ .admindirectory-card-container {
+    display: flex;  /* Use flexbox */
+    flex-wrap: wrap;  /* Wrap to the next line if there's not enough space */
+    justify-content: space-around;  /* Distribute space around items */
+  }
+  
+  

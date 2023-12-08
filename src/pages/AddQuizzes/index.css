@@ -1,68 +1,94 @@
 @import url('https://fonts.googleapis.com/css2?family=Arapey&display=swap');
 
-  .quiz-card {
-    max-width: 1500px; 
-    width: 100%;
-    height: 170px;
-    box-sizing: border-box;
-  }
-  
-  .quiz-card-text
-  {
-    text-align: left;
-    font-family: "Arapey",serif;
-    padding: 10px;
-  }
-  
+  /* Your existing code ... */
+
+.quiz-card {
+  max-width: 1500px;
+  width: 100%;
+  height: 170px;
+  box-sizing: border-box;
+  margin-bottom: 20px; /* Adjust the value to set the desired gap between cards */
+}
+
+.quiz-card-text {
+  text-align: left;
+  font-family: "Arapey", serif;
+  padding: 10px;
+}
 
 .submit-button-container {
   text-align: right;
-  padding: 10px; 
+  padding: 10px;
 }
 
 .submit-button {
-  background-color: #443806; 
-  color: #fff; 
-  border: none; 
+  background-color: #443806;
+  color: #fff;
+  border: none;
   padding: 10px 20px;
-  font-family: "Arapey",serif;
+  font-family: "Arapey", serif;
   border-radius: 5px;
 }
 
 .goback-button {
-  background-color: #443806; 
-  color:#fff ; 
-  border: none; 
-  padding: 10px 20px; 
-  float: left; 
-  font-family: "Arapey",serif;
+  background-color: #443806;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  float: left;
+  font-family: "Arapey", serif;
   border-radius: 5px;
 }
+
 .goback-button-container {
   text-align: left;
-  padding: 10px; 
+  padding: 10px;
 }
 
 .custom-link {
   text-decoration: none;
-  color: #fff; 
-  
+  color: #fff;
 }
 
-
-
 .goback-button-container {
-  float: left; 
-  width: 50%; 
+  float: left;
+  width: 50%;
 }
 
 .submit-button-container {
   float: right;
-  width: 50%; 
-  text-align: right; 
+  width: 50%;
+  text-align: right;
 }
-.label-addquizzes{
+
+.label-addquizzes {
   text-align: left;
-  padding:2px;
+  padding: 2px;
   margin: -10px;
+}
+
+.padded-card {
+  display: flex;
+  flex-direction: column; /* Ensure cards are in a column layout */
+  padding-left: 10px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  gap: 10px;
+}
+
+.form-check { 
+  display: flex;
+  align-items: center; /* Center align the radio buttons and labels */
+  margin-bottom: 10px; /* Adjust the value to set the desired gap between radio buttons and labels */
+}
+
+
+.vertical-radio-container {
+  display: flex;
+  flex-direction: column;
+}
+.quiz-card-text {
+  text-align: left;
+  font-family: "Arapey", serif;
+  padding: 10px;
 }

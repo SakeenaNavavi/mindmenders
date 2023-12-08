@@ -3,67 +3,39 @@ import { Link, useNavigate, useParams } from "react-router-dom";
 import supabase from "../../supa/supabase/supabaseClient";
 import './index.css';
 import Navbar from "../../Components/molecules/Navbar/index.jsx";
-
 const AddQuizzes = () => {
+  const { Questionnaire_id } = useParams();
+  const [questions, setQuestions] = useState([]);
+  const navigate = useNavigate();
 
-
-  const modal=()=>{
-    alert('Your answers have been sent for review to the relevant consultant! Will get back to you soon!');
-  }
-  const numCards = 10;
-  const cards = [];
-  const stressSentences = [
-    "I often feel overwhelmed by the demands of daily life.",
-    "I have experienced withdrawal symptoms when attempting to cut down or stop my substance use.",
-    "I find it challenging to relax and unwind after a long day.",
-    "I frequently experience physical symptoms of stress (e.g., headaches, tension).",
-    "I often feel anxious about the future.",
-    "I have trouble sleeping due to stress.",
-    "I feel pressure to meet others' expectations.",
-    "I struggle to find time for self-care activities.",
-    "I have difficulty concentrating due to stress.",
-    "I often feel irritable or moody.",
-  ];
-
-  for (let i = 1; i <= numCards; i++) {
-    const radioGroupName = `flexRadioDefault${i}`;
-    cards.push(
-      <div key={i} className="d-flex justify-content-center vh-20" style={{ padding: '10px' }}>
-        <div className="quiz-card card custom-card custom-card-width">
-          <div className="quiz-card-body">
-            <p className="quiz-card-text">
-            {stressSentences[i - 1]}
-              <div className="form-check form-check-inline">
-                <input type="radio" name={radioGroupName} id={`disagree${i}`} className="radiobtn" />
-                <label htmlFor={`disagree${i}`} className="form-check-label">
-                  Disagree
-                </label>
-                </div>
-                </p>
-               </div>
-              </div>
-      </div>
-
+  useEffect(() => {
+    const fetchQuestions = async () => {
+      try {
+        const { data, error } = await supabase
+          .from("tblQuestions")
+          .select("*")
+          .eq("Questionnaire_id", Questionnaire_id)
+          .limit(10);
 
         if (data) {
-          setQuestions(data)
+          setQuestions(data);
         } else if (error) {
-          console.error("Error fetching questions:", error.message)
+          console.error("Error fetching questions:", error.message);
         }
-       catch (error) {
-        console.error("Error fetching questions:", error.message)
+      } catch (error) {
+        console.error("Error fetching questions:", error.message);
       }
-    
+    };
 
     fetchQuestions();
-   [Questionnaire_id]
+  }, [Questionnaire_id]);
 
-  const handleRadioChange = (questionId, selectedOption) = {
-    console.log(`Question ${questionId} selected option: ${selectedOption}`),
-    const numCards = '10',
-    const cards = [],
+  const handleRadioChange = (questionId, selectedOption) => {
+    console.log(`Question ${questionId} selected option: ${selectedOption}`);
+    const numCards = 10;
+    const cards = [];
 
-    for (let i = 1, i = numCards, i++;) {
+    for (let i = 1; i <= numCards; i++) {
       const radioGroupName = `flexRadioDefault${i}`;
       cards.push(
         <div
@@ -133,8 +105,8 @@ const AddQuizzes = () => {
 
   return (
     <div className="button-box">
-      <Navbar/>
       <div className="padded-card">
+        <Navbar/>
         {questions.map((question, index) => (
           <div
             key={index}
@@ -207,3 +179,4 @@ const AddQuizzes = () => {
 };
 
 export default AddQuizzes;
+

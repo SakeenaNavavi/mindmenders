@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import './index.css';
-import { Navigate, useNavigate } from 'react-router';
+import { useNavigate } from 'react-router';
+import Swal from 'sweetalert2';
 import supabase from '../../supa/supabase/supabaseClient';
+import Navbar from "../../Components/molecules/Navbar/index.jsx";
 
 const LoginRegister = () => {
   const Navigate = useNavigate();
-  const [selectedUsername, setSelectedUsername] = useState(null);
-  const [UserId, setUserId] = useState(null);
-
+  const [selectedUsername, setSelectedUsername] = useState("");
   const handleInputChange = (e) => {
     const { name, value } = e.target;
     setFormData({ ...FormData, [name]: value });
@@ -31,8 +31,8 @@ const LoginRegister = () => {
   }, []);
 
   const [FormData, setFormData] = useState({
-    F_name: '',
-    L_name: '',
+    F_Name: '',
+    L_Name: '',
     DOB: '',
     gender: '',
     Email: '',
@@ -48,18 +48,18 @@ const LoginRegister = () => {
     //const formData = new FormData(e.target);
     console.log(e.target);
 
-    const F_name = document.getElementById('F_name').value;
-    const L_name = document.getElementById('L_name').value;
+    const F_Name = document.getElementById('F_Name').value;
+    const L_Name = document.getElementById('L_Name').value;
     const DOB = document.getElementById('DOB').value;
     const Email = document.getElementById('Email').value;
     const password = document.getElementById('password').value;
 
-    if (!F_name || !L_name || !DOB || !Email || !password) {
+    if (!F_Name || !L_Name || !DOB || !Email || !password) {
       showAlert('Please fill out all the fields');
       return;
     }
 
-    console.log(F_name);
+    console.log(F_Name);
 
     const formDataToUpdateSupabase = {
       // F_name: formData.get('F_name'),
@@ -67,8 +67,8 @@ const LoginRegister = () => {
       // DOB: formData.get('DOB'),
       // Email: formData.get('Email'),
       // password: formData.get('password'),
-      F_name,
-      L_name,
+      F_Name,
+      L_Name,
       DOB,
       Email,
       password,
@@ -80,10 +80,10 @@ const LoginRegister = () => {
 
   const insertDataIntoSupabase = async (formDataToUpdateSupabase) => {
     try {
-      const { data, error } = await supabase.from('tblUser').insert([
+      const { data, error } = await supabase.from('tblVisitor').insert([
         {
-          F_name: formDataToUpdateSupabase.F_name,
-          L_name: formDataToUpdateSupabase.L_name,
+          F_Name: formDataToUpdateSupabase.F_Name,
+          L_Name: formDataToUpdateSupabase.L_Name,
           DOB: formDataToUpdateSupabase.DOB,
           Email: formDataToUpdateSupabase.Email,
           password: formDataToUpdateSupabase.password,
@@ -109,6 +109,10 @@ const LoginRegister = () => {
     else if (selectedUsername === 'Consultant') {
       handleConsultantLogin()
     }
+    /*else if(selectedUsername==='Admin')
+    {
+      handleAdminLogin()
+    }*/
     else {
       alert('Please fill out all the fields!');
     }
@@ -116,8 +120,8 @@ const LoginRegister = () => {
   const handleVisitorLogin = async () => {
     try {
       const { data: VisitorData, error: VisitorError } = await supabase
-        .from('tblUser')
-        .select('id,password')
+        .from('tblVisitor')
+        .select('Visitor_id,F_Name,password')
         .eq('Email', FormData.Email);
 
       if (VisitorError) {
@@ -125,13 +129,20 @@ const LoginRegister = () => {
         return;
       }
       if (VisitorData && VisitorData.length > 0) {
-        const UserID = VisitorData[0].id;
+        const Visitor_id = VisitorData[0].Visitor_id;
         const password = VisitorData[0].password;
+        const F_Name=VisitorData[0].F_Name;
 
 
         if (password === FormData.password) {
-          setUserId(UserID);
-          Navigate('/', { state: { UserID } });
+          Swal.fire({
+            title: `Hello ${F_Name}`,
+            text: 'Welcome to MindMenders! We are here to support your journey towards well-being.',
+            icon: 'success',
+            confirmButtonText: 'OK',
+          }).then(() => {
+            Navigate('/', { state: { Visitor_id } });
+          });
         }
         else {
           alert('Wrong password!')
@@ -177,23 +188,26 @@ const LoginRegister = () => {
   };
   return (
     <div className="container">
+      <Navbar/>
       <div className="cont">
         <div className="form sign-in">
           <form>
             <h2>Welcome</h2>
             <label>
               <span>Email</span></label>
-            <input type="Email" id="Email" name='Email' onChange={handleInputChange} required />
+            <input type="Email" id="loginEmail" name='Email' onChange={handleInputChange} required />
             <label>
               <span>Role</span>
               <select id="validationDefaultUsername" value={selectedUsername} onChange={handleUsernameChange} >
+                <option>---</option>
                 <option value="Visitor">Visitor</option>
                 <option value="Consultant">Consultant</option>
+                <option value="Admin">Admin</option>
               </select>
             </label>
             <label>
               <span>Password</span></label>
-            <input type="password" id="password" name="password" onChange={handleInputChange} required />
+            <input type="password" id="loginpassword" name="password" onChange={handleInputChange} required />
 
             <p className="forgot-pass">Forgot password?</p>
             <button type="submit" className="btn btn-success submit" onClick={handleSubmit}>
@@ -219,11 +233,11 @@ const LoginRegister = () => {
             <form onSubmit={gatDataIntoSupabase}>
               <label>
                 <span>First name</span></label>
-              <input type="text" id="F_name" name="F_name" required />
+              <input type="text" id="F_Name" name="F_Name" required />
 
               <label>
                 <span>Last name</span></label>
-              <input type="text" id="L_name" name="L_name" required />
+              <input type="text" id="L_Name" name="L_Name" required />
 
               <label>
                 <span>Date of Birth</span></label>

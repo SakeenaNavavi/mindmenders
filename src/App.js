@@ -1,7 +1,6 @@
 import './App.css';
 import './style.css';
 import { Routes, Route, } from 'react-router-dom';
-import Navbar from './Components/molecules/Navbar';
 import Home from './pages/HomePage';
 import ProfessionalDirectory from './pages/ProfessionalDirectory';
 import AboutUs from './pages/AboutUs';
@@ -14,13 +13,12 @@ import PrivacyPolicy from './pages/PrivacyPolicy';
 import AddQuizzes from './pages/AddQuizzes';
 import LoginRegister from './pages/LoginRegister';
 import AppointmentBooking from './pages/AppointmentBooking';
-
 import Conditions from './pages/Conditions';
 
 function App() {
   return (
     <div className="App">
-      <Navbar />
+  
 
       <Routes>
 

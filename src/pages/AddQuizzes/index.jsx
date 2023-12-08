@@ -4,6 +4,7 @@ import supabase from "../../supa/supabase/supabaseClient";
 
 const AddQuizzes = () => {
 
+
   const modal=()=>{
     alert('Your answers have been sent for review to the relevant consultant! Will get back to you soon!');
   }
@@ -40,6 +41,7 @@ const AddQuizzes = () => {
                </div>
               </div>
       </div>
+
 
         if (data) {
           setQuestions(data)
@@ -190,9 +192,7 @@ const AddQuizzes = () => {
           </button>
         </div>
         <div className="submit-button-container">
-
-          <button className="submit-button" onClick={modal}>Submit Quizz</button>
-
+          <button className="submit-button">Submit Quiz</button>
         </div>
       </div>
       <br />

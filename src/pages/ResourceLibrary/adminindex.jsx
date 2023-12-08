@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Row, Col } from 'react-bootstrap';
 import { createClient } from '@supabase/supabase-js';
 import './index.css';
-import Navbar from "../../Components/molecules/Navbar/index.jsx";
+import AdminNavbar from '../../AdminNavbar';
 
 const supabaseUrl = 'https://brxyhorsxcsfbiivubin.supabase.co'; 
 const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImJyeHlob3JzeGNzZmJpaXZ1YmluIiwicm9sZSI6ImFub24iLCJpYXQiOjE2OTkxNjAyMTQsImV4cCI6MjAxNDczNjIxNH0._RS1Z6BydY99zFyVtseR1HKH_KNVSOU1IsPj7i019l0'; 
@@ -15,7 +15,7 @@ const handleCardClick = (param1, param2) => {
   // Add the logic you want to execute when the card is clicked
 };
 
-const ResourceLibrary = () => {
+const AdminResourceLibrary = () => {
   const [data, setData] = useState({
     Condition_id: '',
     Resource_id: '',
@@ -61,7 +61,7 @@ const ResourceLibrary = () => {
 
   return (
     <div>
-      <Navbar/>
+      <AdminNavbar/>
       <h2 className="resourcelibraryh">
         Explore our video section within the resource library, where you'll find valuable content
         to enhance your mental well-being and gain insights into self-care and personal growth.
@@ -1426,4 +1426,4 @@ const ResourceLibrary = () => {
   );
 };
 
-export default ResourceLibrary;
+export default AdminResourceLibrary;

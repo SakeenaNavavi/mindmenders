@@ -1,3 +1,4 @@
+import Navbar from "../../Components/molecules/Navbar/index.jsx";
 import { Container, Row, Col } from "react-bootstrap";
 import './index.css';
 import Home2 from './index1.jsx';
@@ -8,7 +9,9 @@ import animation from './videoplayback.mp4';
 const Home=()=>
 {
     return(
+        
         <section>
+        <Navbar/>
             <Container fluid className="home-section" id="home">
                 <Container className="home-content">
                     <Row>
@@ -29,7 +32,9 @@ const Home=()=>
             <Home3/>
             <Home4/>
             <Home5/>
+            
         </section>
+        
     )
 }
 export default Home;

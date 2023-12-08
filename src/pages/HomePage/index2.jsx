@@ -1,9 +1,11 @@
 import { Container, Row, Col, Button } from 'react-bootstrap';
 import quiz from './quiz.png';
 import { Link } from 'react-router-dom';
+
 const Home3 = () => {
     return (
         <section>
+        
             <Container fluid className="home-quizzes">
                 <Row>
                     <Col md={6} className="quiz-about">
@@ -22,6 +24,7 @@ const Home3 = () => {
                     </Col>
                 </Row>
             </Container>
+           
         </section>
     );
 }

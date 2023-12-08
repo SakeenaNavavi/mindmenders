@@ -1,10 +1,12 @@
 import { Container, Row, Col, Button } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import ResourceLibrary from './resourceLibrary.png'
+
 const Home4 = () => {
     return (
         <div>
             <section>
+         
                 <Container fluid className="home-directory">
                     <Row>
                         <Col md={6} className="professionals-pic">
@@ -25,6 +27,7 @@ const Home4 = () => {
                         </Col>
                     </Row>
                 </Container>
+          
             </section>
         </div>
     )

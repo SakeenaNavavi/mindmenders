@@ -157,8 +157,8 @@ const LoginRegister = () => {
   const handleConsultantLogin = async () => {
     try {
       const { data: ConsultantData, error: ConsultantError } = await supabase
-        .from('tblUser')
-        .select('id,password')
+        .from('tblConsultant')
+        .select('Consultant_id,password')
         .eq('Email', FormData.Email);
 
       if (ConsultantError) {
@@ -166,11 +166,11 @@ const LoginRegister = () => {
         return;
       }
       if (ConsultantData && ConsultantData.length > 0) {
-        const UserID = ConsultantData[0].id;
+        const Consultant_id = ConsultantData[0].Consultant_id;
         const password = ConsultantData[0].password;
 
         if (password === FormData.password) {
-          Navigate('/', { state: { UserID } });
+          Navigate('/', { state: { Consultant_id } });
         }
         else {
           alert('Wrong password!')

@@ -4,13 +4,13 @@ import Swal from 'sweetalert2';
 import supabase from '../../supa/supabase/supabaseClient';
 import './index.css';
 const AppointmentBooking = (location) => {
- // const UserId = location.state?.UserId;
-  /*const newDataWithUserId = {
+  const UserId = location.state?.UserId;
+  const newDataWithUserId = {
     ...newData,
     User_id: UserId,
-  };*/
-  /*const [newData, setNewData] = useState({
-    UserId:'',
+  };
+  const [newData, setNewData] = useState({
+    UserId: UserId,
     First_Name: '',
     Last_Name: '',
     Phone_Number: '',
@@ -54,25 +54,26 @@ const AppointmentBooking = (location) => {
     };
 
     fetchData();
-  }, []);*/
+  }, []);
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
+    await handleInsert();
     Swal.fire({
       title: 'Request Pending!',
       text: 'You will be notified when the Consultant confirms your appointment request!',
       icon: 'success',
     });}
-    //handleInsert();
+    handleInsert();
   
 
-  /*const handleInputChange = (e) => {
+  const handleInputChange = (e) => {
     const { name, value } = e.target;
     setNewData((prevData) => ({
       ...prevData,
       [name]: value,
     }));
-  };*/
+  }; 
 
   return (
     <div className="appointment">
@@ -93,8 +94,8 @@ const AppointmentBooking = (location) => {
               id="First_Name"
               name="First_Name"
               placeholder="Enter your first name"
-              //value={newData.First_Name}
-              //onChange={handleInputChange}
+              value={newData.First_Name}
+              onChange={handleInputChange}
               required
             />
           </div>
@@ -106,8 +107,8 @@ const AppointmentBooking = (location) => {
               id="Last_Name"
               name="Last_Name"
               placeholder="Enter your last name"
-              //value={newData.Last_Name}
-              //onChange={handleInputChange}
+              value={newData.Last_Name}
+              onChange={handleInputChange}
               required
             />
           </div>
@@ -119,8 +120,8 @@ const AppointmentBooking = (location) => {
               id="phone_number"
               name="Phone_Number"
               placeholder="Enter your phone number"
-              //value={newData.Phone_Number}
-              //onChange={handleInputChange}
+              value={newData.Phone_Number}
+              onChange={handleInputChange}
               required
             />
           </div>
@@ -132,8 +133,8 @@ const AppointmentBooking = (location) => {
               id="email"
               name="Email"
               placeholder="Enter your email address"
-              //value={newData.Email}
-              //onChange={handleInputChange}
+              value={newData.Email}
+              onChange={handleInputChange}
               required
             />
           </div>
@@ -144,8 +145,8 @@ const AppointmentBooking = (location) => {
               className="form-control"
               id="DOB"
               name="DOB"
-              //value={newData.DOB}
-              //onChange={handleInputChange}
+              value={newData.DOB}
+              onChange={handleInputChange}
               required
             />
           </div>

@@ -35,27 +35,31 @@ const AddQuizzes = () => {
                 <label htmlFor={`disagree${i}`} className="form-check-label">
                   Disagree
                 </label>
-
+                </div>
+                </p>
+               </div>
+              </div>
+      </div>
 
         if (data) {
-          setQuestions(data);
+          setQuestions(data)
         } else if (error) {
-          console.error("Error fetching questions:", error.message);
+          console.error("Error fetching questions:", error.message)
         }
-      } catch (error) {
-        console.error("Error fetching questions:", error.message);
+       catch (error) {
+        console.error("Error fetching questions:", error.message)
       }
-    };
+    
 
     fetchQuestions();
-  }, [Questionnaire_id]);
+   [Questionnaire_id]
 
-  const handleRadioChange = (questionId, selectedOption) => {
-    console.log(`Question ${questionId} selected option: ${selectedOption}`);
-    const numCards = 10;
-    const cards = [];
+  const handleRadioChange = (questionId, selectedOption) = {
+    console.log(`Question ${questionId} selected option: ${selectedOption}`),
+    const numCards = '10',
+    const cards = [],
 
-    for (let i = 1; i <= numCards; i++) {
+    for (let i = 1, i = numCards, i++;) {
       const radioGroupName = `flexRadioDefault${i}`;
       cards.push(
         <div

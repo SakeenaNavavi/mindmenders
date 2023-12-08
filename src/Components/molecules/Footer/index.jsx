@@ -195,14 +195,10 @@ const Footer = () => {
                     </div>
                   </form>
                 </div>
-
-              </div>
-            </form>
-          </div>
-        </div>
-      </Col>
-
-
+                </div>
+                </Col>
+          
+             
             <Col md={3} xs={6}>
               {" "}
               <br /> <br />

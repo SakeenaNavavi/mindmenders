@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { Link, useNavigate, useParams } from "react-router-dom";
 import supabase from "../../supa/supabase/supabaseClient";
+import './index.css';
+import Navbar from "../../Components/molecules/Navbar/index.jsx";
 
 const AddQuizzes = () => {
 
@@ -131,6 +133,7 @@ const AddQuizzes = () => {
 
   return (
     <div className="button-box">
+      <Navbar/>
       <div className="padded-card">
         {questions.map((question, index) => (
           <div

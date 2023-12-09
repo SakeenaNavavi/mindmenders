@@ -1,315 +1,36 @@
 @import url('https://fonts.googleapis.com/css2?family=Arapey&display=swap');
-.website-container {
-    display: flex;
-  }
-  
-  .body{
-    background-color:  #efefef;
-  }
-  
-  .mental-health-chat {
-    flex: 2; 
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-  }
-  .contact-image {
-    width: 50px;
-    height: 50px; 
-    border-radius: 50%; 
+.box {
+    border: 1px solid #000;
+    width: 1200px;
     padding: 10px;
-  }
-  .contact-name {
-    margin: 0 10px; 
-  }
-
-.website-container-drgui {
     display: flex;
-
-    padding: 50px; 
+    justify-content: space-between;
+    margin: 0 auto;
+    transition: transform 0.3s ease, background-color 0.3s ease; 
+    border-radius: 10px;
+    background-color: white;
   }
-
-
- .chat-window {
-  height: 900px ;
-  height: 850px ;
-  width: 600px;
-  border: 1px solid #333;
-  flex-direction: column; 
-
-  }
-
-  .drgui-h2{
-    font-family: "Arapey",serif;
-    
-  }
-.patient-requests-h2{
-  font-family: "Arapey",serif;
-}
-
-.contact-button-drgui:hover{
-
+  
+  .box:hover {
     transform: scale(1.02);
     overflow: hidden;
-
-}
-.contact-image-drgui {
-  width: 75px; 
-  height: 75px; 
-  border-radius: 50%;
-  margin-right: 10px;
-}
-
-.contact-details-drgui {
-  flex: 1;
-}
-
-.contact-drgui-name {
-  font-weight: bold;
-}
-
-.latest-message {
-  font-size: 14px;
-  color: #888; 
-}
-
-.contact-button-drgui img {
-  width: 50px; 
-  height: 50px;
-  margin-right: 10px;
-  border-radius: 50%;
-}
-
-
-.new-box img {
-  width: 30px; 
-  height: 30px; 
-  border-radius: 50%;
-}
-
-
-
-.new-box img {
-  width: 30px; 
-  height: 30px; 
-    margin-right: 10px;
-  border-radius: 50%;
-}
-
-.new-box h3 {
-  margin: 0;
-}
-
-
-.cameraicon {
-  margin-left: 300px; 
-  margin-right: 2px; 
-  padding:10px;
-  background-color: #f0f0f0;
-  border: 1px solid #ddd;
-  border-radius: 5px;
-  cursor: pointer;
-}
-.imageicon
-{
-  margin-left: 10px; 
-  margin-right: 2px; 
-  padding:10px;
-  background-color: #f0f0f0;
-  border: 1px solid #ddd;
-  border-radius: 5px;
-  cursor: pointer;
-}
-.cogicon{
-  margin-left: 10px; 
-  margin-right: 2px; 
-  padding:10px;
-  background-color: #f0f0f0;
-  border: 1px solid #ddd;
-  border-radius: 5px;
-  cursor: pointer;
-}
-.circleicon{
-  margin-left: 10px; 
-  margin-right: 2px; 
-  padding:10px;
-  background-color: #f0f0f0;
-  border: 1px solid #ddd;
-  border-radius: 5px;
-  cursor: pointer;
-}
-.boxed{
-  background-color:#e3dac9;
-  width: 350px;
-  height: 1000px;
-  border: 1px solid #ccc;
-  padding-right: 200px;
-   display: flex;
-  flex-direction: column;
-  align-items: center; 
-  margin-right: 200px;
+  }
+  .h1
+  {
+    color: #443806;
+    font-family: "Arapey",serif;
+  }
+  .text-box-header {
+    text-align: left;
+    font-family: 'Lobster', cursive;
+    font-family: "Arapey",serif;
+  }
+  .qbutton {
+    width: 175px;
+    height: 40px;
+    background-color: #F4F4EB;
+    color: #443806;
+    font-family: "Arapey", serif;
+    border: 1px solid #000; 
   
-}
-.new-box {
-  background-color: #f0f0f0; 
-  border: 1px solid #ccc; 
-  padding: 10px;
-  margin-bottom: 10px;
-  width: 595px;
-  height: 50px;
-  border: black;
-  display: flex;
-  align-items: center;
-  margin-bottom: 10px;
-
-
-}
-
-.boxedh {
-  border: 1px solid  #ccc;
-  padding: 20px; 
-  background-color: #e3dac9;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 650px;
-  height: 1000px;
-  margin-right: 20px;
-
-}
-.box1{
-  background-color:#e3dac9;
-  width: 400px;
-  height: 1000px;
-  border: 1px solid #ccc;
-  padding-right: 100px;
-   display: flex;
-  flex-direction: column;
-  align-items: center; 
-  margin-right: 20px;
-}
-.contact-button-drgui {
-  width: 200px;
-  background-color: #f0f0f0;
-  border: 1px solid #ddd;
-  border-radius: 5px;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  margin-right: 500px;
-  margin-bottom: 10px;
-  text-align: left;
-  text-decoration: none;
-  color: #333; 
-}
-.patient-request-box{
-  background-color:white;
-  width: 200px;
-  height: 150px;
-  padding-right: 100px;
-  margin-top: 10px;
-}
-.button-container-docgui {
-  display: flex;
-  align-items: center;
-}
-
-.accept-button,
-.reject-button-docgui {
-  background-color: #4caf50;
-  color: #fff;
-  border: none;
-  padding: 8px 16px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 14px;
-  cursor: pointer;
-  border-radius: 4px;
-  transition: background-color 0.3s;
-  margin-left: 20px;
-}
-
-.accept-button:hover,
-.reject-button-docgui:hover {
-  background-color: #45a049;
-}
-.calendar-popover-docgui {
-  width: 200px;
-  height: 150px;
-  background-color: #3498db; /* Set background color */
-  color: #fff; /* Set text color */
-  border-radius: 8px; /* Add rounded corners */
-  padding: 10px; /* Add some padding */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add a subtle box shadow */
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-}
-
-.calendar-popover-docgui button {
-  background-color: #2ecc71; /* Button background color */
-  color: #fff; /* Button text color */
-  border: none;
-  padding: 8px 16px;
-  margin-top: 10px;
-  cursor: pointer;
-  border-radius: 4px;
-  transition: background-color 0.3s ease;
-  margin-left: 100px;
-}
-
-.calendar-popover-docgui button:hover {
-  background-color: #27ae60; /* Button background color on hover */
-}
-.form-group-docgui{
-  width: 200px;
-  height: 100px;
-}
-.date-label-docgui {
-  font-size: 16px; /* Set font size */
-  color: #333; /* Set text color */
-  margin-bottom: 8px; /* Add some bottom margin for spacing */
-  display: block; /* Make it a block-level element */
-  padding-left: 100px;
-}
-.time_label-drgui {
-  margin-bottom: 8px; /* Adds space between label and select */
-  color: #333; /* Change color as needed */
-  font-size: 18px; /* Adjust font size as needed */
-
-}
-.container-drgui {
-  display: flex;
-  justify-content: center;
-}
-
-
-
-.input-container-drgui {
-  display: flex;
-
-}
-
-.textclassdrgui {
-  flex: 1;
-  padding: 8px;
-  margin-right: 8px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  margin-top: 10px;
-  width: 400px;
-  background-color: white;
-}
-
-.drguisendbutton {
-  padding: 10px 15px;
-  background-color: navy;
-  color: #fff;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-  margin-top: 10px;
-}
+  }

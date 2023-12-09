@@ -1,274 +1,200 @@
-import React, { Component } from 'react';
-import { Row, Col, Popover } from 'react-bootstrap';
-import { library } from '@fortawesome/fontawesome-svg-core';
-import { faCamera, faImage, faCog, faQuestionCircle } from '@fortawesome/free-solid-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-
-import 'react-datepicker/dist/react-datepicker.css';
-import 'react-time-picker/dist/TimePicker.css';
+import React from 'react';
+import { Link, useNavigate } from 'react-router-dom';
 import './index.css';
+import { createClient } from '@supabase/supabase-js';
+import Navbar from "../../Components/molecules/Navbar/index.jsx";
 
-library.add(faCamera, faImage, faCog, faQuestionCircle);
+const supabaseUrl = 'https://brxyhorsxcsfbiivubin.supabase.co';
+const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImJyeHlob3JzeGNzZmJpaXZ1YmluIiwicm9sZSI6ImFub24iLCJpYXQiOjE2OTkxNjAyMTQsImV4cCI6MjAxNDczNjIxNH0._RS1Z6BydY99zFyVtseR1HKH_KNVSOU1IsPj7i019l0';
+const supabase = createClient(supabaseUrl, supabaseKey);
 
-class Doctorgui extends Component {
-  constructor() {
-    super();
-    this.state = {
-      showCalendar: false,
-      selectedDate: null,
-      selectedTime: '10:00 AM', // Default time
-      messages: [],
-      newMessage: '',
-      contacts: [
-        { id: 1, name: 'John', image: 'https://th.bing.com/th/id/OIP.2wJgLm91mIUVE7lomPTesQHaHa?w=217&h=217&c=7&r=0&o=5&dpr=1.3&pid=1.7' },
-        { id: 2, name: 'Mary', image: 'https://oldnavy.gap.com/webcontent/0027/926/789/cn27926789.jpg' },
-        { id: 3, name: 'David', image: 'https://oldnavy.gap.com/webcontent/0027/926/789/cn27926789.jpg' },
-        { id: 4, name: 'Sarah', image: 'https://oldnavy.gap.com/webcontent/0027/926/789/cn27926789.jpg' },
-        { id: 5, name: 'Ann', image: 'https://oldnavy.gap.com/webcontent/0027/926/789/cn27926789.jpg' },
-        { id: 6, name: 'Jane', image: 'https://oldnavy.gap.com/webcontent/0027/926/789/cn27926789.jpg' },
-        { id: 7, name: 'Emily', image: 'https://oldnavy.gap.com/webcontent/0027/926/789/cn27926789.jpg' },
-        { id: 8, name: 'Robert', image: 'https://oldnavy.gap.com/webcontent/0027/926/789/cn27926789.jpg' },
-        { id: 9, name: 'Jessica', image: 'https://oldnavy.gap.com/webcontent/0027/926/789/cn27926789.jpg' },
-      ],
-      patientRequests: [
-        { id: 1, name: 'Patient 1' },
-        { id: 2, name: 'Patient 2' },
-        { id: 3, name: 'Patient 3' },
-        { id: 4, name: 'Patient 4' },
-        { id: 5, name: 'Patient 5' },
+const Quizzes = () => {
+  const navigate = useNavigate();
+
+  const handleGetStarted = (Questionnaire_id) => {
+    navigate(`/add-quizzes/${Questionnaire_id}`);
+  };
+ 
+  return (
+    <div>
+      <Navbar/>
+      <br />
+      <h1 className="h1">Mind Matters: Mental Health Quizzes</h1>
+      <div className="box">
+        <h5 className="text-box-header">
+          01. Depression, a mental health challenge, brings persistent sadness and a loss of interest, impacting daily life. Don't face it alone; let's explore and discuss with empathy and understanding.
+        </h5>
+        <Link to="/add-quizzes">
+          <button
+            className="qbutton"
+            onClick={() => handleGetStarted(1)} 
+          >
+            <b> Get Started</b>
+          </button>
+        </Link>
+      
+      </div>
+      
+      <br />
+      
+      <div div className="box">
        
+      
+        <h5 className="text-box-header" >
+          02.Stress is a common response to life's challenges, affecting well-being. We can explore this experience and emotional health together through quizzes, promoting understanding and support.
+        </h5>
+        <Link to="/add-quizzes">
+        <button
+      className="qbutton"
+      onClick={() => handleGetStarted()}
+    >
+      <b> Get Started</b>
+    </button>
+</Link>
+      </div>
+
+      <br />
+      
+      <div div className="box">
+        
+      
+        <h5 className="text-box-header" >
+          03.Insomnia, a sleep disorder causing difficulty in falling or staying asleep, can affect emotional well-being. If you've faced insomnia, let's explore solutions and take a Insomnia quiz together for better understanding and support.
+        </h5>
+        <Link to="/add-quizzes">
+        <button
+      className="qbutton"
+      onClick={() => handleGetStarted()}
+    >
+      <b> Get Started</b>
+    </button>
+</Link>
+      </div>
+
+      <br />
+
+      <div div className="box">
        
-      ],
-      selectedRequestId: null,
-      selectedContact: null,
-      popovers: {},
-      showForm: false,
-    };
-  }
+      
+        <h5 className="text-box-header" >
+          04.Overthinking, a common mental habit involving excessive analysis, can impact emotional well-being. If you've been caught in overthinking, let's explore strategies and take a Overthinking quiz together to enhance understanding and support.
+        </h5>
+        <Link to="/add-quizzes">
+        <button
+      className="qbutton"
+      onClick={() => handleGetStarted()}
+    >
+      <b> Get Started</b>
+    </button>
+</Link>
+      </div>
 
-  handleContactClick = (contactId) => {
-    const selectedContact = this.state.contacts.find((contact) => contact.id === contactId);
-    this.setState({ selectedContact });
-  };
+      <br />
 
-  handleAcceptRequest = (requestId) => {
-    this.setState((prevState) => ({
-      selectedRequestId: requestId,
-      popovers: {
-        ...prevState.popovers,
-        [requestId]: true,
-      },
-      showForm: true,
-    }));
-  };
+      <div div className="box">
+       
+      
+        <h5 className="text-box-header">
+          05.Addictions, compulsive behaviors disrupting daily life, can challenge mental well-being. If you're struggling with addictions, let's have a conversation. Are you ready to take a Addictions quiz, exploring emotional well-being together?
+        </h5>
+        <Link to="/add-quizzes">
+        <button
+      className="qbutton"
+      onClick={() => handleGetStarted()}
+    >
+      <b> Get Started</b>
+    </button>
+</Link>
+      </div>
 
-  handleRejectRequest = (requestId) => {
-    // Remove the rejected request from the patientRequests array
-    this.setState((prevState) => ({
-      patientRequests: prevState.patientRequests.filter((request) => request.id !== requestId),
-      popovers: {
-        ...prevState.popovers,
-        [requestId]: false,
-      },
-      showForm: true,
-    }));
-  };
+      <br />
 
-  setPopoverContent = (requestId, content) => {
-    this.setState((prevState) => ({
-      popoverContent: {
-        ...prevState.popoverContent,
-        [requestId]: content,
-      },
-    }));
-  };
+      <div div className="box">
+       
+      
+        <h5 className="text-box-header" >
+          06.Eating disorders, characterized by unhealthy eating behaviors, can impact emotional well-being. If you're dealing with eating disorders, let's have a conversation. Are you interested in taking a eating disorders quiz to explore emotional well-being together?
+        </h5>
+        <Link to="/add-quizzes">
+        <button
+      className="qbutton"
+      onClick={() => handleGetStarted()}
+    >
+      <b> Get Started</b>
+    </button>
+</Link>
+      </div>
 
-  handleDateChange = (date) => {
-    this.setState({ selectedDate: date });
-  };
+      <br />
 
-  handleTimeChange = (time) => {
-    this.setState({ selectedTime: time });
-  };
+      <div div className="box">
+       
+      
+        <h5 className="text-box-header" >
+          07.Bipolar and mood disorders, characterized by extreme mood swings, can impact emotional well-being. If you're experiencing these challenges, let's connect. Are you ready to take a Bipolar and Other mood disoders quiz, exploring emotional well-being together?
+        </h5>
+        <Link to="/add-quizzes">
+        <button
+      className="qbutton"
+      onClick={() => handleGetStarted()}
+    >
+      <b> Get Started</b>
+    </button>
+</Link>
+      </div>
 
-  handleNewMessageChange = (value) => {
-    this.setState({ newMessage: value });
-  };
+      <br />
 
-  handleSendMessage = () => {
-    const newMessageObject = {
-      sender: 'You', // Change this accordingly
-      text: this.state.newMessage,
-    };
+      <div div className="box">
+      
+      
+        <h5 className="text-box-header" >
+          08.Phobias, marked by intense irrational fears, can affect emotional well-being. If you're struggling with phobias, let's have a conversation. Are you ready for a phobias quiz, exploring emotional well-being together?
+        </h5>
+        <Link to="/add-quizzes">
+        <button
+      className="qbutton"
+      onClick={() => handleGetStarted()}
+    >
+      <b> Get Started</b>
+    </button>
+</Link>
+      </div>
 
-    this.setState((prevState) => ({
-      messages: [...prevState.messages, newMessageObject],
-      newMessage: '',
-    }));
-  };
+      <br />
 
-  handleConfirmAppointment = () => {
-    this.setState({ showCalendar: false, showForm: false });
-  };
+      <div div className="box">
+        <h5 className="text-box-header" >
+  09.ADHD, characterized by focus and impulsivity challenges, can impact emotional well-being. If you're living with ADHD, let's share experiences. Are you ready to take ADH quiz, exploring emotional well-being together?
+</h5>
+<Link to="/add-quizzes">
+<button
+      className="qbutton"
+      onClick={() => handleGetStarted()}
+    >
+      <b> Get Started</b>
+    </button>
+</Link>
+      </div>
 
-  render() {
-    const { messages, newMessage, contacts, patientRequests, selectedDate, selectedTime, showForm } = this.state;
-
-    return (
-      <div className="website-container-drgui">
-        <Row className="box1">
-          <Col md={4}>
-            <h2 className="drgui-h2">Contact List</h2>
-            <ul className="contact-list-drgui">
-              {contacts.map((contact) => (
-                <li key={contact.id}>
-                  <button
-                    onClick={() => this.handleContactClick(contact.id)}
-                    className={`contact-button-drgui ${this.state.selectedContact && this.state.selectedContact.id === contact.id ? 'active' : ''}`}
-                  >
-                    <img src={contact.image} alt={contact.name} className="contact-image-drgui" />
-                    <div className="contact-details-drgui">
-                      <span className="contact-name-drgui">{contact.name}</span>
-                    </div>
-                  </button>
-                </li>
-              ))}
-            </ul>
-          </Col>
-        </Row>
-
-        <Row className="boxedh">
-          <Col md={4}>
-          <div className="mental-health-chat">
-              <div className="chat-window">
-                <div className="new-box">
-                  {this.state.selectedContact && (
-                    <>
-                      <img src={this.state.selectedContact.image} alt={this.state.selectedContact.name} />
-                      <h3>{this.state.selectedContact.name}</h3>
-                    </>
-                  )}
-
-                  <button onClick={this.handleCameraClick} className="cameraicon">
-                    <FontAwesomeIcon icon="camera" />
-                  </button>
-                  <button onClick={this.handleImageClick} className="imageicon">
-                    <FontAwesomeIcon icon="image" />
-                  </button>
-                  <button onClick={this.handleSettingsClick} className="cogicon">
-                    <FontAwesomeIcon icon="cog" />
-                  </button>
-                  <button onClick={this.handleHelpClick} className="circleicon">
-                    <FontAwesomeIcon icon="question-circle" />
-                  </button>
-                </div>
-
-                {messages.map((message, index) => (
-                  <div key={index}>
-                    {/* Render your chat messages here */}
-                    {message.sender}: {message.text}
-                  </div>
-                ))}
-              </div>
-
-              <div className="container-drgui">
-                <div className="input-area">
-                  <div className="input-container-drgui">
-                    <input
-                      type="text"
-                      className="textclassdrgui"
-                      placeholder="Type your message..."
-                      value={this.state.newMessage}
-                      onChange={(e) => this.handleNewMessageChange(e.target.value)}
-                    />
-                    <button onClick={this.handleSendMessage} className="drguisendbutton">
-                      Send
-                    </button>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </Col>
-        </Row>
-
-        <Row className="boxed">
-          <Col md={4}>
-            <div className="patient-requests boxed-docgui">
-              <h2 className="patient-requests-h2">Patient Requests</h2>
-              <ul>
-                {patientRequests.map((request) => (
-                  <div className="patient-request-box" key={request.id}>
-                    <li className="patient-request-docgui">
-                      <div className="request-info-docgui">
-                        <span className="request-name-docgui">{request.name}</span>
-                        <div className="button-container-docgui">
-                          <button
-                            onClick={() => {
-                              this.handleAcceptRequest(request.id);
-                              this.setPopoverContent(
-                                request.id,
-                                <div>Your unique popover message for {request.name}</div>
-                              );
-                            }}
-                            className="accept-button"
-                          >
-                            Accept
-                          </button>
-                          <button
-                            onClick={() => this.handleRejectRequest(request.id)}
-                            className="reject-button-docgui"
-                          >
-                            Reject
-                          </button>
-                        </div>
-                      </div>
-                    </li>
-            {this.state.popovers[request.id] && showForm && (
-              <div className="calendar-popover">
-                {this.state.selectedRequestId === request.id && (
-                  <div className="calendar-popover-docgui">
-                    <Popover id="calendar-popover" title="Select Date and Time">
-                      <div className="form-group-docgui">
-                        <label htmlFor="date" className="date-label-docgui">
-                          Date
-                        </label>
-                        <input type="date" className="date_control-drgui" id="date" name="date" />
-                      </div>
-                      <div className="time_control">
-                        <label htmlFor="time" className="time_label-drgui">
-                          Time
-                        </label>
-                        <select className="form-control-docgui" id="time" name="time">
-                        <option value="10:00 AM">10:00 AM</option>
-                                  <option value="11:00 AM">11:00 AM</option>
-                                  <option value="12:00 PM">12:00 PM</option>
-                                  <option value="1:00 PM">1:00 PM</option>
-                                  <option value="2:00 PM">2:00 PM</option>
-                                  <option value="3:00 PM">3:00 PM</option>
-                                  <option value="4:00 PM">4:00 PM</option>
-                                  <option value="5:00 PM">5:00 PM</option>
-                                  <option value="6:00 PM">6:00 PM</option>
-                                  <option value="7:00 PM">7:00 PM</option>
-                                  <option value="8:00 PM">8:00 PM</option>
-                                  <option value="9:00 PM">9:00 PM</option>
-                                  <option value="10:00 PM">10:00 PM</option>
-                        </select>
-                      </div>
-                      <button onClick={this.handleConfirmAppointment}>Confirm</button>
-                    </Popover>
-                  </div>
-                )}
-              </div>
-            )}
-          </div>
-        ))}
-      </ul>
+      <br />
+      <div div className="box">
+      <h5 className="text-box-header" >
+     10. Anxiety, a common mental health challenge, can significantly impact emotional well-being. If you're dealing with anxiety and seeking support, let's start a conversation. Are you ready to take an anxiety quiz and explore your emotional well-being together?
+</h5>
+<Link to="/add-quizzes">
+<button
+      className="qbutton"
+      onClick={() => handleGetStarted()}
+    >
+      <b> Get Started</b>
+    </button>
+  
+</Link>
+      </div>
+      <br />
     </div>
-  </Col>
-</Row>
-</div>
-    );
-  }
-}
-
-export default Doctorgui;
+    
+  );
+};
+export default Quizzes;

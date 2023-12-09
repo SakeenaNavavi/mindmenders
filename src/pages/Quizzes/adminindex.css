@@ -1,134 +1,51 @@
 @import url('https://fonts.googleapis.com/css2?family=Arapey&display=swap');
-.website-container {
-  padding: 50px; 
-  
-}
-
-.bookboxed {
-  background-color:#e3dac9 ;
-  width: 1700px;
-  height: 1000px;
-  border: 1px solid #ccc;
- padding: 20px;
-}
-
-.youtubeboxed{
-  background-color:#e3dac9 ;
-  width: 1600px;
-  height: 3400px;
-  border: 1px solid #ccc;
- padding: 20px;
-  
-}
-.articalboxed{
-  background-color:#e3dac9 ;
-  width: 1800px;
-  height: 1300px;
-  border: 1px solid #ccc; 
- padding: 20px;
-
-}
-.youtubevideo {
-  width: 300px;
-  height: 200px;
-  padding: 20px;
-}
-
-
-
-.youtubeh{
-  padding: 0;
-}
-
-.articalcard{
-  padding: 17px;
-}
-
-.card {
-  width: 420px;
-  height: 220px;
-}
-
-
-.h3{
-  text-align: left;
-  padding: 30px;
-  color:  #443806;
-  font-family: "Arapey",serif;
-}
-.resourcelibraryh{
-  padding: 20px;
-  color:  #443806;
-  font-family: "Arapey",serif;
-
-}
-.header-container {
+.box-adminquizzes{
+  border: 1px solid #000;
+  width: 1200px;
+  padding: 10px;
   display: flex;
-  align-items: center; 
-}
-.yotubeboxp{
-  padding: 10px;
-  text-align: right;
-}
-.titalh{
-  text-align: left;
-  padding: 20px;
-  color:  #443806;
-  font-family: "Arapey",serif;
-}
-.librarycard{
-  width: 1350px;
-  height: 120px;
-  padding: 10px;
-}
-.rounded-custom{
-  width: 150px;
-  height: 200px;
-  align-items: center;
-  padding: 10px;
-}
-.rounded-start{
- width: 170px;
- height: 100px;
- align-items: center;
- padding: 10px;
-
-}
-.articalh5{
-  text-align: left;
-}
-.articala{
-  text-align: right;
-}
-
-.youtubrbutton {
+  justify-content: space-between;
+  margin-left: auto;
+  margin-right: auto;
+  transition: transform 0.3s ease, background-color 0.3s ease; 
+  border-radius: 10px;
   background-color: white;
-  color: black; 
-  padding: 10px ; 
-  border: none;
-  border-radius: 5px; 
-  cursor: pointer; 
-}
+  margin-top: 10px;
 
-.bookbutton{
-  background-color: rgba(205, 191, 191, 0.879);
-  color: black; 
-  padding: 10px ; 
-  border: none;
-  border-radius: 5px; 
-  cursor: pointer; 
-  height: 40px;
-  
 }
-.articalabtn{
-  background-color: rgba(205, 191, 191, 0.879);
-  color: black; 
-  padding: 10px ; 
+.button-adminquizzes{
+width: 175px;
+height: 40px;
+background-color: #F4F4EB;
+color: #443806;
+font-family: "Arapey", serif;
+border: 1px solid #000; 
+}
+.adminquizzesform{
+margin-top: 20px; /* Adjust the margin as needed */
+max-width: 400px; /* Adjust the maximum width as needed */
+margin-left: auto;
+margin-right: auto;
+padding: 20px;
+background-color: #fff;
+border-radius: 8px;
+box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+
+}
+.adminquizzesformlabel{
+display: block;
+margin-bottom: 8px;
+font-weight: bold;
+color: #333;
+}              
+.Add-button-adminquizzes{
+background-color: #70663E;
+  color: white;
+  padding: 10px 15px;
+  font-size: 16px;
   border: none;
-  border-radius: 5px; 
-  cursor: pointer; 
-  height: 40px;
-  text-align: right;
-  margin-left: 600px;
-  
+  border-radius: 4px;
+  cursor: pointer;
+  width: 100px;
+  height: 50px;
 }

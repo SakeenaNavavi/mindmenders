@@ -108,19 +108,20 @@
 }
 .directoryform{
     margin-top: 20px; /* Adjust the margin as needed */
-  max-width: 400px; /* Adjust the maximum width as needed */
+width: 700px;
   margin-left: auto;
   margin-right: auto;
-  padding: 20px;
+  padding: 2px;
   background-color: #fff;
   border-radius: 8px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 .directoryformlabel{
     display: block;
-  margin-bottom: 8px;
+  margin-bottom: -2px;
   font-weight: bold;
   color: #333;
+  width: 500px;
 }
 .directoryforminput{
     width: 100%;

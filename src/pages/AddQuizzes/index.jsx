@@ -105,6 +105,7 @@ const AddQuizzes = () => {
 
   return (
     <div className="button-box">
+      <Navbar/>
       <div className="padded-card">
         <Navbar/>
         {questions.map((question, index) => (

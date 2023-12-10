@@ -7,6 +7,7 @@
     background-color:  #efefef;
   }
   
+
   .mental-health-chat-docgui {
     flex: 2; 
     display: flex;
@@ -14,6 +15,7 @@
     justify-content: center;
     align-items: center;
   }
+
  
 
 .website-container-docgui {
@@ -43,6 +45,7 @@
   width: 600px;
   border: 1px solid #333;
   flex-direction: column; 
+
   align-items: center; 
   background-color: #f9f9f9;
   display: flex;
@@ -315,11 +318,13 @@
   
 }
 .contact-image-docgui {
+
   width: 75px; 
   height: 75px; 
   border-radius: 50%;
   margin-right: 10px;
 }
+
 
 .contact-details-docgui {
   flex: 1;
@@ -333,6 +338,7 @@
   font-size: 14px;
   color: #888; 
 }
+
 
 .new-box-docgui {
   background-color: #f0f0f0; 
@@ -370,11 +376,13 @@
 }
 
 
+
 .new-box-docgui img {
   width: 30px; 
   height: 30px; 
   border-radius: 50%;
 }
+
 
 
 
@@ -385,9 +393,12 @@
   border-radius: 50%;
 }
 
+
 .new-box-docgui h3 {
+
   margin: 0;
 }
+
 
 
 .cameraicon-docgui {
@@ -399,6 +410,7 @@
   border-radius: 5px;
   cursor: pointer;
 }
+
 .imageicon-docgui
 {
   margin-left: 10px; 
@@ -409,7 +421,9 @@
   border-radius: 5px;
   cursor: pointer;
 }
+
 .cogicon-docgui{
+
   margin-left: 10px; 
   margin-right: 2px; 
   padding:10px;
@@ -418,12 +432,13 @@
   border-radius: 5px;
   cursor: pointer;
 }
+
 .circleicon-docgui{
+
   margin-left: 10px; 
   margin-right: 2px; 
   padding:10px;
   background-color: #f0f0f0;
   border: 1px solid #ddd;
   border-radius: 5px;
-  cursor: pointer;
-}
+  cursor: pointer;}

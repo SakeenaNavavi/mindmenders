@@ -5,10 +5,15 @@ import { useNavigate } from 'react-router-dom';
 import supabase from '../../supa/supabase/supabaseClient';
 import { useEffect,useState } from 'react';
 import Navbar from "../../Components/molecules/Navbar/index.jsx";
-
+//import AdminProfessionalDirectory from './adminindex.jsx';
 const Directory=()=>
 {
-  
+   const [submittedData, setSubmittedData] = useState([]);
+
+  // Function to add a new card to the state
+  const addCard = (newCardData) => {
+    setSubmittedData([...submittedData, newCardData]);
+  };
   const Navigate = useNavigate();
   const [user, setUser] = useState(null);
 
@@ -234,8 +239,9 @@ const Directory=()=>
                 </div>
             </div>
         </div>
-
+ 
     </div>      
     )
 }
 export default Directory;
+

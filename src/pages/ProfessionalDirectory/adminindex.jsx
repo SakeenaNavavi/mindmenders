@@ -2,12 +2,18 @@ import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import AdminNavbar from "../../Components/molecules/AdminNavbar/index.jsx";
 import './adminindex.css'; // Import your existing CSS file
+//import Navbar from '../../Components/molecules/Navbar/index.jsx';
+import supabase from '../../supa/supabase/supabaseClient';
 
 const AdminProfessionalDirectory = () => {
   const [formData, setFormData] = useState({
     Name: '',
+    LastName: '',
+    dob: '',
+    Email: '',
+    password: '',
     Bio: '',
-    Specialization: '',
+    Location: '',
   });
 
   const [submittedData, setSubmittedData] = useState(() => {
@@ -25,40 +31,46 @@ const AdminProfessionalDirectory = () => {
     });
   };
 
-  const handleSubmit = (e, deleteCard = false) => {
+  const handleSubmit =  async(e, deleteCard = false) => {
     e.preventDefault();
 
     if (deleteCard) {
-      // Check if the entered name matches any of the names on the cards
-      const matchingProfessional = submittedData.find(
-        (professional) => professional.Name.toLowerCase() === formData.Name.toLowerCase()
-      );
-
-      if (matchingProfessional) {
-        // Delete card by filtering out the matching professional and updating state
-        const updatedData = submittedData.filter(
-          (professional) => professional !== matchingProfessional
-        );
-        setSubmittedData(updatedData);
-        // Save updated data to localStorage
-        localStorage.setItem('submittedData', JSON.stringify(updatedData));
-      } else {
-        // Handle the case when names don't match
-        alert(`No professional found with the name ${formData.Name}`);
-      }
     } else {
-      // Process the form data as needed (e.g., send to server, update state, etc.)
-      // For now, just update the state to simulate form submission
-      setSubmittedData([...submittedData, formData]);
-      // Save submitted data to localStorage
-      localStorage.setItem('submittedData', JSON.stringify([...submittedData, formData]));
+      // Insert data into Supabase table
+      const { data, error } = await supabase
+        .from('tblConsultant')
+        .upsert([
+          {
+            First_Name: formData.Name,
+            Last_Name: formData.LastName,
+            DOB: formData.dob,
+            Email: formData.Email,
+            password: formData.password,
+            Bio: formData.Bio,
+            Location: formData.Location,
+          },
+        ]);
+
+      if (error) {
+        console.error('Error inserting data into Supabase:', error.message);
+      } else {
+        console.log('Data inserted into Supabase:', data);
+        // Update local state with the newly submitted data
+        setSubmittedData([...submittedData, formData]);
+        // Save submitted data to localStorage
+        localStorage.setItem('submittedData', JSON.stringify([...submittedData, formData]));
+      }
     }
 
     // Clear the form data after submission if needed
     setFormData({
       Name: '',
+      LastName: '',
+      dob: '',
+      Email: '',
+      password: '',
       Bio: '',
-      Specialization: '',
+      Location: '',
     });
   };
 
@@ -97,23 +109,12 @@ const AdminProfessionalDirectory = () => {
       />
       <div className="container-admindirectory">
         <h5 className="admindirectory-card-title">
-          {professional.Name} <br /> {professional.Bio} <br /> {professional.Specialization}
+          {professional.Name} <br /> {professional.LastName} <br /> {professional.dob} <br /> {professional.Email} <br /> {professional.password} <br /> {professional.Bio} <br /> {professional.Location}
         </h5>
-        <button className="admindirectory-button-1">
-          <Link to="/AppointmentBooking" className="custom-link">
-            Book Now
-          </Link>
-        </button>
-        <br /> <br />
-        <div className="chat-button-container">
-          <button className="chat-button">
-            <Link to="/OnlineCommunity" className="custom-link">
-              Chat now
-            </Link>
-          </button>
+     
         </div>
       </div>
-    </div>
+   
   ))}
 </div>
 
@@ -121,12 +122,55 @@ const AdminProfessionalDirectory = () => {
       {/* Form for adding new professionals */}
       <form className="directoryform" onSubmit={handleSubmit}>
         <label className="directoryformlabel">
-          Add Name:
+          Frist Name:
           <input
             className="directoryforminput"
             type="text"
             name="Name"
             value={formData.Name}
+            onChange={handleChange}
+          />
+        </label>
+        <br />
+        <label className="directoryformlabel">
+          Last Name:
+          <input
+            className="directoryforminput"
+            type="text"
+            name="LastName"
+            value={formData.LastName}
+            onChange={handleChange}
+          />
+        </label>
+        <br />
+        <label className="directoryformlabel">
+          Date Of Birthday:
+          <input
+            className="DOB"
+            type="date"
+            name="dob"
+            value={formData.dob}
+            onChange={handleChange}
+          />
+        </label>
+        <br />
+        <label className="directoryformlabel">
+          Email:
+          <input
+            className="directoryforminput"
+            type="email"
+            name="Email"
+            value={formData.Email}
+            onChange={handleChange}
+          />
+        </label>
+        <label className="directoryformlabel">
+          Pass Word:
+          <input
+            className="directoryforminput"
+            type="text"
+            name="password"
+            value={formData.password}
             onChange={handleChange}
           />
         </label>
@@ -143,12 +187,12 @@ const AdminProfessionalDirectory = () => {
         </label>
         <br />
         <label className="directoryformlabel">
-          Specialization:
+          Location:
           <input
             className="directoryforminput"
             type="text"
-            name="Specialization"
-            value={formData.Specialization}
+            name="Location"
+            value={formData.Location}
             onChange={handleChange}
           />
         </label>

@@ -14,6 +14,8 @@ import AddQuizzes from './pages/AddQuizzes';
 import LoginRegister from './pages/LoginRegister';
 import AppointmentBooking from './pages/AppointmentBooking';
 import Conditions from './pages/Conditions';
+import DocGUI from './pages/DocGUI';
+import AdminDashboard from './pages/AdminDashboard';
 
 function App() {
   return (
@@ -35,6 +37,8 @@ function App() {
         <Route path="/loginRegister" element={<LoginRegister />} />
         <Route path="/AppointmentBooking" element={<AppointmentBooking />} />
         <Route path="/results" element={<Conditions/>}/>
+        <Route path="/Consultant" element={<DocGUI/>}/>
+        <Route path="/AdminDashboard" element={<AdminDashboard/>}/>
       </Routes>
 
       <Footer />

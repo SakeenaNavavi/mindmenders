@@ -109,10 +109,10 @@ const LoginRegister = () => {
     else if (selectedUsername === 'Consultant') {
       handleConsultantLogin()
     }
-    /*else if(selectedUsername==='Admin')
+    else if(selectedUsername==='Admin')
     {
       handleAdminLogin()
-    }*/
+    }
     else {
       alert('Please fill out all the fields!');
     }
@@ -159,8 +159,8 @@ const LoginRegister = () => {
   const handleConsultantLogin = async () => {
     try {
       const { data: ConsultantData, error: ConsultantError } = await supabase
-        .from('tblUser')
-        .select('id,password')
+        .from('tblConsultant')
+        .select('Consultant_id,password')
         .eq('Email', FormData.Email);
 
       if (ConsultantError) {
@@ -168,15 +168,15 @@ const LoginRegister = () => {
         return;
       }
       if (ConsultantData && ConsultantData.length > 0) {
-        const UserID = ConsultantData[0].id;
+        const Consultant_id = ConsultantData[0].Consultant_id;
         const password = ConsultantData[0].password;
 
-        // if (password === FormData.password) {
-        //   Navigate('/', { state: { UserID } });
-        // }
-        // else {
-        //   alert('Wrong password!')
-        // }
+        if (password === FormData.password) {
+          Navigate('/Consultant', { state: { Consultant_id } });
+        }
+        else {
+          alert('Wrong password!')
+        }
       }
       else {
         alert('No user with that email!')
@@ -186,9 +186,41 @@ const LoginRegister = () => {
       alert(ConsultantError.message)
     }
   };
+  const handleAdminLogin = async () => {
+    try {
+      const { data: AdminData, error: AdminError } = await supabase
+        .from('tblAdmin')
+        .select('Admin_id,password')
+        .eq('Email', FormData.Email);
+
+      if (AdminError) {
+        alert(AdminError.message);
+        return;
+      }
+      if (AdminData && AdminData.length > 0) {
+        const Admin_id = AdminData[0].Admin_id;
+        const password = AdminData[0].password;
+
+        if (password === FormData.password) {
+          Navigate('/AdminDashboard', { state: { Admin_id } });
+        }
+        else {
+          alert('Wrong password!')
+        }
+      }
+      else {
+        alert('No user with that email!')
+      }
+    }
+    catch (AdminError) {
+      alert(AdminError.message)
+    }
+  };
   return (
+    <div>
+    <Navbar/>
     <div className="container">
-      <Navbar/>
+      
       <div className="cont">
         <div className="form sign-in">
           <form>
@@ -197,14 +229,14 @@ const LoginRegister = () => {
               <span>Email</span></label>
             <input type="Email" id="loginEmail" name='Email' onChange={handleInputChange} required />
             <label>
-              <span>Role</span>
+              <span>Role</span></label>
               <select id="validationDefaultUsername" value={selectedUsername} onChange={handleUsernameChange} >
                 <option>---</option>
                 <option value="Visitor">Visitor</option>
                 <option value="Consultant">Consultant</option>
                 <option value="Admin">Admin</option>
               </select>
-            </label>
+            
             <label>
               <span>Password</span></label>
             <input type="password" id="loginpassword" name="password" onChange={handleInputChange} required />
@@ -258,6 +290,7 @@ const LoginRegister = () => {
           </div>
         </div>
       </div>
+    </div>
     </div>
   );
 };

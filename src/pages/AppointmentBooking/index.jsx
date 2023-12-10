@@ -6,10 +6,7 @@ import './index.css';
 import Navbar from "../../Components/molecules/Navbar/index.jsx";
 const AppointmentBooking = (location) => {
   const UserId = location.state?.UserId;
-  const newDataWithUserId = {
-    ...newData,
-    User_id: UserId,
-  };
+
   const [newData, setNewData] = useState({
     UserId: UserId,
     First_Name: '',
@@ -18,7 +15,10 @@ const AppointmentBooking = (location) => {
     Email: '',
     DOB: '',
   });
-
+  const newDataWithUserId = {
+    ...newData,
+    User_id: UserId,
+  };
   const handleInsert = async () => {
     try {
       const { data, error } = await supabase.from('tblBooking').insert([newData]);
@@ -77,9 +77,10 @@ const AppointmentBooking = (location) => {
   }; 
 
   return (
+    <div>
+      <Navbar/>
     
     <div className="appointment">
-       <Navbar/>
       <div className="appointment-container">
         <form onSubmit={handleSubmit}>
           <h1 className="form-header" data-component="header">
@@ -159,6 +160,7 @@ const AppointmentBooking = (location) => {
           </button>
         </form>
       </div>
+    </div>
     </div>
   );
 };

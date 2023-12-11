@@ -5,10 +5,11 @@ import { useState, useEffect } from "react";
 const AdminContent = () => {
     const [totalUsers, setTotalUsers] = useState(null);
     const [totalConsultants, setTotalConsultants] = useState(null);
+    const [totalApp,setTotalApp]=useState(null);
     const getConsultantRowCount = async () => {
         try {
             // Use the 'count' method to get the number of rows
-            const { condata, conerror } = await supabase
+            const { data:condata, error:conerror } = await supabase
                 .from('tblConsultant')
                 .select('count', { count: 'exact' });
 
@@ -33,6 +34,23 @@ const AdminContent = () => {
                 throw error;
             }
             const rowCount = data[0].count;
+            return rowCount;
+        } catch (error) {
+            console.error('Error fetching row count:', error.message);
+            throw error;
+        }
+    };
+    const getAppointmentCount = async () => {
+        try {
+            // Use the 'count' method to get the number of rows
+            const { data:aptdata, error:apterror } = await supabase
+                .from('tblBooking')
+                .select('count', { count: 'exact' });
+
+            if (apterror) {
+                console.log(apterror.message)
+            }
+            const rowCount = aptdata[0].count;
             return rowCount;
         } catch (error) {
             console.error('Error fetching row count:', error.message);
@@ -64,6 +82,18 @@ const AdminContent = () => {
         }
         fetchTotalConsultants();
     },[]);
+    useEffect(()=>{
+        const fetchTotalApt = async () => {
+            try {
+                const aptRowCount = await getAppointmentCount();
+                setTotalApp(aptRowCount);
+            }
+            catch (error) {
+                console.error('Error fetching total consultants', error.message);
+            }
+        }
+        fetchTotalApt();
+    },[]);
     return (
         <>
             <div class="container-fluid">
@@ -83,8 +113,8 @@ const AdminContent = () => {
                             <div class="card-body">
                                 <div class="row no-gutters align-items-center">
                                     <div class="col mr-2">
-                                        <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
-                                            Total Users Signed Up
+                                        <div class="text-s font-weight-bold text-primary text-uppercase mb-1">
+                                            Visitors count
                                         </div>
                                         <div class="h3 mb-0 font-weight-bold text-gray-800">
                                             {/* <!-- fetch row count --> */}
@@ -105,8 +135,8 @@ const AdminContent = () => {
                             <div class="card-body">
                                 <div class="row no-gutters align-items-center">
                                     <div class="col mr-2">
-                                        <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
-                                            Total consultants signed up
+                                        <div class="text-s font-weight-bold text-success text-uppercase mr-0">
+                                            Consultants count
                                         </div>
                                         <div class="h3 mb-0 font-weight-bold text-gray-800">
                                             {totalConsultants !== null ? totalConsultants : 'Loading...'}
@@ -126,13 +156,13 @@ const AdminContent = () => {
                             <div class="card-body">
                                 <div class="row no-gutters align-items-center">
                                     <div class="col mr-2">
-                                        <div class="text-xs font-weight-bold text-info text-uppercase mb-1">
+                                        <div class="text-s font-weight-bold text-info text-uppercase mb-1">
                                             Appointments booked via the system
                                         </div>
                                         <div class="row no-gutters align-items-center">
                                             <div class="col-auto">
                                                 <div class="h3 mb-0 mr-3 font-weight-bold text-gray-800">
-                                                    50%
+                                                {totalApp !== null ? totalApp : 'Loading...'}
                                                 </div>
                                             </div>
                                         </div>

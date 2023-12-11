@@ -6,11 +6,12 @@ import './index.css';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { faCamera, faImage, faCog, faQuestionCircle } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-
+//import React, { useState } from 'react';
 library.add(faCamera, faImage, faCog, faQuestionCircle);
 
 class DocGUI extends Component {
   constructor() {
+  
     super();
     this.state = {
       selectedContact: null,
@@ -231,6 +232,7 @@ class DocGUI extends Component {
             </div>
           </Col>
         </Row>
+    
       </div>
     );
   }

@@ -6344,42 +6344,14 @@
   .card .card-header .dropdown {
     line-height: 1;
   }
-  
-  .card .card-header .dropdown .dropdown-menu {
-    line-height: 1.5;
-  }
-  
-  .card .card-header[data-toggle="collapse"] {
-    text-decoration: none;
-    position: relative;
-    padding: 0.75rem 3.25rem 0.75rem 1.25rem;
-  }
-  
-  .card .card-header[data-toggle="collapse"]::after {
-    position: absolute;
-    right: 0;
-    top: 0;
-    padding-right: 1.725rem;
-    line-height: 51px;
-    font-weight: 900;
-    content: '\f107';
-    font-family: 'Font Awesome 5 Free';
-    color: #d1d3e2;
-  }
-  
+
   .card .card-header[data-toggle="collapse"].collapsed {
     border-radius: 0.35rem;
   }
   
   .card .card-header[data-toggle="collapse"].collapsed::after {
     content: '\f105';
-  }  
-  .bg-password-image {
-    background: url("https://source.unsplash.com/oWTW-jNGl9I/600x800");
-    background-position: center;
-    background-size: cover;
-  }
-  
+  } 
   form.user .custom-checkbox.small label {
     line-height: 1.5rem;
   }

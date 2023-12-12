@@ -1,9 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
-import AdminNavbar from "../../Components/molecules/AdminNavbar/index.jsx";
-import './adminindex.css'; // Import your existing CSS file
+import './index.css'; // Import your existing CSS file
 //import Navbar from '../../Components/molecules/Navbar/index.jsx';
-import supabase from '../../supa/supabase/supabaseClient';
+import supabase from '../../../supa/supabase/supabaseClient';
 
 const AdminProfessionalDirectory = () => {
   const [formData, setFormData] = useState({
@@ -31,11 +29,9 @@ const AdminProfessionalDirectory = () => {
     });
   };
 
-  const handleSubmit =  async(e, deleteCard = false) => {
+  const handleSubmit =  async(e) => {
     e.preventDefault();
 
-    if (deleteCard) {
-    } else {
       // Insert data into Supabase table
       const { data, error } = await supabase
         .from('tblConsultant')
@@ -50,7 +46,7 @@ const AdminProfessionalDirectory = () => {
             Location: formData.Location,
           },
         ]);
-
+      
       if (error) {
         console.error('Error inserting data into Supabase:', error.message);
       } else {
@@ -72,7 +68,7 @@ const AdminProfessionalDirectory = () => {
       Bio: '',
       Location: '',
     });
-  };
+  
 
   useEffect(() => {
     // Uncomment the following lines if you want to clear the data on component unmount
@@ -87,16 +83,7 @@ const AdminProfessionalDirectory = () => {
   );
 
   return (
-    <div>
-      <AdminNavbar />
-      {/* Search input */}
-      <input
-        type="text"
-        placeholder="Search by Name"
-        value={searchInput}
-        onChange={(e) => setSearchInput(e.target.value)}
-      />
-      
+    <div> 
       {/* Display filtered data in separate cards */}
 <div className="admindirectory-card-container">
   {filteredData.map((professional, index) => (
@@ -122,7 +109,7 @@ const AdminProfessionalDirectory = () => {
       {/* Form for adding new professionals */}
       <form className="directoryform" onSubmit={handleSubmit}>
         <label className="directoryformlabel">
-          Frist Name:
+          First Name:
           <input
             className="directoryforminput"
             type="text"
@@ -131,7 +118,6 @@ const AdminProfessionalDirectory = () => {
             onChange={handleChange}
           />
         </label>
-        <br />
         <label className="directoryformlabel">
           Last Name:
           <input
@@ -142,7 +128,6 @@ const AdminProfessionalDirectory = () => {
             onChange={handleChange}
           />
         </label>
-        <br />
         <label className="directoryformlabel">
           Date Of Birthday:
           <input
@@ -153,7 +138,6 @@ const AdminProfessionalDirectory = () => {
             onChange={handleChange}
           />
         </label>
-        <br />
         <label className="directoryformlabel">
           Email:
           <input
@@ -165,7 +149,7 @@ const AdminProfessionalDirectory = () => {
           />
         </label>
         <label className="directoryformlabel">
-          Pass Word:
+          Password:
           <input
             className="directoryforminput"
             type="text"
@@ -174,7 +158,6 @@ const AdminProfessionalDirectory = () => {
             onChange={handleChange}
           />
         </label>
-        <br />
         <label className="directoryformlabel">
           Bio:
           <input
@@ -185,7 +168,6 @@ const AdminProfessionalDirectory = () => {
             onChange={handleChange}
           />
         </label>
-        <br />
         <label className="directoryformlabel">
           Location:
           <input
@@ -196,17 +178,15 @@ const AdminProfessionalDirectory = () => {
             onChange={handleChange}
           />
         </label>
-        <br />
         <div className="button-container-admindirectorform">
           <button className="directoryformbutton" type="submit">
             Add
           </button>
-          <button className="directoryformbutton" onClick={(e) => handleSubmit(e, true)}>
+          <button className="directoryformbutton" onClick={(e) => handleSubmit(e)}>
             Delete
           </button>
         </div>
       </form>
-      <br /> <br />
     </div>
   );
 };

@@ -16,6 +16,7 @@ import AppointmentBooking from './pages/AppointmentBooking';
 import Conditions from './pages/Conditions';
 import DocGUI from './pages/DocGUI';
 import AdminDashboard from './pages/AdminDashboard';
+import AdminProfessionalDirectory from './Components/molecules/AdminProfessionalDirectory';
 
 function App() {
   return (
@@ -39,6 +40,7 @@ function App() {
         <Route path="/results" element={<Conditions/>}/>
         <Route path="/Consultant" element={<DocGUI/>}/>
         <Route path="/AdminDashboard" element={<AdminDashboard/>}/>
+        <Route path="/addConsultants" element={<AdminProfessionalDirectory/>}/>
       </Routes>
 
       <Footer />

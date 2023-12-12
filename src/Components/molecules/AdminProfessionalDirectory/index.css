@@ -87,9 +87,9 @@
     border: none;
     outline: 0;
     display: inline-block;
-    padding: 1px;
+    padding-right: 5px;
     color: #FFFFFF;
-    background-color: #70663E;
+    background-color: #4e73df;
     text-align: center;
     cursor: pointer;
     width: 70%;
@@ -109,9 +109,9 @@
 .directoryform{
     margin-top: 20px; /* Adjust the margin as needed */
 width: 700px;
+padding-bottom: 20px;
   margin-left: auto;
   margin-right: auto;
-  padding: 2px;
   background-color: #fff;
   border-radius: 8px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
@@ -203,7 +203,7 @@ width: 700px;
     margin-left: 75px;
   }
  .directoryformbutton{
-    background-color: #70663E;
+    background-color: #4e73df;
     color: white;
     padding: 10px 15px;
     font-size: 16px;
@@ -217,6 +217,7 @@ width: 700px;
     display: flex;  /* Use flexbox */
     flex-wrap: wrap;  /* Wrap to the next line if there's not enough space */
     justify-content: space-around;  /* Distribute space around items */
+    padding-bottom: 1px;
   }
   
   

@@ -4,7 +4,8 @@ import AdminNavigation from "../../Components/molecules/AdminNavigation";
 import './index.css';
 import AdminSidebar from "../../Components/molecules/AdminSidebar";
 import { useState } from 'react';
-import AdminProfessionalDirectory from "../AdminProfessionalDirectory";
+import AdminProfessionalDirectory from "../../Components/molecules/AdminProfessionalDirectory";
+import AdminResourceLibrary from "../../Components/molecules/AdminResourceManagement";
 
 const AdminDashboard = () => {
   const [activeComponent, setActiveComponent] = useState('');
@@ -16,17 +17,20 @@ const AdminDashboard = () => {
         <div className="admin-content">
         </div>
         <div id="content-wrapper" className="d-flex flex-column">
-      {/*  Main Content  */}
-      <div id="content">
-      <AdminNavigation />
-      {activeComponent === 'professionalDirectory' ? (
-            <AdminProfessionalDirectory />
-          ) : (
-            
-            <AdminContent />
-          )}
-      </div>
-    </div>
+          {/*  Main Content  */}
+          <div id="content">
+            <AdminNavigation />
+            {activeComponent === 'professionalDirectory' ? (
+              <AdminProfessionalDirectory />
+            ) : (
+              activeComponent === 'resourceLibrary' ? (
+                <AdminResourceLibrary />
+              ) : (
+                <AdminContent />
+              )
+            )}
+          </div>
+        </div>
       </div>
       <a className="scroll-to-top rounded" href="#page-top">
         <i className="fas fa-angle-up"></i>

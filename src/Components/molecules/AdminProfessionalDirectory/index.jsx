@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import './index.css'; // Import your existing CSS file
 //import Navbar from '../../Components/molecules/Navbar/index.jsx';
-import supabase from '../../supa/supabase/supabaseClient';
+import supabase from '../../../supa/supabase/supabaseClient';
 
 const AdminProfessionalDirectory = () => {
   const [formData, setFormData] = useState({

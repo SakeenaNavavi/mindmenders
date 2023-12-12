@@ -1,8 +1,7 @@
 import React, { useState } from 'react';
 import { Row, Col } from 'react-bootstrap';
-import { createClient } from '@supabase/supabase-js';
 import './index.css';
-import supabase from '../../supa/supabase/supabaseClient';
+import supabase from '../../../supa/supabase/supabaseClient';
 // Define handleCardClick function somewhere in your code
 const handleCardClick = (param1, param2) => {
   // Your logic here
@@ -56,7 +55,6 @@ const AdminResourceLibrary = () => {
 
   return (
     <div>
-      <AdminNavbar />
       <h2 className="resourcelibraryh">
         Explore our video section within the resource library, where you'll find valuable content
         to enhance your mental well-being and gain insights into self-care and personal growth.

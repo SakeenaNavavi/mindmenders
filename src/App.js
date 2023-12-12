@@ -16,7 +16,7 @@ import AppointmentBooking from './pages/AppointmentBooking';
 import Conditions from './pages/Conditions';
 import DocGUI from './pages/DocGUI';
 import AdminDashboard from './pages/AdminDashboard';
-import AdminProfessionalDirectory from './pages/AdminProfessionalDirectory';
+import AdminProfessionalDirectory from './Components/molecules/AdminProfessionalDirectory';
 
 function App() {
   return (

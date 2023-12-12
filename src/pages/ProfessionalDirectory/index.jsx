@@ -7,6 +7,8 @@ const DirectoryCard = (props) => {
   const { First_Name, Bio, Location } = props;
 
   return (
+    <div>
+      <Navbar />
     <div className="directory-card">
       <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRrO_7kELk3OrVtkErraastLx2EX3mGwtHTnj8DfbGv8beCNOWKxDx_HaYnC0tbJsYclCQ&usqp=CAU" alt="Jane" className="img-fluid directory-card-image" />
       <div className="container">
@@ -27,6 +29,7 @@ const DirectoryCard = (props) => {
             </Link>
           </button>
         </div>
+      </div>
       </div>
     </div>
   );

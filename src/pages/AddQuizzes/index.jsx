@@ -3,10 +3,86 @@ import { Link, useNavigate, useParams } from "react-router-dom";
 import supabase from "../../supa/supabase/supabaseClient";
 import './index.css';
 import Navbar from "../../Components/molecules/Navbar/index.jsx";
+import Swal from 'sweetalert2';
+
 const AddQuizzes = () => {
   const { Questionnaire_id } = useParams();
   const [questions, setQuestions] = useState([]);
+  const [totalScore, setTotalScore] = useState(0);
   const navigate = useNavigate();
+
+  const handleRadioChange = (questionId, selectedOption) => {
+    let points = 0;
+
+    // Assign points based on the selected option
+    switch (selectedOption) {
+      case 'stronglyDisagree':
+        points = 0;
+        break;
+      case 'disagree':
+        points = 1;
+        break;
+      case 'agree':
+        points = 2;
+        break;
+      case 'stronglyAgree':
+        points = 3;
+        break;
+      default:
+        points = 0; // Default to 0 if the option is not recognized
+    }
+
+    // Update the total score
+    setTotalScore((prevScore) => prevScore + points);
+
+    // Handle other radio change logic here
+  };
+
+  const categorizeStressLevel = (score) => {
+    if (score >= 0 && score <= 10) {
+      return 'Low';
+    } else if (score > 10 && score <= 20) {
+      return 'Moderate';
+    } else if (score > 20 && score <= 30) {
+      return 'High';
+    } else {
+      return 'Invalid Score';
+    }
+  };
+
+  const handleFormSubmit = () => {
+    // Check if any question is unanswered
+    const unansweredQuestions = questions.filter((question, index) => {
+      const selectedOption = getSelectedOption(index);
+      return selectedOption === null;
+    });
+
+    // If there are unanswered questions, show an error message
+    if (unansweredQuestions.length > 0) {
+      // Display an error message using SweetAlert2
+      Swal.fire({
+        icon: 'error',
+        title: 'Oops...',
+        text: 'Please answer all questions before submitting the quiz.',
+      });
+      return; // Do not proceed with submission
+    }
+
+    // Use SweetAlert for a more visually appealing alert
+    Swal.fire({
+      icon: 'success', 
+      title: 'Quiz submitted successfully!',
+      text: `Total Score: ${totalScore}\nStress Level: ${categorizeStressLevel(totalScore)}`,
+    });
+  };
+
+  // Helper function to get the selected option for a question
+  const getSelectedOption = (index) => {
+    const radioGroupName = `radioGroup${index}`;
+    const selectedOption = Array.from(document.getElementsByName(radioGroupName)).find((radio) => radio.checked);
+
+    return selectedOption ? selectedOption.value : null;
+  };
 
   useEffect(() => {
     const fetchQuestions = async () => {
@@ -30,82 +106,8 @@ const AddQuizzes = () => {
     fetchQuestions();
   }, [Questionnaire_id]);
 
-  const handleRadioChange = (questionId, selectedOption) => {
-    console.log(`Question ${questionId} selected option: ${selectedOption}`);
-    const numCards = 10;
-    const cards = [];
-
-    for (let i = 1; i <= numCards; i++) {
-      const radioGroupName = `flexRadioDefault${i}`;
-      cards.push(
-        <div
-          key={i}
-          className="d-flex justify-content-center vh-20"
-          style={{ padding: "10px" }}
-        >
-          <div className="quiz-card card custom-card custom-card-width">
-            <div className="quiz-card-body">
-              <p className="quiz-card-text">
-                {i}. You can customize this text to make each card unique.{" "}
-                <br />
-                <div className="form-check form-check-inline">
-                  <input
-                    type="radio"
-                    name={radioGroupName}
-                    id={`disagree${i}`}
-                    className="form-check-input"
-                  />
-                  <label htmlFor={`disagree${i}`} className="form-check-label">
-                    Disagree
-                  </label>
-
-                  <input
-                    type="radio"
-                    name={radioGroupName}
-                    id={`stronglyDisagree${i}`}
-                    className="form-check-input"
-                  />
-                  <label
-                    htmlFor={`stronglyDisagree${i}`}
-                    className="form-check-label"
-                  >
-                    Strongly Disagree
-                  </label>
-
-                  <input
-                    type="radio"
-                    name={radioGroupName}
-                    id={`agree${i}`}
-                    className="form-check-input"
-                  />
-                  <label htmlFor={`agree${i}`} className="form-check-label">
-                    Agree
-                  </label>
-
-                  <input
-                    type="radio"
-                    name={radioGroupName}
-                    id={`stronglyAgree${i}`}
-                    className="form-check-input"
-                  />
-                  <label
-                    htmlFor={`stronglyAgree${i}`}
-                    className="form-check-label"
-                  >
-                    Strongly Agree
-                  </label>
-                </div>
-              </p>
-            </div>
-          </div>
-        </div>
-      );
-    }
-  };
-
   return (
     <div className="button-box">
-      <Navbar/>
       <div className="padded-card">
         <Navbar/>
         {questions.map((question, index) => (
@@ -122,36 +124,66 @@ const AddQuizzes = () => {
                     <input
                       type="radio"
                       name={`radioGroup${index}`}
-                      id={`option1_${index}`}
-                      value="option1"
+                      id={`stronglyDisagree${index}`}
+                      value="stronglyDisagree"
                       onChange={() =>
-                        handleRadioChange(question.Question_id, "option1")
+                        handleRadioChange(question.Question_id, "stronglyDisagree")
                       }
                     />
                     <label
-                      htmlFor={`option1_${index}`}
+                      htmlFor={`stronglyDisagree${index}`}
                       className="form-check-label"
                     >
-                      Option 1
+                      Strongly Disagree
                     </label>
 
                     <input
                       type="radio"
                       name={`radioGroup${index}`}
-                      id={`option2_${index}`}
-                      value="option2"
+                      id={`disagree${index}`}
+                      value="disagree"
                       onChange={() =>
-                        handleRadioChange(question.Question_id, "option2")
+                        handleRadioChange(question.Question_id, "disagree")
                       }
                     />
                     <label
-                      htmlFor={`option2_${index}`}
+                      htmlFor={`disagree${index}`}
                       className="form-check-label"
                     >
-                      Option 2
+                      Disagree
                     </label>
 
-                    {/* Add more options as needed */}
+                    <input
+                      type="radio"
+                      name={`radioGroup${index}`}
+                      id={`agree${index}`}
+                      value="agree"
+                      onChange={() =>
+                        handleRadioChange(question.Question_id, "agree")
+                      }
+                    />
+                    <label
+                      htmlFor={`agree${index}`}
+                      className="form-check-label"
+                    >
+                      Agree
+                    </label>
+
+                    <input
+                      type="radio"
+                      name={`radioGroup${index}`}
+                      id={`stronglyAgree${index}`}
+                      value="stronglyAgree"
+                      onChange={() =>
+                        handleRadioChange(question.Question_id, "stronglyAgree")
+                      }
+                    />
+                    <label
+                      htmlFor={`stronglyAgree${index}`}
+                      className="form-check-label"
+                    >
+                      Strongly Agree
+                    </label>
                   </div>
                 </p>
               </div>
@@ -168,7 +200,9 @@ const AddQuizzes = () => {
           </button>
         </div>
         <div className="submit-button-container">
-          <button className="submit-button">Submit Quiz</button>
+          <button className="submit-button" onClick={handleFormSubmit}>
+            Submit Quiz
+          </button>
         </div>
       </div>
       <br />
@@ -176,8 +210,6 @@ const AddQuizzes = () => {
       <br />
     </div>
   );
-
 };
 
 export default AddQuizzes;
-

@@ -33,9 +33,7 @@ const DocGUI = () => {
   });
 
   // Another Table Form State
-  const [QuestionsFormData, setQuestionsFormData] = useState({
-    Question:'',
-  });
+  
 
   const [QuestionsSubmittedData, setQuestionsSubmittedData] = useState(() => {
     const storedData = localStorage.getItem('submittedQuestionsData');
@@ -125,40 +123,11 @@ const DocGUI = () => {
   
 
   // Another Table Form Submit Handler
-  const handleQuestionsTableSubmit = async (e, deleteCard = false) => {
-    e.preventDefault();
-
-    if (deleteCard) {
-      // Handle delete logic if needed
-    } else {
-      try {
-        
-        const { data, error } = await supabase
-          .from('tblQuestions')
-          .upsert([
-            {
-              Question: QuestionsFormData.Question,
-            },
-          ]);
+ 
        
 
 
-        if (error) {
-          console.error('Error inserting data into Supabase:', error.message);
-        } else {
-          console.log('Data inserted into Supabase:', data);
-          setQuestionsSubmittedData([...QuestionsSubmittedData, QuestionsFormData]);
-          localStorage.setItem('submittedQuestionsData', JSON.stringify([...QuestionsSubmittedData, QuestionsFormData]));
-        }
-      } catch (error) {
-        console.error('Error inserting data into Supabase:', error.message);
-      }
-    }
-
-    setQuestionsFormData({
-      Question:'',
-    });
-  };
+     
 
   useEffect(() => {
     // Uncomment the following lines if you want to clear the data on component unmount
@@ -179,7 +148,12 @@ const DocGUI = () => {
 
   const [patientRequests, setPatientRequests] = useState([
     { id: 1, name: 'Patient 1' },
-    // ... (rest of your patient requests)
+    { id: 2, name: 'Patient 2' },
+    { id: 3, name: 'Patient 3' },
+    { id: 4, name: 'Patient 4' },
+    { id: 5, name: 'Patient 5' },
+    { id: 6, name: 'Patient 6' },
+   
   ]);
 
   const [selectedRequestId, setSelectedRequestId] = useState(null);
@@ -230,10 +204,10 @@ const DocGUI = () => {
                   <div className="request-info">
                     <span className="request-name">{request.name}</span>
                     <div className="button-container-drgui">
-                      <button onClick={() => handleAcceptRequest(request.id)} className="accept-button">
+                      <button onClick={() => handleAcceptRequest(request.id)} className="accept-button-drgui">
                         Accept
                       </button>
-                      <button className="reject-button" onClick={() => handleRejectRequest(request.id)}>
+                      <button className="reject-button-drgui" onClick={() => handleRejectRequest(request.id)}>
                         Reject
                       </button>
 
@@ -280,8 +254,8 @@ const DocGUI = () => {
       </Row>
 
       <Row>
-        <Col>
-          {/* Mental Health Form */}
+        <Col >
+         
           <form className="Doctorform" onSubmit={handleMentalHealthSubmit}>
             <label className="Doctorformlabel">
               Condition_name:
@@ -312,7 +286,7 @@ const DocGUI = () => {
             </div>
           </form>
 
-          <br />
+          
 
           <form className="Doctorform" onSubmit={handleQuestionnaireSubmit}>
             <label className="Doctorformlabel">
@@ -333,27 +307,12 @@ const DocGUI = () => {
             </div>
           </form>
           <br />
-          <form className="Doctorform" onSubmit={handleQuestionsTableSubmit}>
-            <label className="Doctorformlabel">
-              Question:
-              <input
-                className="Doctorforminput"
-                type="text"
-                name="Question"
-                value={QuestionsFormData.Question}
-                onChange={(e) => handleFormChange(e, setQuestionsFormData)}
-              />
-            </label>
-
-            <div className="button-container-Doctorform">
-              <button className="Doctorformbutton" type="submit">
-                Add Question
-              </button>
-            </div>
-          </form>
+        
         </Col>
       </Row>
+
     </div>
+    
   );
 };
 

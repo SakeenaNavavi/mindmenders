@@ -115,7 +115,7 @@
   }
   
   
-  .accept-button{
+  .accept-button-drgui{
     background-color:  #443806;
   }
   .container-drgui {
@@ -135,150 +135,46 @@
   .time_label{
     padding: 10px;
   }
-  
-  
+  .Doctorform{
+    margin-top: 20px; /* Adjust the margin as needed */
+    width: 500px;
+      margin-left: auto;
+      margin-right: 300px;
+      padding: 2px;
+      background-color: #fff;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      height: 300px;
+  }
+  .Doctorformlabel{
+    display: block;
+    margin-bottom: -2px;
+    font-weight: bold;
+    color: #333;
+    width: 500px;
+  }
+  .Doctorforminput{
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 16px;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 4px;
 
-.contact-list-docgui {
-  list-style: none;
-  padding: 0;
-}
-
-.contact-button-docgui {
-  display: flex;
-  align-items: center;
-  padding: 10px;
-  margin-bottom: 10px;
-  background-color: #f0f0f0; 
-  border: 1px solid #ccc; 
+  }
+  .button-container-Doctorform{
+    display: flex;
+    gap: 16px; 
+    margin-left: 75px;
+  }
+.Doctorformbutton{
+  background-color: #70663E;
+  color: white;
+  padding: 10px 15px;
+  font-size: 16px;
+  border: none;
+  border-radius: 4px;
   cursor: pointer;
   width: 300px;
-  text-align: left;
-  text-decoration: none;
-  color: #333; 
-}
-.contact-button-docgui:hover{
-  
-    transform: scale(1.02);
-    overflow: hidden;
-  
-}
-.contact-image-docgui {
-
-  width: 75px; 
-  height: 75px; 
-  border-radius: 50%;
-  margin-right: 10px;
-}
-
-
-.contact-details-docgui {
-  flex: 1;
-}
-
-.contact-name-docgui {
-  font-weight: bold;
-}
-
-.latest-message-docgui {
-  font-size: 14px;
-  color: #888; 
-}
-
-
-.new-box-docgui {
-  background-color: #f0f0f0; 
-  border: 1px solid #ccc; 
-  padding: 10px;
-  margin-bottom: 10px;
-  width: 575px;
   height: 50px;
-  border: black;
-  display: flex;
-  align-items: center;
-  margin-bottom: 10px;
- 
-  
 }
-
-.contact-button-docgui {
-  
-  padding: 10px;
-  margin: 5px;
-  background-color: #f0f0f0;
-  border: 1px solid #ddd;
-  border-radius: 5px;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  margin-bottom: 10px;
-}
-
-.contact-button-docgui img {
-  width: 50px; 
-  height: 50px;
-  margin-right: 10px;
-  border-radius: 50%;
-}
-
-
-
-.new-box-docgui img {
-  width: 30px; 
-  height: 30px; 
-  border-radius: 50%;
-}
-
-
-
-
-.new-box-docgui img {
-  width: 30px; 
-  height: 30px; 
-    margin-right: 10px;
-  border-radius: 50%;
-}
-.new-box-docgui h3 {
-
-  margin: 0;
-}
-.cameraicon-docgui {
-  margin-left: 300px; 
-  margin-right: 2px; 
-  padding:10px;
-  background-color: #f0f0f0;
-  border: 1px solid #ddd;
-  border-radius: 5px;
-  cursor: pointer;
-}
-
-.imageicon-docgui
-{
-  margin-left: 10px; 
-  margin-right: 2px; 
-  padding:10px;
-  background-color: #f0f0f0;
-  border: 1px solid #ddd;
-  border-radius: 5px;
-  cursor: pointer;
-}
-
-.cogicon-docgui{
-
-  margin-left: 10px; 
-  margin-right: 2px; 
-  padding:10px;
-  background-color: #f0f0f0;
-  border: 1px solid #ddd;
-  border-radius: 5px;
-  cursor: pointer;
-}
-
-.circleicon-docgui{
-
-  margin-left: 10px; 
-  margin-right: 2px; 
-  padding:10px;
-  background-color: #f0f0f0;
-  border: 1px solid #ddd;
-  border-radius: 5px;
-  cursor: pointer;}

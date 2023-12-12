@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Row, Col, OverlayTrigger, Popover } from 'react-bootstrap';
 import 'react-datepicker/dist/react-datepicker.css';
 import 'react-time-picker/dist/TimePicker.css';
@@ -6,236 +6,355 @@ import './index.css';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { faCamera, faImage, faCog, faQuestionCircle } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-//import React, { useState } from 'react';
+import supabase from '../../supa/supabase/supabaseClient';
+
 library.add(faCamera, faImage, faCog, faQuestionCircle);
 
-class DocGUI extends Component {
-  constructor() {
+const DocGUI = () => {
+  // Consultant Form State
+  const [consultantFormData, setConsultantFormData] = useState({
+    Questionnaire_type: '',
+  });
+
+  const [QuestionnaireSubmittedData, setQuestionnaireSubmittedData] = useState(() => {
+    const storedData = localStorage.getItem('submittedQuestionnaireData');
+    return storedData ? JSON.parse(storedData) : [];
+  });
+
+  // Mental Health Form State
+  const [mentalHealthFormData, setMentalHealthFormData] = useState({
+    Condition_name: '',
+    Description: '',
+  });
+
+  const [mentalHealthSubmittedData, setMentalHealthSubmittedData] = useState(() => {
+    const storedData = localStorage.getItem('submittedMentalHealthData');
+    return storedData ? JSON.parse(storedData) : [];
+  });
+
+  // Another Table Form State
+  const [QuestionsFormData, setQuestionsFormData] = useState({
+    Question:'',
+  });
+
+  const [QuestionsSubmittedData, setQuestionsSubmittedData] = useState(() => {
+    const storedData = localStorage.getItem('submittedQuestionsData');
+    return storedData ? JSON.parse(storedData) : [];
+  });
+
+  // Common Form Change Handler
+  const handleFormChange = (e, setFormData) => {
+    setFormData({
+      ...setFormData,
+      [e.target.name]: e.target.value,
+    });
+  };
+
+  // Consultant Form Submit Handler
+  const handleQuestionnaireSubmit = async (e, deleteCard = false) => {
+    e.preventDefault();
+
+    if (deleteCard) {
+      // Handle delete logic if needed
+    } else {
+      try {
+        const { data, error } = await supabase
+          .from('tblQuestionnaire')
+          .upsert([
+            {
+              Questionnaire_type: consultantFormData.Questionnaire_type,
+            },
+          ]);
+
+        if (error) {
+          console.error('Error inserting data into Supabase:', error.message);
+        } else {
+          console.log('Data inserted into Supabase:', data);
+          setQuestionnaireSubmittedData([...QuestionnaireSubmittedData, consultantFormData]);
+          localStorage.setItem('submittedQuestionnaireData', JSON.stringify([...QuestionnaireSubmittedData, consultantFormData]));
+        }
+      } catch (error) {
+        console.error('Error inserting data into Supabase:', error.message);
+      }
+    }
+
+    setConsultantFormData({
+      Questionnaire_type: '',
+    });
+  };
+
+  const handleMentalHealthSubmit = async (e, deleteCard = false) => {
+    e.preventDefault();
   
-    super();
-    this.state = {
-      selectedContact: null,
-      showCalendar: false,
-      selectedDate: null,
-      activeContactId: null,
-      selectedTime: '12:00',
-      messages: [],
-      newMessage: '',
-      contacts: [
-        // ... (your contact data remains the same)
-      ],
-      patientRequests: [
-        // ... (your patient request data remains the same)
-      ],
-      selectedRequestId: null,
-    };
-  }
-
-  handleContactClick = (contactId) => {
-    const selectedContact = this.state.contacts.find((contact) => contact.id === contactId);
-    this.setState({ selectedContact });
+    if (deleteCard) {
+      // Handle delete logic if needed
+    } else {
+      // Validate that Description is not null or empty before submitting
+      if (!mentalHealthFormData.Description) {
+        console.error('Description is required.');
+        return;
+      }
+  
+      try {
+        const { data, error } = await supabase
+          .from('tblMentalHealthConditions')
+          .upsert([
+            {
+              Condition_name: mentalHealthFormData.Condition_name,
+              Description: mentalHealthFormData.Description,
+            },
+          ]);
+  
+        if (error) {
+          console.error('Error inserting data into Supabase:', error.message);
+        } else {
+          console.log('Data inserted into Supabase:', data);
+          setMentalHealthSubmittedData([...mentalHealthSubmittedData, mentalHealthFormData]);
+          localStorage.setItem('submittedMentalHealthData', JSON.stringify([...mentalHealthSubmittedData, mentalHealthFormData]));
+        }
+      } catch (error) {
+        console.error('Error inserting data into Supabase:', error.message);
+      }
+    }
+  
+    setMentalHealthFormData({
+      Condition_name: '',
+      Description: '',
+    });
   };
+  
 
-  handleNewMessageChange = (e) => {
-    this.setState({ newMessage: e.target.value });
-  };
+  // Another Table Form Submit Handler
+  const handleQuestionsTableSubmit = async (e, deleteCard = false) => {
+    e.preventDefault();
 
-  handleSendMessage = () => {
-    const { messages, newMessage } = this.state;
-    if (newMessage.trim() === '') return;
+    if (deleteCard) {
+      // Handle delete logic if needed
+    } else {
+      try {
+        
+        const { data, error } = await supabase
+          .from('tblQuestions')
+          .upsert([
+            {
+              Question: QuestionsFormData.Question,
+            },
+          ]);
+       
 
-    const newMessages = [...messages, { text: newMessage, sender: 'You' }];
-    this.setState({ messages: newMessages, newMessage: '' });
-  };
 
-  handleAcceptRequest = (requestId) => {
-    this.setState({
-      selectedRequestId: requestId,
-      showCalendar: true,
+        if (error) {
+          console.error('Error inserting data into Supabase:', error.message);
+        } else {
+          console.log('Data inserted into Supabase:', data);
+          setQuestionsSubmittedData([...QuestionsSubmittedData, QuestionsFormData]);
+          localStorage.setItem('submittedQuestionsData', JSON.stringify([...QuestionsSubmittedData, QuestionsFormData]));
+        }
+      } catch (error) {
+        console.error('Error inserting data into Supabase:', error.message);
+      }
+    }
+
+    setQuestionsFormData({
+      Question:'',
     });
   };
 
-  handleRejectRequest = (requestId) => {
-    this.setState((prevState) => {
-      const updatedPatientRequests = prevState.patientRequests.filter(
-        (request) => request.id !== requestId
-      );
-      return {
-        patientRequests: updatedPatientRequests,
-      };
-    });
+  useEffect(() => {
+    // Uncomment the following lines if you want to clear the data on component unmount
+    // return () => {
+    //   localStorage.removeItem('submittedQuestionnaireData');
+    //   localStorage.removeItem('submittedMentalHealthData');
+    //   localStorage.removeItem('submittedQuestionsData');
+    // };
+  }, []);
+
+  const [selectedContact, setSelectedContact] = useState(null);
+  const [showCalendar, setShowCalendar] = useState(false);
+  const [selectedDate, setSelectedDate] = useState(null);
+  const [selectedTime, setSelectedTime] = useState('12:00');
+  const [messages, setMessages] = useState([]);
+  const [newMessage, setNewMessage] = useState('');
+  const [contacts, setContacts] = useState([]);
+
+  const [patientRequests, setPatientRequests] = useState([
+    { id: 1, name: 'Patient 1' },
+    // ... (rest of your patient requests)
+  ]);
+
+  const [selectedRequestId, setSelectedRequestId] = useState(null);
+
+  const handleContactClick = (contactId) => {
+    const selectedContact = contacts.find((contact) => contact.id === contactId);
+    setSelectedContact(selectedContact);
   };
 
-  handleDateChange = (date) => {
-    this.setState({ selectedDate: date });
+  const handleAcceptRequest = (requestId) => {
+    setSelectedRequestId(requestId);
+    setShowCalendar(true);
   };
 
-  handleTimeChange = (time) => {
-    this.setState({ selectedTime: time });
+  const handleRejectRequest = (requestId) => {
+    const updatedPatientRequests = patientRequests.filter((request) => request.id !== requestId);
+    setPatientRequests(updatedPatientRequests);
   };
 
-  hideCalendar = () => {
-    this.setState({ showCalendar: false });
+  const handleDateChange = (date) => {
+    setSelectedDate(date);
   };
 
-  getLatestMessage(contactId) {
-    const { messages } = this.state;
-    const messagesForContact = messages
-      .filter((message) => message.sender !== 'You' && this.getContactName(message.sender) === this.getContactName(contactId))
-      .reverse();
+  const handleTimeChange = (time) => {
+    setSelectedTime(time);
+  };
 
-    const latestMessage = messagesForContact[0];
+  const hideCalendar = () => {
+    setShowCalendar(false);
+  };
 
-    return latestMessage ? latestMessage.text : 'No messages';
-  }
+  const handleConfirmAppointment = () => {
+    // Perform any actions needed for confirming the appointment
+    setSelectedRequestId(null);
+    setShowCalendar(false);
+  };
 
-  getContactName(contactId) {
-    const contact = this.state.contacts.find((c) => c.id === contactId);
-    return contact ? contact.name : '';
-  }
+  return (
+    <div className="website-container-drgui">
+      {/* ... Existing JSX Code ... */}
+      <Row>
+        <Col md={4}>
+          <div className="patient-requests boxed">
+            <h2>Patient Requests</h2>
+            <ul>
+              {patientRequests.map((request) => (
+                <li key={request.id} className="patient-request">
+                  <div className="request-info">
+                    <span className="request-name">{request.name}</span>
+                    <div className="button-container-drgui">
+                      <button onClick={() => handleAcceptRequest(request.id)} className="accept-button">
+                        Accept
+                      </button>
+                      <button className="reject-button" onClick={() => handleRejectRequest(request.id)}>
+                        Reject
+                      </button>
 
-  render() {
-    const { messages, newMessage, contacts, patientRequests, selectedDate, selectedTime, selectedRequestId } = this.state;
-
-    return (
-      <div className="website-container-docgui">
-        <Row className="boxed-docgui">
-          <Col md={4}>
-            <h2 className="contactlisth-docgui">Contact List</h2>
-            <ul className="contact-list-docgui">
-              {contacts.map((contact) => (
-                <button
-                  key={contact.id}
-                  onClick={() => this.handleContactClick(contact.id)}
-                  className={`contact-button-docgui ${this.state.selectedContact && this.state.selectedContact.id === contact.id ? 'active' : ''}`}
-                >
-                  <img src={contact.image} alt={contact.name} className="contact-image-docgui" />
-                  <div className="contact-details-docgui">
-                    <span className="contact-name-docgui">{contact.name}</span>
-                    <div className="latest-message-docgui">
-                      {this.getLatestMessage(contact.id)}
+                      {selectedRequestId === request.id && (
+                        <div className="calendar-popover">
+                          <Popover id="calendar-popover" title="Select Date and Time">
+                            <div className="form-group">
+                              <label htmlFor="date" className="date-label">
+                                Date
+                              </label>
+                              <input type="date" className="date_control" id="date" name="date" />
+                            </div>
+                            <div className="time_control">
+                              <label htmlFor="time" className="time_label">
+                                Time
+                              </label>
+                              <select className="form-control" id="time" name="time">
+                                <option value="10:00 AM">10:00 AM</option>
+                                <option value="11:00 AM">11:00 AM</option>
+                                <option value="12:00 PM">12:00 PM</option>
+                                <option value="1:00 PM">1:00 PM</option>
+                                <option value="2:00 PM">2:00 PM</option>
+                                <option value="3:00 PM">3:00 PM</option>
+                                <option value="4:00 PM">4:00 PM</option>
+                                <option value="5:00 PM">5:00 PM</option>
+                                <option value="6:00 PM">6:00 PM</option>
+                                <option value="7:00 PM">7:00 PM</option>
+                                <option value="8:00 PM">8:00 PM</option>
+                                <option value="9:00 PM">9:00 PM</option>
+                                <option value="10:00 PM">10:00 PM</option>
+                              </select>
+                            </div>
+                            <button onClick={handleConfirmAppointment}>Confirm</button>
+                          </Popover>
+                        </div>
+                      )}
                     </div>
                   </div>
-                </button>
+                </li>
               ))}
             </ul>
-          </Col>
-        </Row>
+          </div>
+        </Col>
+      </Row>
 
-        <Row className="boxedh-docgui">
-          <Col md={4}>
-            <div className="mental-health-chat-docgui">
-              <div className="chat-window-docgui">
-                <div className="new-box-docgui">
-                  {this.state.selectedContact && (
-                    <>
-                      <img src={this.state.selectedContact.image} alt={this.state.selectedContact.name} />
-                      <h3>{this.state.selectedContact.name}</h3>
-                    </>
-                  )}
+      <Row>
+        <Col>
+          {/* Mental Health Form */}
+          <form className="Doctorform" onSubmit={handleMentalHealthSubmit}>
+            <label className="Doctorformlabel">
+              Condition_name:
+              <input
+                className="Doctorforminput"
+                type="text"
+                name="Condition_name"
+                value={mentalHealthFormData.Condition_name}
+                onChange={(e) => handleFormChange(e, setMentalHealthFormData)}
+              />
+            </label>
+            <br />
+            <label className="Doctorformlabel">
+              Description:
+              <input
+                className="Doctorforminput"
+                type="text"
+                name="Description"
+                value={mentalHealthFormData.Description}
+                onChange={(e) => handleFormChange(e, setMentalHealthFormData)}
+              />
+            </label>
 
-                  <button onClick={this.handleCameraClick} className="cameraicon-docgui">
-                    <FontAwesomeIcon icon="camera" />
-                  </button>
-                  <button onClick={this.handleImageClick} className="imageicon-docgui">
-                    <FontAwesomeIcon icon="image" />
-                  </button>
-                  <button onClick={this.handleSettingsClick} className="cogicon-docgui">
-                    <FontAwesomeIcon icon="cog" />
-                  </button>
-                  <button onClick={this.handleHelpClick} className="circleicon-docgui">
-                    <FontAwesomeIcon icon="question-circle" />
-                  </button>
-                </div>
-
-                {messages.map((message, index) => (
-                  <div
-                    key={index}
-                    className={`${message} ${message.sender === 'You' ? 'user' : 'professional'}`}
-                  >
-                    <span className="sender-docgui">{message.sender}:</span> {message.text}
-                  </div>
-                ))}
-              </div>
-
-              <div className="container-docgui">
-                <div className="input-area-docgui">
-                  <div className="input-container-docgui">
-                    <input
-                      className="textclass-docgui"
-                      type="text"
-                      placeholder="Type your message..."
-                      value={newMessage}
-                      onChange={this.handleNewMessageChange}
-                    />
-                    <button onClick={this.handleSendMessage} className="sendbutton-docgui">
-                      Send
-                    </button>
-                  </div>
-                </div>
-              </div>
+            <div className="button-container-Doctorform">
+              <button className="Doctorformbutton" type="submit">
+                Add Mental Health Condition
+              </button>
             </div>
-          </Col>
-        </Row>
+          </form>
 
-        <Row>
-          <Col md={4}>
-            <div className="patient-requests boxed-docgui">
-              <h2>Patient Requests</h2>
-              <ul>
-                {patientRequests.map((request) => (
-                  <li key={request.id} className="patient-request-docgui">
-                    <div className="request-info-docgui">
-                      <span className="request-name-docgui">{request.name}</span>
-                      <div className="button-container-docgui">
-                        <button onClick={() => this.handleAcceptRequest(request.id)} className="accept-button">
-                          Accept
-                        </button>
-                        <button className="reject-button-docgui" onClick={() => this.handleRejectRequest(request.id)}>
-                          Reject
-                        </button>
+          <br />
 
-                        {selectedRequestId === request.id && (
-                          <div className="calendar-popover-docgui">
-                            <Popover id="calendar-popover" title="Select Date and Time">
-                              <div className="form-group-docgui">
-                                <label htmlFor="date" className="date-label-docgui">Date</label>
-                                <input type="date" className="date_control" id="date" name="date" />
-                              </div>
-                              <div className="time_control">
-                                <label htmlFor="time" className="time_label">Time</label>
-                                <select className="form-control-docgui" id="time" name="time">
-                                  <option value="10:00 AM">10:00 AM</option>
-                                  <option value="11:00 AM">11:00 AM</option>
-                                  <option value="12:00 PM">12:00 PM</option>
-                                  <option value="1:00 PM">1:00 PM</option>
-                                  <option value="2:00 PM">2:00 PM</option>
-                                  <option value="3:00 PM">3:00 PM</option>
-                                  <option value="4:00 PM">4:00 PM</option>
-                                  <option value="5:00 PM">5:00 PM</option>
-                                  <option value="6:00 PM">6:00 PM</option>
-                                  <option value="7:00 PM">7:00 PM</option>
-                                  <option value="8:00 PM">8:00 PM</option>
-                                  <option value="9:00 PM">9:00 PM</option>
-                                  <option value="10:00 PM">10:00 PM</option>
-                                </select>
-                              </div>
-                              <button>Confirm</button>
-                            </Popover>
-                          </div>
-                        )}
-                      </div>
-                    </div>
-                  </li>
-                ))}
-              </ul>
+          <form className="Doctorform" onSubmit={handleQuestionnaireSubmit}>
+            <label className="Doctorformlabel">
+              Questionnaire_type:
+              <input
+                className="Doctorforminput"
+                type="text"
+                name="Questionnaire_type"
+                value={consultantFormData.Questionnaire_type}
+                onChange={(e) => handleFormChange(e, setConsultantFormData)}
+              />
+            </label>
+
+            <div className="button-container-Doctorform">
+              <button className="Doctorformbutton" type="submit">
+                Add Question
+              </button>
             </div>
-          </Col>
-        </Row>
-    
-      </div>
-    );
-  }
-}
+          </form>
+          <br />
+          <form className="Doctorform" onSubmit={handleQuestionsTableSubmit}>
+            <label className="Doctorformlabel">
+              Question:
+              <input
+                className="Doctorforminput"
+                type="text"
+                name="Question"
+                value={QuestionsFormData.Question}
+                onChange={(e) => handleFormChange(e, setQuestionsFormData)}
+              />
+            </label>
+
+            <div className="button-container-Doctorform">
+              <button className="Doctorformbutton" type="submit">
+                Add Question
+              </button>
+            </div>
+          </form>
+        </Col>
+      </Row>
+    </div>
+  );
+};
 
 export default DocGUI;

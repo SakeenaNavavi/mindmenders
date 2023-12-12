@@ -3,11 +3,8 @@ import { Row, Col } from 'react-bootstrap';
 import { createClient } from '@supabase/supabase-js';
 import './index.css';
 import Navbar from "../../Components/molecules/Navbar/index.jsx";
+import supabase from '../../supa/supabase/supabaseClient';
 
-const supabaseUrl = 'https://brxyhorsxcsfbiivubin.supabase.co'; 
-const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImJyeHlob3JzeGNzZmJpaXZ1YmluIiwicm9sZSI6ImFub24iLCJpYXQiOjE2OTkxNjAyMTQsImV4cCI6MjAxNDczNjIxNH0._RS1Z6BydY99zFyVtseR1HKH_KNVSOU1IsPj7i019l0'; 
-
-const supabase = createClient(supabaseUrl, supabaseKey);
 // Define handleCardClick function somewhere in your code
 const handleCardClick = (param1, param2) => {
   // Your logic here

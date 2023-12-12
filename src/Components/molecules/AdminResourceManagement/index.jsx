@@ -779,7 +779,7 @@ const AdminResourceLibrary = () => {
                   </div>
                   <div className="col-md-8">
                     <div className="card-body">
-                      <p>
+                      
                         <h5 className="articalh5">A Breath Stuck: Me and My Depression</h5>
                         <button
                           className="articalabtn"
@@ -791,7 +791,7 @@ const AdminResourceLibrary = () => {
                         >
                           Read Now
                         </button>
-                      </p>
+                      
                     </div>
                   </div>
                 </div>
@@ -810,7 +810,7 @@ const AdminResourceLibrary = () => {
                   </div>
                   <div class="col-md-8">
                     <div class="card-body">
-                      <p>
+                      
                         <h5 className="articalh5">Walking on a Tight Rope: Coping with Depression</h5>
                         <button
                           className="articalabtn"
@@ -822,7 +822,7 @@ const AdminResourceLibrary = () => {
                         >
                           Read Now
                         </button>
-                      </p>
+                      
 
                     </div>
                   </div>
@@ -842,7 +842,7 @@ const AdminResourceLibrary = () => {
                   </div>
                   <div className="col-md-8">
                     <div className="card-body">
-                      <p>
+                      
                         <h5 className="articalh5">My Story With Bipolar Disorder</h5>
                         <button
                           className="articalabtn"
@@ -854,7 +854,7 @@ const AdminResourceLibrary = () => {
                         >
                           Read Now
                         </button>
-                      </p>
+                      
                     </div>
                   </div>
                 </div>
@@ -872,7 +872,7 @@ const AdminResourceLibrary = () => {
                   </div>
                   <div class="col-md-8">
                     <div class="card-body">
-                      <p> <h5 className="articalh5">Helping Someone with an Eating Disorder</h5>
+                    <h5 className="articalh5">Helping Someone with an Eating Disorder</h5>
                         <button
                           className="articalabtn"
                           onClick={async () => {
@@ -882,7 +882,7 @@ const AdminResourceLibrary = () => {
                         >
                           Read Now
                         </button>
-                      </p>
+                    
 
                     </div>
                   </div>
@@ -902,7 +902,7 @@ const AdminResourceLibrary = () => {
                   </div>
                   <div class="col-md-8">
                     <div class="card-body">
-                      <p> <h5 className="articalh5">The effect of ADHD on the life of an individual, their family, and community from preschool to adult life</h5>
+                      <h5 className="articalh5">The effect of ADHD on the life of an individual, their family, and community from preschool to adult life</h5>
                         <button
                           className="articalabtn"
                           onClick={async () => {
@@ -913,7 +913,7 @@ const AdminResourceLibrary = () => {
                         >
                           Read Now
                         </button>
-                      </p>
+                      
 
                     </div>
                   </div>
@@ -933,7 +933,7 @@ const AdminResourceLibrary = () => {
                   </div>
                   <div class="col-md-8">
                     <div class="card-body">
-                      <p> <h5 className="articalh5">What is ADHD?</h5>
+                    <h5 className="articalh5">What is ADHD?</h5>
                         <button
                           className="articalabtn"
                           onClick={async () => {
@@ -944,7 +944,7 @@ const AdminResourceLibrary = () => {
                         >
                           Read Now
                         </button>
-                      </p>
+                
 
                     </div>
                   </div>
@@ -964,7 +964,7 @@ const AdminResourceLibrary = () => {
                   </div>
                   <div class="col-md-8">
                     <div class="card-body">
-                      <p> <h5 className="articalh5">College Students and Eating Disorders</h5>
+                  <h5 className="articalh5">College Students and Eating Disorders</h5>
                         <button
                           className="articalabtn"
                           onClick={async () => {
@@ -975,7 +975,7 @@ const AdminResourceLibrary = () => {
                         >
                           Read Now
                         </button>
-                      </p>
+                  
 
                     </div>
                   </div>
@@ -995,7 +995,7 @@ const AdminResourceLibrary = () => {
                   </div>
                   <div class="col-md-8">
                     <div class="card-body">
-                      <p> <h5 className="articalh5">Taking a Bite Out of Eating Disorders: Facts and Myths</h5>
+                    <h5 className="articalh5">Taking a Bite Out of Eating Disorders: Facts and Myths</h5>
                         <button
                           className="articalabtn"
                           onClick={async () => {
@@ -1006,8 +1006,7 @@ const AdminResourceLibrary = () => {
                         >
                           Read Now
                         </button>
-                      </p>
-
+          
                     </div>
                   </div>
                 </div>
@@ -1027,7 +1026,7 @@ const AdminResourceLibrary = () => {
                   <div class="col-md-8">
                     <div class="card-body">
 
-                      <p> <h5 className="articalh5">My Story With Bipolar Disorder</h5>
+                  <h5 className="articalh5">My Story With Bipolar Disorder</h5>
                         <button
                           className="articalabtn"
                           onClick={async () => {
@@ -1038,8 +1037,7 @@ const AdminResourceLibrary = () => {
                         >
                           Read Now
                         </button>
-                      </p>
-
+                    
                     </div>
                   </div>
                 </div>

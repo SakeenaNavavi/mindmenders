@@ -1,5 +1,5 @@
 import { Container, Row, Col, Button } from 'react-bootstrap';
-import quiz from './quiz.png';
+import quiz from './quiz.PNG';
 import { Link } from 'react-router-dom';
 
 const Home3 = () => {

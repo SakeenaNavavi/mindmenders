@@ -13,6 +13,7 @@
     }
 }
   
+
 .directory-card-image{
     width: 200px;
     height: 190px;
@@ -95,6 +96,7 @@
     flex-direction: row;
     align-items: center; /* Optional: Center the cards horizontally */
   }
+
  
   .directoryCard-card{
     width: 250px; /* Adjust the width as needed */
@@ -103,3 +105,4 @@
     margin-left: auto;
     margin-right: auto;
   }
+

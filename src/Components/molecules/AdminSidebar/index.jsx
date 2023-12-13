@@ -21,32 +21,11 @@ const AdminSidebar = ({ setActiveComponent }) => {
           </a>
         </li>
         <hr class="sidebar-divider" />
-        <li class="nav-item">
-          <a class="nav-link collapsed" onClick={() => setActiveComponent('resourceLibrary')} data-toggle="collapse" data-target="#collapseUtilities" aria-expanded="true" aria-controls="collapseUtilities">
-            <i class="fas fa-fw fa-wrench"></i>
-            <span>Manage Resource Library</span>
-          </a>
-        </li>
-        <hr class="sidebar-divider" />
         <div class="sidebar-heading">Addons</div>
         <li class="nav-item">
-          <a class="nav-link collapsed" href="#!" data-toggle="collapse" data-target="#collapsePages" aria-expanded="true" aria-controls="collapsePages">
+          <a class="nav-link collapsed" onClick={()=>setActiveComponent('AdminRegistration')} data-toggle="collapse" data-target="#collapsePages" aria-expanded="true" aria-controls="collapsePages">
             <i class="fas fa-fw fa-folder"></i>
-            <span>Pages</span>
-          </a>
-        </li>
-
-        <li class="nav-item">
-          <a class="nav-link" href="charts.html">
-            <i class="fas fa-fw fa-chart-area"></i>
-            <span>Charts</span>
-          </a>
-        </li>
-
-        <li class="nav-item">
-          <a class="nav-link" href="tables.html">
-            <i class="fas fa-fw fa-table"></i>
-            <span>Tables</span>
+            <span>Add Admins</span>
           </a>
         </li>
 

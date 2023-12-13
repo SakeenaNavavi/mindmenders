@@ -8,16 +8,18 @@ import supabase from '../../supa/supabase/supabaseClient';
 library.add(faCamera, faImage, faCog, faQuestionCircle);
 
 const DocGUI = ({ visitorData }) => {
+  
+  const [showModal, setShowModal] = useState(false);
+
   useEffect(() => {
     console.log('Visitor Data:', visitorData);
-    console.log('Show Modal:', showModal);
+
     // Show the modal when visitorData is available
-    if (visitorData) {
+    if (visitorData && Object.keys(visitorData).length > 0) {
       setShowModal(true);
     }
-  }, [visitorData]);  
+  }, [visitorData]);
 
-  const [showModal, setShowModal] = useState(false);
 
   // Consultant Form State
   const [consultantFormData, setConsultantFormData] = useState({
@@ -235,7 +237,6 @@ const DocGUI = ({ visitorData }) => {
       </Row>
 
     </div>
-
   );
 };
 

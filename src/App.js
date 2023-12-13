@@ -17,7 +17,7 @@ import Conditions from './pages/Conditions';
 import DocGUI from './pages/DocGUI';
 import AdminDashboard from './pages/AdminDashboard';
 import AdminProfessionalDirectory from './Components/molecules/AdminProfessionalDirectory';
-
+import AdminRegistration from './Components/molecules/AdminRegistration';
 function App() {
   return (
     <div className="App">
@@ -41,6 +41,7 @@ function App() {
         <Route path="/Consultant" element={<DocGUI/>}/>
         <Route path="/AdminDashboard" element={<AdminDashboard/>}/>
         <Route path="/addConsultants" element={<AdminProfessionalDirectory/>}/>
+        <Route path="/AdminRegistration" element={<AdminRegistration/>}/>
       </Routes>
 
       <Footer />

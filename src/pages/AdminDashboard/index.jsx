@@ -5,7 +5,7 @@ import './index.css';
 import AdminSidebar from "../../Components/molecules/AdminSidebar";
 import { useState } from 'react';
 import AdminProfessionalDirectory from "../../Components/molecules/AdminProfessionalDirectory";
-import AdminResourceLibrary from "../../Components/molecules/AdminResourceManagement";
+import AdminRegistration from "../../Components/molecules/AdminRegistration";
 
 const AdminDashboard = () => {
   const [activeComponent, setActiveComponent] = useState('');
@@ -23,13 +23,14 @@ const AdminDashboard = () => {
             {activeComponent === 'professionalDirectory' ? (
               <AdminProfessionalDirectory />
             ) : (
-              activeComponent === 'resourceLibrary' ? (
-                <AdminResourceLibrary />
+              activeComponent === 'AdminRegistration' ? (
+                <AdminRegistration />
               ) : (
                 <AdminContent />
               )
             )}
           </div>
+
         </div>
       </div>
       <a className="scroll-to-top rounded" href="#page-top">

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Swal from 'sweetalert2';
-import supabase from '../../supa/supabase/supabaseClient';
+import supabase from '../../supa/supabase/supabaseClient.js';
 import './index.css';
 import Navbar from "../../Components/molecules/Navbar/index.jsx";
 const AppointmentBooking = ({onSubmit}) => {
@@ -14,20 +14,65 @@ const AppointmentBooking = ({onSubmit}) => {
     Email: '',
     DOB: '',
     date:'',
-    time:'',
+    Time:'',
   });
-  const handleSubmit = async (e) => {
+  const gatDataIntoSupabase = async (e) => {
     e.preventDefault();
-    
-    Swal.fire({
-      title: 'Request Pending!',
-      text: 'You will be notified when the Consultant confirms your appointment request!',
-      icon: 'success',
-    });
-    if (typeof onSubmit === 'function') {
-      onSubmit(newData);
+    //const formData = new FormData(e.target);
+    console.log(e.target);
+
+    const First_Name = document.getElementById('First_Name').value;
+    const Last_Name = document.getElementById('Last_Name').value;
+    const DOB = document.getElementById('DOB').value;
+    const Email = document.getElementById('Email').value;
+    const Phone_Number=document.getElementById('Phone_Number').value;
+    const Time=document.getElementById('Time').value;
+    const date=document.getElementById('date').value;
+
+
+    const formDataToUpdateSupabase = {
+      // F_name: formData.get('F_name'),
+      // L_name: formData.get('L_name'),
+      // DOB: formData.get('DOB'),
+      // Email: formData.get('Email'),
+      // password: formData.get('password'),
+      First_Name,
+      Last_Name,
+      DOB,
+      Email,
+      Phone_Number,
+      Time,
+      date,
+
+    };
+
+    await insertDataIntoSupabase(formDataToUpdateSupabase);
+  };
+  const insertDataIntoSupabase = async (formDataToUpdateSupabase) => {
+    try {
+      const { data, error } = await supabase.from('tblBooking').insert([
+        {
+          First_Name: formDataToUpdateSupabase.First_Name,
+          Last_Name: formDataToUpdateSupabase.Last_Name,
+          DOB: formDataToUpdateSupabase.DOB,
+          Email: formDataToUpdateSupabase.Email,
+          Phone_Number:formDataToUpdateSupabase.Phone_Number,
+          Time:formDataToUpdateSupabase.Time,
+          date:formDataToUpdateSupabase.date,
+
+        },
+      ]);
+
+      if (error) {
+        alert('Error inserting data into Supabase: ' + error.message);
+      } else {
+        alert(`You have successfully booked and appointment! see you soon!`);
+      }
+
+    } catch (error) {
+      console.log('Error connecting to Supabase: ' + error.message);
     }
-  }
+  };
 
 
   const handleInputChange = (e) => {
@@ -44,7 +89,7 @@ const AppointmentBooking = ({onSubmit}) => {
 
       <div className="appointment">
         <div className="appointment-container">
-          <form onSubmit={handleSubmit}>
+          <form onSubmit={gatDataIntoSupabase}>
             <h1 className="form-header" data-component="header">
               Book Your Appointment
             </h1>
@@ -83,7 +128,7 @@ const AppointmentBooking = ({onSubmit}) => {
               <input
                 type="tel"
                 className="form-control"
-                id="phone_number"
+                id="Phone_Number"
                 name="Phone_Number"
                 placeholder="Enter your phone number"
                 value={newData.Phone_Number}
@@ -96,7 +141,7 @@ const AppointmentBooking = ({onSubmit}) => {
               <input
                 type="email"
                 className="form-control"
-                id="email"
+                id="Email"
                 name="Email"
                 placeholder="Enter your email address"
                 value={newData.Email}
@@ -118,7 +163,7 @@ const AppointmentBooking = ({onSubmit}) => {
             </div>
             <div className="form-group">
               <label htmlFor='time'>Time</label>
-              <select className="form-control" id="time" name="time" value={newData.time} onChange={handleInputChange} required>
+              <select className="form-control" id="Time" name="Time" value={newData.Time} onChange={handleInputChange} required>
                 <option value="10:00 AM">10:00 AM</option>
                 <option value="11:00 AM">11:00 AM</option>
                 <option value="12:00 PM">12:00 PM</option>
@@ -138,7 +183,7 @@ const AppointmentBooking = ({onSubmit}) => {
               <label htmlFor="date" className="date-label">
                 Date
               </label>
-              <input type="date" className="form-control" id="date" name="date" value={newData.date} onChange={handleInputChange} required/>
+              <input type="date" className="form-control" id="date" name="date" value={newData.Date} onChange={handleInputChange} required/>
             </div>
             <br />
             <button type="submit" className="btn btn-primary">

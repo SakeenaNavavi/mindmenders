@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Row, Col, OverlayTrigger, Popover } from 'react-bootstrap';
+import { Row, Col, Popover } from 'react-bootstrap';
 import 'react-datepicker/dist/react-datepicker.css';
 import 'react-time-picker/dist/TimePicker.css';
 import './index.css';
@@ -11,8 +11,7 @@ import supabase from '../../supa/supabase/supabaseClient';
 library.add(faCamera, faImage, faCog, faQuestionCircle);
 
 const DocGUI = () => {
-  // Consultant Form State
-  const [consultantFormData, setConsultantFormData] = useState({
+ const [consultantFormData, setConsultantFormData] = useState({
     Questionnaire_type: '',
   });
 
@@ -21,19 +20,24 @@ const DocGUI = () => {
     return storedData ? JSON.parse(storedData) : [];
   });
 
-  // Mental Health Form State
-  const [mentalHealthFormData, setMentalHealthFormData] = useState({
-    Condition_name: '',
+  const [formData, setFormData] = useState({
     Description: '',
+    Condition_name: '',
   });
 
-  const [mentalHealthSubmittedData, setMentalHealthSubmittedData] = useState(() => {
-    const storedData = localStorage.getItem('submittedMentalHealthData');
+  const [submittedData, setSubmittedData] = useState(() => {
+    const storedData = localStorage.getItem('submittedData');
     return storedData ? JSON.parse(storedData) : [];
   });
 
-  // Another Table Form State
-  
+  const [searchInput, setSearchInput] = useState('');
+
+  const handleChange = (e) => {
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value,
+    });
+  };
 
   const [QuestionsSubmittedData, setQuestionsSubmittedData] = useState(() => {
     const storedData = localStorage.getItem('submittedQuestionsData');
@@ -81,62 +85,114 @@ const DocGUI = () => {
     });
   };
 
-  const handleMentalHealthSubmit = async (e, deleteCard = false) => {
+  const handleSubmit = async (e, deleteCard = false) => {
     e.preventDefault();
-  
+
     if (deleteCard) {
-      // Handle delete logic if needed
+      // Handle delete card logic if needed
     } else {
-      // Validate that Description is not null or empty before submitting
-      if (!mentalHealthFormData.Description) {
-        console.error('Description is required.');
-        return;
-      }
-  
-      try {
-        const { data, error } = await supabase
-          .from('tblMentalHealthConditions')
-          .upsert([
-            {
-              Condition_name: mentalHealthFormData.Condition_name,
-              Description: mentalHealthFormData.Description,
-            },
-          ]);
-  
-        if (error) {
-          console.error('Error inserting data into Supabase:', error.message);
-        } else {
-          console.log('Data inserted into Supabase:', data);
-          setMentalHealthSubmittedData([...mentalHealthSubmittedData, mentalHealthFormData]);
-          localStorage.setItem('submittedMentalHealthData', JSON.stringify([...mentalHealthSubmittedData, mentalHealthFormData]));
-        }
-      } catch (error) {
+      const { data, error } = await supabase
+        .from('tblMentalHealthConditions')
+        .upsert([
+          {
+            Description: formData.Description,
+            Condition_name: formData.Condition_name,
+          },
+        ]);
+
+      if (error) {
         console.error('Error inserting data into Supabase:', error.message);
+      } else {
+        console.log('Data inserted into Supabase:', data);
       }
+
+      setSubmittedData([...submittedData, formData]);
+      localStorage.setItem('submittedData', JSON.stringify([...submittedData, formData]));
     }
-  
-    setMentalHealthFormData({
-      Condition_name: '',
+
+    setFormData({
       Description: '',
+      Condition_name: '',
     });
   };
-  
-
-  // Another Table Form Submit Handler
- 
-       
-
-
-     
 
   useEffect(() => {
     // Uncomment the following lines if you want to clear the data on component unmount
     // return () => {
-    //   localStorage.removeItem('submittedQuestionnaireData');
-    //   localStorage.removeItem('submittedMentalHealthData');
-    //   localStorage.removeItem('submittedQuestionsData');
+    //   localStorage.removeItem('submittedData');
     // };
   }, []);
+
+  // Filter mental health conditions based on search input
+  const filteredData = submittedData.filter((mentalHealthCondition) =>
+    mentalHealthCondition &&
+    mentalHealthCondition.Description &&
+    mentalHealthCondition.Description.toLowerCase().includes(searchInput.toLowerCase())
+  );
+
+  const [formSelfHelpStrategiesData, setFormSelfHelpStrategiesData] = useState({
+    Strategy: '',
+  });
+
+  const [submittedSelfHelpStrategiesData, setSubmittedSelfHelpStrategiesData] = useState(() => {
+    const storedData = localStorage.getItem('submittedSelfHelpStrategiesData');
+    return storedData ? JSON.parse(storedData) : [];
+  });
+
+  const [searchSelfHelpStrategiesInput, setSearchSelfHelpStrategiesInput] = useState('');
+
+  const handleSelfHelpStrategiesChange = (e) => {
+    setFormSelfHelpStrategiesData({
+      ...formSelfHelpStrategiesData,
+      [e.target.name]: e.target.value,
+    });
+  };
+
+  const handleSelfHelpStrategiesSubmit = async (e, deleteCard = false) => {
+    e.preventDefault();
+
+    if (deleteCard) {
+      // Handle delete card logic if needed
+    } else {
+      const { data, error } = await supabase
+        .from('tblSelfHelpStrategies')
+        .upsert([
+          {
+            Strategy: formSelfHelpStrategiesData.Strategy,
+          },
+        ]);
+
+      if (error) {
+        console.error('Error inserting data into Supabase:', error.message);
+      } else {
+        console.log('Data inserted into Supabase:', data);
+      }
+
+      setSubmittedSelfHelpStrategiesData([...submittedSelfHelpStrategiesData, formSelfHelpStrategiesData]);
+      localStorage.setItem(
+        'submittedSelfHelpStrategiesData',
+        JSON.stringify([...submittedSelfHelpStrategiesData, formSelfHelpStrategiesData])
+      );
+    }
+
+    setFormSelfHelpStrategiesData({
+      Strategy: '',
+    });
+  };
+
+  useEffect(() => {
+    // Uncomment the following lines if you want to clear the data on component unmount
+    // return () => {
+    //   localStorage.removeItem('submittedSelfHelpStrategiesData');
+    // };
+  }, []);
+
+  // Filter self-help strategies based on search input
+  const filteredSelfHelpStrategiesData = submittedSelfHelpStrategiesData.filter((selfHelpStrategies) =>
+    selfHelpStrategies &&
+    selfHelpStrategies.Strategy &&
+    selfHelpStrategies.Strategy.toLowerCase().includes(searchSelfHelpStrategiesInput.toLowerCase())
+  );
 
   const [selectedContact, setSelectedContact] = useState(null);
   const [showCalendar, setShowCalendar] = useState(false);
@@ -153,7 +209,6 @@ const DocGUI = () => {
     { id: 4, name: 'Patient 4' },
     { id: 5, name: 'Patient 5' },
     { id: 6, name: 'Patient 6' },
-   
   ]);
 
   const [selectedRequestId, setSelectedRequestId] = useState(null);
@@ -193,7 +248,6 @@ const DocGUI = () => {
 
   return (
     <div className="website-container-drgui">
-      {/* ... Existing JSX Code ... */}
       <Row>
         <Col md={4}>
           <div className="patient-requests boxed">
@@ -226,18 +280,7 @@ const DocGUI = () => {
                               </label>
                               <select className="form-control" id="time" name="time">
                                 <option value="10:00 AM">10:00 AM</option>
-                                <option value="11:00 AM">11:00 AM</option>
-                                <option value="12:00 PM">12:00 PM</option>
-                                <option value="1:00 PM">1:00 PM</option>
-                                <option value="2:00 PM">2:00 PM</option>
-                                <option value="3:00 PM">3:00 PM</option>
-                                <option value="4:00 PM">4:00 PM</option>
-                                <option value="5:00 PM">5:00 PM</option>
-                                <option value="6:00 PM">6:00 PM</option>
-                                <option value="7:00 PM">7:00 PM</option>
-                                <option value="8:00 PM">8:00 PM</option>
-                                <option value="9:00 PM">9:00 PM</option>
-                                <option value="10:00 PM">10:00 PM</option>
+                                {/* ... Other time options ... */}
                               </select>
                             </div>
                             <button onClick={handleConfirmAppointment}>Confirm</button>
@@ -254,40 +297,38 @@ const DocGUI = () => {
       </Row>
 
       <Row>
-        <Col >
-         
-          <form className="Doctorform" onSubmit={handleMentalHealthSubmit}>
-            <label className="Doctorformlabel">
-              Condition_name:
-              <input
-                className="Doctorforminput"
-                type="text"
-                name="Condition_name"
-                value={mentalHealthFormData.Condition_name}
-                onChange={(e) => handleFormChange(e, setMentalHealthFormData)}
-              />
-            </label>
-            <br />
+        <Col>
+          {/* Form for adding new mental health conditions */}
+          <form className="Doctorform" onSubmit={handleSubmit}>
             <label className="Doctorformlabel">
               Description:
               <input
                 className="Doctorforminput"
                 type="text"
                 name="Description"
-                value={mentalHealthFormData.Description}
-                onChange={(e) => handleFormChange(e, setMentalHealthFormData)}
+                value={formData.Description}
+                onChange={handleChange}
               />
             </label>
-
+            <br />
+            <label className="Doctorformlabel">
+              Condition_name:
+              <input
+                className="Doctorforminput"
+                type="text"
+                name="Condition_name"
+                value={formData.Condition_name}
+                onChange={handleChange}
+              />
+            </label>
             <div className="button-container-Doctorform">
               <button className="Doctorformbutton" type="submit">
-                Add Mental Health Condition
+                Add
               </button>
             </div>
           </form>
 
-          
-
+         
           <form className="Doctorform" onSubmit={handleQuestionnaireSubmit}>
             <label className="Doctorformlabel">
               Questionnaire_type:
@@ -306,13 +347,26 @@ const DocGUI = () => {
               </button>
             </div>
           </form>
-          <br />
-        
+          <form className="Doctorform" onSubmit={handleSelfHelpStrategiesSubmit}>
+            <label className="Doctorformlabel">
+              Strategy:
+              <input
+                className="Doctorforminput"
+                type="text"
+                name="Strategy"
+                value={formSelfHelpStrategiesData.Strategy}
+                onChange={handleSelfHelpStrategiesChange}
+              />
+            </label>
+            <div className="button-container-Doctorformform">
+              <button className="Doctorformbutton" type="submit">
+                Add
+              </button>
+            </div>
+          </form>
         </Col>
       </Row>
-
     </div>
-    
   );
 };
 

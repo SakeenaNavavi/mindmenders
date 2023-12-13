@@ -16,10 +16,12 @@
     margin-bottom: 30px;
 }
 .appointment-container{
-    margin-top: 90px;
+    /* margin-top: 90px; */
     margin-bottom: 30px;
     background-color: #C4D4A2;
     height: fit-content;
+    max-height: 1000px;
+    overflow-y: auto;
     width: fit-content;
     padding: 20px 40px;
     border-radius: 5px;
@@ -61,4 +63,7 @@
 }
 .your-custom-button-class{
     background-color: #443806;
+}
+.form-subHeader{
+    font-size: large;
 }

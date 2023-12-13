@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 
+
 import { Row, Col, Modal, Button } from 'react-bootstrap';
+
 
 import './index.css';
 import { library } from '@fortawesome/fontawesome-svg-core';
@@ -8,6 +10,7 @@ import { faCamera, faImage, faCog, faQuestionCircle } from '@fortawesome/free-so
 import supabase from '../../supa/supabase/supabaseClient';
 
 library.add(faCamera, faImage, faCog, faQuestionCircle);
+
 
 
 const DocGUI = ({ visitorData }) => {
@@ -27,6 +30,7 @@ const DocGUI = ({ visitorData }) => {
   // Consultant Form State
   const [consultantFormData, setConsultantFormData] = useState({
 
+
     Questionnaire_type: '',
   });
 
@@ -44,6 +48,16 @@ const DocGUI = ({ visitorData }) => {
     const storedData = localStorage.getItem('submittedData');
     return storedData ? JSON.parse(storedData) : [];
   });
+
+
+  const [searchInput, setSearchInput] = useState('');
+
+  const handleChange = (e) => {
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value,
+    });
+  };
 
 
   const [QuestionsSubmittedData, setQuestionsSubmittedData] = useState(() => {
@@ -99,6 +113,18 @@ const DocGUI = ({ visitorData }) => {
       // Handle delete card logic if needed
     } else {
 
+      const { data, error } = await supabase
+        .from('tblMentalHealthConditions')
+        .upsert([
+          {
+            Description: formData.Description,
+            Condition_name: formData.Condition_name,
+          },
+        ]);
+
+      if (error) {
+
+
       // Validate that Description is not null or empty before submitting
       if (!mentalHealthFormData.Description) {
         console.error('Description is required.');
@@ -141,7 +167,6 @@ const DocGUI = ({ visitorData }) => {
     });
   };
 
-
   useEffect(() => {
     // Uncomment the following lines if you want to clear the data on component unmount
     // return () => {
@@ -164,6 +189,7 @@ const DocGUI = ({ visitorData }) => {
     const storedData = localStorage.getItem('submittedSelfHelpStrategiesData');
     return storedData ? JSON.parse(storedData) : [];
   });
+
 
   const [searchSelfHelpStrategiesInput, setSearchSelfHelpStrategiesInput] = useState('');
 
@@ -274,6 +300,55 @@ const DocGUI = ({ visitorData }) => {
   return (
     <div className="website-container-drgui">
 
+      <Row>
+        <Col md={4}>
+          <div className="patient-requests boxed">
+            <h2>Patient Requests</h2>
+            <ul>
+              {patientRequests.map((request) => (
+                <li key={request.id} className="patient-request">
+                  <div className="request-info">
+                    <span className="request-name">{request.name}</span>
+                    <div className="button-container-drgui">
+                      <button onClick={() => handleAcceptRequest(request.id)} className="accept-button-drgui">
+                        Accept
+                      </button>
+                      <button className="reject-button-drgui" onClick={() => handleRejectRequest(request.id)}>
+                        Reject
+                      </button>
+
+                      {selectedRequestId === request.id && (
+                        <div className="calendar-popover">
+                          <Popover id="calendar-popover" title="Select Date and Time">
+                            <div className="form-group">
+                              <label htmlFor="date" className="date-label">
+                                Date
+                              </label>
+                              <input type="date" className="date_control" id="date" name="date" />
+                            </div>
+                            <div className="time_control">
+                              <label htmlFor="time" className="time_label">
+                                Time
+                              </label>
+                              <select className="form-control" id="time" name="time">
+                                <option value="10:00 AM">10:00 AM</option>
+                                {/* ... Other time options ... */}
+                              </select>
+                            </div>
+                            <button onClick={handleConfirmAppointment}>Confirm</button>
+                          </Popover>
+                        </div>
+                      )}
+                    </div>
+                  </div>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </Col>
+      </Row>
+
+
       <div>
         {/* Modal */}
         <Modal show={showModal} onHide={() => setShowModal(false)}>
@@ -300,10 +375,7 @@ const DocGUI = ({ visitorData }) => {
         </Modal>
       </div>
       <Row>
-        <Col >
 
-          <form className="Doctorform" onSubmit={handleMentalHealthSubmit}>
-  <Row>
         <Col>
           {/* Form for adding new mental health conditions */}
           <form className="Doctorform" onSubmit={handleSubmit}>

@@ -1,5 +1,5 @@
-@import url('https://fonts.googleapis.com/css2?family=Arapey&display=swap');
-.box {
+
+.box-ConditionsCard {
     border: 1px solid #000;
     width: 1200px;
     padding: 10px;
@@ -11,40 +11,18 @@
     border-radius: 10px;
     background-color: white;
   }
-  
-  .box:hover {
-    transform: scale(1.02);
-    overflow: hidden;
-  }
   .h1
   {
     color: #443806;
     font-family: "Arapey",serif;
   }
-  .text-box-header {
+  .text-box-ConditionsCard-header {
     text-align: left;
     font-family: 'Lobster', cursive;
     font-family: "Arapey",serif;
   }
-  .qbutton {
-    width: 175px;
-    height: 40px;
-    background-color: #F4F4EB;
-    color: #443806;
-    font-family: "Arapey", serif;
-    border: 1px solid #000; 
-  
+  .text-box-ConditionsCard-header1{
+    text-align: left;
+    font-family: 'Lobster', cursive;
+    font-family: "Arapey",serif;
   }
-
-
-
-
-
-
-
-
-
-
-
-
-

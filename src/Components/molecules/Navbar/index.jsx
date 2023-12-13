@@ -5,12 +5,15 @@ import { faUserCircle } from '@fortawesome/free-solid-svg-icons';
 import { Link} from 'react-router-dom';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+
 const Navbar = () => {
-  const Navigate=useNavigate();
+  const navigate = useNavigate();
   const [searchQuery, setSearchQuery] = useState("");
-  const handleSubmit = () => {
-    Navigate('/results', { state: { query: searchQuery } }); 
-  }
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    navigate('/Conditions', { state: { query: searchQuery } });
+  };
   return (
 
     <div>
@@ -42,11 +45,19 @@ const Navbar = () => {
                 <a class="nav-link" href="AboutUs">About us</a>
               </li>
             </ul>
-            <form class="d-flex" role="search" onSubmit={handleSubmit}>
-              <input class="form-control me-2" type="search" placeholder="Search for conditions" value={searchQuery}
-                onChange={(e) => setSearchQuery(e.target.value)} />
-              <button class="btn btn-outline-success" type="submit">Search</button>
-            </form>
+            <form className="d-flex" role="search" onSubmit={handleSubmit}>
+  <input
+    className="form-control me-2"
+    type="search"
+    placeholder="Search for conditions"
+    value={searchQuery}
+    onChange={(e) => setSearchQuery(e.target.value)}
+  />
+  <button className="btn btn-outline-success" type="submit">
+    Search
+  </button>
+</form>
+
             <button class="btn btn-user"><Link to="/loginRegister" className="custom-link"><i class="fa fa-user"></i></Link></button>
 
           </div>

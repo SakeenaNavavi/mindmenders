@@ -1,11 +1,14 @@
 import React, { useState, useEffect } from 'react';
+
 import { Row, Col, Modal, Button } from 'react-bootstrap';
+
 import './index.css';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { faCamera, faImage, faCog, faQuestionCircle } from '@fortawesome/free-solid-svg-icons';
 import supabase from '../../supa/supabase/supabaseClient';
 
 library.add(faCamera, faImage, faCog, faQuestionCircle);
+
 
 const DocGUI = ({ visitorData }) => {
   
@@ -23,6 +26,7 @@ const DocGUI = ({ visitorData }) => {
 
   // Consultant Form State
   const [consultantFormData, setConsultantFormData] = useState({
+
     Questionnaire_type: '',
   });
 
@@ -31,16 +35,16 @@ const DocGUI = ({ visitorData }) => {
     return storedData ? JSON.parse(storedData) : [];
   });
 
-  // Mental Health Form State
-  const [mentalHealthFormData, setMentalHealthFormData] = useState({
-    Condition_name: '',
+  const [formData, setFormData] = useState({
     Description: '',
+    Condition_name: '',
   });
 
-  const [mentalHealthSubmittedData, setMentalHealthSubmittedData] = useState(() => {
-    const storedData = localStorage.getItem('submittedMentalHealthData');
+  const [submittedData, setSubmittedData] = useState(() => {
+    const storedData = localStorage.getItem('submittedData');
     return storedData ? JSON.parse(storedData) : [];
   });
+
 
   const [QuestionsSubmittedData, setQuestionsSubmittedData] = useState(() => {
     const storedData = localStorage.getItem('submittedQuestionsData');
@@ -88,12 +92,13 @@ const DocGUI = ({ visitorData }) => {
     });
   };
 
-  const handleMentalHealthSubmit = async (e, deleteCard = false) => {
+  const handleSubmit = async (e, deleteCard = false) => {
     e.preventDefault();
 
     if (deleteCard) {
-      // Handle delete logic if needed
+      // Handle delete card logic if needed
     } else {
+
       // Validate that Description is not null or empty before submitting
       if (!mentalHealthFormData.Description) {
         console.error('Description is required.');
@@ -118,15 +123,127 @@ const DocGUI = ({ visitorData }) => {
           localStorage.setItem('submittedMentalHealthData', JSON.stringify([...mentalHealthSubmittedData, mentalHealthFormData]));
         }
       } catch (error) {
+
         console.error('Error inserting data into Supabase:', error.message);
+      } else {
+        console.log('Data inserted into Supabase:', data);
       }
+
+      setSubmittedData([...submittedData, formData]);
+      localStorage.setItem('submittedData', JSON.stringify([...submittedData, formData]));
     }
 
-    setMentalHealthFormData({
-      Condition_name: '',
+
+    setFormData({
+
       Description: '',
+      Condition_name: '',
     });
   };
+
+
+  useEffect(() => {
+    // Uncomment the following lines if you want to clear the data on component unmount
+    // return () => {
+    //   localStorage.removeItem('submittedData');
+    // };
+  }, []);
+
+  // Filter mental health conditions based on search input
+  const filteredData = submittedData.filter((mentalHealthCondition) =>
+    mentalHealthCondition &&
+    mentalHealthCondition.Description &&
+    mentalHealthCondition.Description.toLowerCase().includes(searchInput.toLowerCase())
+  );
+
+  const [formSelfHelpStrategiesData, setFormSelfHelpStrategiesData] = useState({
+    Strategy: '',
+  });
+
+  const [submittedSelfHelpStrategiesData, setSubmittedSelfHelpStrategiesData] = useState(() => {
+    const storedData = localStorage.getItem('submittedSelfHelpStrategiesData');
+    return storedData ? JSON.parse(storedData) : [];
+  });
+
+  const [searchSelfHelpStrategiesInput, setSearchSelfHelpStrategiesInput] = useState('');
+
+  const handleSelfHelpStrategiesChange = (e) => {
+    setFormSelfHelpStrategiesData({
+      ...formSelfHelpStrategiesData,
+      [e.target.name]: e.target.value,
+    });
+  };
+
+  const handleSelfHelpStrategiesSubmit = async (e, deleteCard = false) => {
+    e.preventDefault();
+
+    if (deleteCard) {
+      // Handle delete card logic if needed
+    } else {
+      const { data, error } = await supabase
+        .from('tblSelfHelpStrategies')
+        .upsert([
+          {
+            Strategy: formSelfHelpStrategiesData.Strategy,
+          },
+        ]);
+
+      if (error) {
+        console.error('Error inserting data into Supabase:', error.message);
+      } else {
+        console.log('Data inserted into Supabase:', data);
+      }
+
+      setSubmittedSelfHelpStrategiesData([...submittedSelfHelpStrategiesData, formSelfHelpStrategiesData]);
+      localStorage.setItem(
+        'submittedSelfHelpStrategiesData',
+        JSON.stringify([...submittedSelfHelpStrategiesData, formSelfHelpStrategiesData])
+      );
+    }
+
+    setFormSelfHelpStrategiesData({
+      Strategy: '',
+    });
+  };
+
+  useEffect(() => {
+    // Uncomment the following lines if you want to clear the data on component unmount
+    // return () => {
+    //   localStorage.removeItem('submittedSelfHelpStrategiesData');
+    // };
+  }, []);
+
+  // Filter self-help strategies based on search input
+  const filteredSelfHelpStrategiesData = submittedSelfHelpStrategiesData.filter((selfHelpStrategies) =>
+    selfHelpStrategies &&
+    selfHelpStrategies.Strategy &&
+    selfHelpStrategies.Strategy.toLowerCase().includes(searchSelfHelpStrategiesInput.toLowerCase())
+  );
+
+  const [selectedContact, setSelectedContact] = useState(null);
+  const [showCalendar, setShowCalendar] = useState(false);
+  const [selectedDate, setSelectedDate] = useState(null);
+  const [selectedTime, setSelectedTime] = useState('12:00');
+  const [messages, setMessages] = useState([]);
+  const [newMessage, setNewMessage] = useState('');
+  const [contacts, setContacts] = useState([]);
+
+  const [patientRequests, setPatientRequests] = useState([
+    { id: 1, name: 'Patient 1' },
+    { id: 2, name: 'Patient 2' },
+    { id: 3, name: 'Patient 3' },
+    { id: 4, name: 'Patient 4' },
+    { id: 5, name: 'Patient 5' },
+    { id: 6, name: 'Patient 6' },
+  ]);
+
+  const [selectedRequestId, setSelectedRequestId] = useState(null);
+
+  const handleContactClick = (contactId) => {
+    const selectedContact = contacts.find((contact) => contact.id === contactId);
+    setSelectedContact(selectedContact);
+  };
+
 
   const handleConfirmAppointment = async () => {
     // Perform any actions needed for confirming the appointment
@@ -156,6 +273,7 @@ const DocGUI = ({ visitorData }) => {
 
   return (
     <div className="website-container-drgui">
+
       <div>
         {/* Modal */}
         <Modal show={showModal} onHide={() => setShowModal(false)}>
@@ -185,34 +303,39 @@ const DocGUI = ({ visitorData }) => {
         <Col >
 
           <form className="Doctorform" onSubmit={handleMentalHealthSubmit}>
-            <label className="Doctorformlabel">
-              Condition_name:
-              <input
-                className="Doctorforminput"
-                type="text"
-                name="Condition_name"
-                value={mentalHealthFormData.Condition_name}
-                onChange={(e) => handleFormChange(e, setMentalHealthFormData)}
-              />
-            </label>
-            <br />
+  <Row>
+        <Col>
+          {/* Form for adding new mental health conditions */}
+          <form className="Doctorform" onSubmit={handleSubmit}>
+
             <label className="Doctorformlabel">
               Description:
               <input
                 className="Doctorforminput"
                 type="text"
                 name="Description"
-                value={mentalHealthFormData.Description}
-                onChange={(e) => handleFormChange(e, setMentalHealthFormData)}
+                value={formData.Description}
+                onChange={handleChange}
               />
             </label>
-
+            <br />
+            <label className="Doctorformlabel">
+              Condition_name:
+              <input
+                className="Doctorforminput"
+                type="text"
+                name="Condition_name"
+                value={formData.Condition_name}
+                onChange={handleChange}
+              />
+            </label>
             <div className="button-container-Doctorform">
               <button className="Doctorformbutton" type="submit">
-                Add Mental Health Condition
+                Add
               </button>
             </div>
           </form>
+
 
           <form className="Doctorform" onSubmit={handleQuestionnaireSubmit}>
             <label className="Doctorformlabel">
@@ -231,11 +354,27 @@ const DocGUI = ({ visitorData }) => {
               </button>
             </div>
           </form>
-          <br />
+
+          <form className="Doctorform" onSubmit={handleSelfHelpStrategiesSubmit}>
+            <label className="Doctorformlabel">
+              Strategy:
+              <input
+                className="Doctorforminput"
+                type="text"
+                name="Strategy"
+                value={formSelfHelpStrategiesData.Strategy}
+                onChange={handleSelfHelpStrategiesChange}
+              />
+            </label>
+            <div className="button-container-Doctorformform">
+              <button className="Doctorformbutton" type="submit">
+                Add
+              </button>
+            </div>
+          </form>
 
         </Col>
       </Row>
-
     </div>
   );
 };

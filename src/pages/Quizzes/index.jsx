@@ -10,7 +10,7 @@ const QuizzesCard = (props) => {
 
   return (
     <div>
-      <br />
+      <br /> 
       <h1 className="h1">Mind Matters: Mental Health Quizzes</h1>
       <div className="box">
         <h5 className="text-box-header">
@@ -197,7 +197,10 @@ const QuizzesCard = (props) => {
           </button>
         </Link>
       </div>
+      <br /> <br /> <br />
     </div>
+
+    
   );
 }
 
@@ -231,10 +234,6 @@ const Quizzes = () => {
     <div>
       <Navbar />
       <br />
-      <h1 className="h1">Mind Matters: Mental Health Quizzes</h1>
-
-      
-
       <div>
         {campaigns.map((campaign, index) => (
           <QuizzesCard

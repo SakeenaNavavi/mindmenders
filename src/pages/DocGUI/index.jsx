@@ -1,17 +1,30 @@
 import React, { useState, useEffect } from 'react';
-import { Row, Col, Popover } from 'react-bootstrap';
-import 'react-datepicker/dist/react-datepicker.css';
-import 'react-time-picker/dist/TimePicker.css';
+
+import { Row, Col, Modal, Button } from 'react-bootstrap';
+
 import './index.css';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { faCamera, faImage, faCog, faQuestionCircle } from '@fortawesome/free-solid-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import supabase from '../../supa/supabase/supabaseClient';
 
 library.add(faCamera, faImage, faCog, faQuestionCircle);
 
-const DocGUI = () => {
- const [consultantFormData, setConsultantFormData] = useState({
+
+const DocGUI = ({ visitorData }) => {
+  useEffect(() => {
+    console.log('Visitor Data:', visitorData);
+    console.log('Show Modal:', showModal);
+    // Show the modal when visitorData is available
+    if (visitorData) {
+      setShowModal(true);
+    }
+  }, [visitorData]);  
+
+  const [showModal, setShowModal] = useState(false);
+
+  // Consultant Form State
+  const [consultantFormData, setConsultantFormData] = useState({
+
     Questionnaire_type: '',
   });
 
@@ -30,14 +43,6 @@ const DocGUI = () => {
     return storedData ? JSON.parse(storedData) : [];
   });
 
-  const [searchInput, setSearchInput] = useState('');
-
-  const handleChange = (e) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value,
-    });
-  };
 
   const [QuestionsSubmittedData, setQuestionsSubmittedData] = useState(() => {
     const storedData = localStorage.getItem('submittedQuestionsData');
@@ -91,16 +96,32 @@ const DocGUI = () => {
     if (deleteCard) {
       // Handle delete card logic if needed
     } else {
-      const { data, error } = await supabase
-        .from('tblMentalHealthConditions')
-        .upsert([
-          {
-            Description: formData.Description,
-            Condition_name: formData.Condition_name,
-          },
-        ]);
 
-      if (error) {
+      // Validate that Description is not null or empty before submitting
+      if (!mentalHealthFormData.Description) {
+        console.error('Description is required.');
+        return;
+      }
+
+      try {
+        const { data, error } = await supabase
+          .from('tblMentalHealthConditions')
+          .upsert([
+            {
+              Condition_name: mentalHealthFormData.Condition_name,
+              Description: mentalHealthFormData.Description,
+            },
+          ]);
+
+        if (error) {
+          console.error('Error inserting data into Supabase:', error.message);
+        } else {
+          console.log('Data inserted into Supabase:', data);
+          setMentalHealthSubmittedData([...mentalHealthSubmittedData, mentalHealthFormData]);
+          localStorage.setItem('submittedMentalHealthData', JSON.stringify([...mentalHealthSubmittedData, mentalHealthFormData]));
+        }
+      } catch (error) {
+
         console.error('Error inserting data into Supabase:', error.message);
       } else {
         console.log('Data inserted into Supabase:', data);
@@ -110,11 +131,14 @@ const DocGUI = () => {
       localStorage.setItem('submittedData', JSON.stringify([...submittedData, formData]));
     }
 
+
     setFormData({
+
       Description: '',
       Condition_name: '',
     });
   };
+
 
   useEffect(() => {
     // Uncomment the following lines if you want to clear the data on component unmount
@@ -218,88 +242,70 @@ const DocGUI = () => {
     setSelectedContact(selectedContact);
   };
 
-  const handleAcceptRequest = (requestId) => {
-    setSelectedRequestId(requestId);
-    setShowCalendar(true);
-  };
 
-  const handleRejectRequest = (requestId) => {
-    const updatedPatientRequests = patientRequests.filter((request) => request.id !== requestId);
-    setPatientRequests(updatedPatientRequests);
-  };
-
-  const handleDateChange = (date) => {
-    setSelectedDate(date);
-  };
-
-  const handleTimeChange = (time) => {
-    setSelectedTime(time);
-  };
-
-  const hideCalendar = () => {
-    setShowCalendar(false);
-  };
-
-  const handleConfirmAppointment = () => {
+  const handleConfirmAppointment = async () => {
     // Perform any actions needed for confirming the appointment
-    setSelectedRequestId(null);
-    setShowCalendar(false);
+    try {
+      // Assuming acceptedRequest contains the necessary patient details
+      const { data, error } = await supabase
+        .from('tblBooking')
+        .upsert([
+          {
+          },
+        ]);
+
+      if (error) {
+        console.error('Error inserting data into Supabase:', error.message);
+      } else {
+        console.log('Data inserted into Supabase:', data);
+        // You may want to update the UI or state to reflect the accepted appointment
+      }
+    } catch (error) {
+      console.error('Error inserting data into Supabase:', error.message);
+    }
+    setShowModal(false);
+  };
+  const handleDeclineAppointment = () => {
+    setShowModal(false);
   };
 
   return (
     <div className="website-container-drgui">
-      <Row>
-        <Col md={4}>
-          <div className="patient-requests boxed">
-            <h2>Patient Requests</h2>
-            <ul>
-              {patientRequests.map((request) => (
-                <li key={request.id} className="patient-request">
-                  <div className="request-info">
-                    <span className="request-name">{request.name}</span>
-                    <div className="button-container-drgui">
-                      <button onClick={() => handleAcceptRequest(request.id)} className="accept-button-drgui">
-                        Accept
-                      </button>
-                      <button className="reject-button-drgui" onClick={() => handleRejectRequest(request.id)}>
-                        Reject
-                      </button>
 
-                      {selectedRequestId === request.id && (
-                        <div className="calendar-popover">
-                          <Popover id="calendar-popover" title="Select Date and Time">
-                            <div className="form-group">
-                              <label htmlFor="date" className="date-label">
-                                Date
-                              </label>
-                              <input type="date" className="date_control" id="date" name="date" />
-                            </div>
-                            <div className="time_control">
-                              <label htmlFor="time" className="time_label">
-                                Time
-                              </label>
-                              <select className="form-control" id="time" name="time">
-                                <option value="10:00 AM">10:00 AM</option>
-                                {/* ... Other time options ... */}
-                              </select>
-                            </div>
-                            <button onClick={handleConfirmAppointment}>Confirm</button>
-                          </Popover>
-                        </div>
-                      )}
-                    </div>
-                  </div>
-                </li>
-              ))}
-            </ul>
-          </div>
-        </Col>
-      </Row>
-
+      <div>
+        {/* Modal */}
+        <Modal show={showModal} onHide={() => setShowModal(false)}>
+          <Modal.Header closeButton>
+            <Modal.Title>Visitor Details</Modal.Title>
+          </Modal.Header>
+          <Modal.Body>
+            {/* Display visitor details */}
+            <p>First Name: {visitorData?.First_Name}</p>
+            <p>Last Name: {visitorData?.Last_Name}</p>
+            <p>Phone Number: {visitorData?.Phone_Number}</p>
+            <p>Email: {visitorData?.Email}</p>
+            <p>Date of Birth: {visitorData?.DOB}</p>
+          </Modal.Body>
+          <Modal.Footer>
+            {/* Confirm and Decline buttons */}
+            <Button variant="primary" onClick={handleConfirmAppointment}>
+              Confirm
+            </Button>
+            <Button variant="danger" onClick={handleDeclineAppointment}>
+              Decline
+            </Button>
+          </Modal.Footer>
+        </Modal>
+      </div>
       <Row>
+        <Col >
+
+          <form className="Doctorform" onSubmit={handleMentalHealthSubmit}>
+  <Row>
         <Col>
           {/* Form for adding new mental health conditions */}
           <form className="Doctorform" onSubmit={handleSubmit}>
+
             <label className="Doctorformlabel">
               Description:
               <input
@@ -328,7 +334,7 @@ const DocGUI = () => {
             </div>
           </form>
 
-         
+
           <form className="Doctorform" onSubmit={handleQuestionnaireSubmit}>
             <label className="Doctorformlabel">
               Questionnaire_type:
@@ -340,13 +346,13 @@ const DocGUI = () => {
                 onChange={(e) => handleFormChange(e, setConsultantFormData)}
               />
             </label>
-
             <div className="button-container-Doctorform">
               <button className="Doctorformbutton" type="submit">
                 Add Question
               </button>
             </div>
           </form>
+
           <form className="Doctorform" onSubmit={handleSelfHelpStrategiesSubmit}>
             <label className="Doctorformlabel">
               Strategy:
@@ -364,9 +370,11 @@ const DocGUI = () => {
               </button>
             </div>
           </form>
+
         </Col>
       </Row>
     </div>
+
   );
 };
 

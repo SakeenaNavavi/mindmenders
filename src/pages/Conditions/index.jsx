@@ -1,47 +1,65 @@
-import { useEffect, useState } from 'react';
-import { useLocation } from 'react-router';
+// Conditions.jsx
+
+import React, { useEffect, useState } from 'react';
+import { useLocation } from 'react-router-dom';
 import supabase from '../../supa/supabase/supabaseClient';
 import Navbar from '../../Components/molecules/Navbar/index.jsx';
+import './index.css';
+
+const ConditionsCard = (props) => {
+  const { Description, Condition_name } = props;
+
+  return (
+    <div className="box-ConditionsCard">
+      <h1 className="text-box-ConditionsCard-header1">{Condition_name} </h1> 
+      <h5 className="text-box-ConditionsCard-header">
+        {Description}
+      </h5>
+    </div>
+  );
+};
 
 const Conditions = () => {
-  const [conditionsData, setConditionsData] = useState([]);
+  const [conditions, setConditions] = useState([]);
+  const { state } = useLocation();
+  const searchQuery = state ? state.query : '';
+
+  useEffect(() => {
+    fetchData();
+  }, [searchQuery]);
+
+  const fetchData = async () => {
+    try {
+      const { data, error } = await supabase
+        .from('tblMentalHealthConditions')
+        .select('*')
+        .ilike('Condition_name', `%${searchQuery}%`); // Use ilike for case-insensitive search
+
+      if (error) {
+        console.error('Error fetching data from Supabase:', error);
+      } else {
+        setConditions(data);
+      }
+    } catch (error) {
+      console.error('Error fetching data from Supabase:', error);
+    }
+  };
+
   return (
     <div>
       <Navbar />
-    
-      {conditionsData && Array.isArray(conditionsData) ? (
-        conditionsData.map((condition) => (
-          <div key={condition.Condition_id}>
-            <h3>{condition.Condition_name}</h3>
-            <p>{condition.Description}</p>
+      <br />
+      <h1 className="h1">Mind Matters: Mental Health Condition</h1>
 
-            {/* Fetch and display symptoms */}
-            {condition.symptoms && condition.symptoms.length > 0 && (
-              <>
-                <h4>Symptoms</h4>
-                <ul>
-                  {condition.symptoms.map((symptom) => (
-                    <li key={symptom.Symptom_id}>{symptom.Symptoms}</li>
-                  ))}
-                </ul>
-              </>
-            )}
+      {conditions.map((condition, index) => (
+        <ConditionsCard
+          key={index}
+          Condition_name={condition.Condition_name}
+          Description={condition.Description}
+        />
+      ))}
 
-            {condition.selfHelpStrategies && condition.selfHelpStrategies.length > 0 && (
-              <>
-                <h4>Self-Help Strategies</h4>
-                <ul>
-                  {condition.selfHelpStrategies.map((strategy) => (
-                    <li key={strategy.Strategy_id}>{strategy.Strategy}</li>
-                  ))}
-                </ul>
-              </>
-            )}
-          </div>
-        ))
-      ) : (
-        <p>No conditions data available.</p>
-      )}
+      <br />
     </div>
   );
 };

@@ -13,9 +13,6 @@
     }
 }
   
-
-
-
 .directory-card-image{
     width: 200px;
     height: 190px;
@@ -69,7 +66,7 @@
     margin-bottom: 10px;
 }
 
-.directory-button-1 {
+.directoryCard-button-1 {
     border: none;
     outline: 0;
     display: inline-block;
@@ -98,12 +95,11 @@
     flex-direction: row;
     align-items: center; /* Optional: Center the cards horizontally */
   }
-  
-  .directory-card {
+ 
+  .directoryCard-card{
     width: 250px; /* Adjust the width as needed */
     margin-bottom: 30px; /* Add some margin for spacing between cards */
-    background-color: #FFFFFF;
+    background-color: rgb(241, 229, 206);
     margin-left: auto;
     margin-right: auto;
   }
-  

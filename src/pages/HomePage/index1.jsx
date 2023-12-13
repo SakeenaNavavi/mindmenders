@@ -1,6 +1,6 @@
 
 import { Container, Row, Col, Button } from 'react-bootstrap';
-import professionals from './professionals.PNG';
+import professionals from './professionals.png';
 import { Link } from 'react-router-dom';
 const Home2 = () => {
     return (

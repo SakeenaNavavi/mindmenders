@@ -7,13 +7,13 @@ import Navbar from '../../Components/molecules/Navbar/index.jsx';
 import './index.css';
 
 const ConditionsCard = (props) => {
-  const { Description, Condition_name } = props;
+  const { Description, Condition_name,Symptoms,Strategies } = props;
 
   return (
     <div className="box-ConditionsCard">
       <h1 className="text-box-ConditionsCard-header1">{Condition_name} </h1> 
       <h5 className="text-box-ConditionsCard-header">
-        {Description}
+        {Description} <br /> <br />Symptoms: {Symptoms} <br /> <br /> Strategies: {Strategies}
       </h5>
     </div>
   );
@@ -56,6 +56,8 @@ const Conditions = () => {
           key={index}
           Condition_name={condition.Condition_name}
           Description={condition.Description}
+          Symptoms={condition.Symptoms}
+          Strategies={condition.Strategies}
         />
       ))}
 

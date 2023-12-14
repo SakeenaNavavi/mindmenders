@@ -66,7 +66,12 @@ const AppointmentBooking = ({onSubmit}) => {
       if (error) {
         alert('Error inserting data into Supabase: ' + error.message);
       } else {
-        alert(`You have successfully booked and appointment! see you soon!`);
+        Swal.fire({
+          title: `Hello ${formDataToUpdateSupabase.First_Name}`,
+          text: `You have successfully booked an appointment! see you soon on ${formDataToUpdateSupabase.date} at ${formDataToUpdateSupabase.Time}`,
+          icon: 'success',
+          confirmButtonText: 'OK',
+        })
       }
 
     } catch (error) {

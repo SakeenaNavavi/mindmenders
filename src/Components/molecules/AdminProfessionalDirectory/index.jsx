@@ -14,8 +14,13 @@ const AdminProfessionalDirectory = () => {
   });
 
   const [submittedData, setSubmittedData] = useState(() => {
-    const storedData = localStorage.getItem('submittedData');
-    return storedData ? JSON.parse(storedData) : [];
+    try {
+      const storedData = localStorage.getItem('submittedData');
+      return storedData ? JSON.parse(storedData) : [];
+    } catch (error) {
+      console.error('Error parsing submittedData from localStorage:', error);
+      return [];
+    }
   });
 
   const [searchInput, setSearchInput] = useState('');
@@ -49,9 +54,11 @@ const AdminProfessionalDirectory = () => {
     } else {
       console.log('Data inserted into Supabase:', data);
       // Update local state with the newly submitted data
-      setSubmittedData([...submittedData, formData]);
-      // Save submitted data to localStorage
-      localStorage.setItem('submittedData', JSON.stringify([...submittedData, formData]));
+      setSubmittedData((prevData) => {
+        const newData = [...prevData, formData];
+        localStorage.setItem('submittedData', JSON.stringify(newData));
+        return newData;
+      });
 
       // Clear the form data after successful submission
       setFormData({
@@ -73,9 +80,13 @@ const AdminProfessionalDirectory = () => {
     // };
   }, []);
 
-  const filteredData = submittedData.filter((professional) =>
+  const filteredData = Array.isArray(submittedData)
+  ? submittedData.filter((professional) =>
+  professional&&
+  professional.Name&&
     professional.Name.toLowerCase().includes(searchInput.toLowerCase())
-  );
+  )
+  :[];
 
   return (
     <div>
@@ -97,8 +108,8 @@ const AdminProfessionalDirectory = () => {
         ))}
       </div>
 
-
-<form className="directoryform" onSubmit={handleSubmit}>
+      <form className="directoryform" onSubmit={handleSubmit}>
+     
   <label className="directoryformlabel">
     First Name:
     <input
@@ -170,21 +181,19 @@ const AdminProfessionalDirectory = () => {
     />
   </label>
 
-  {/* Add more labels and input fields as needed */}
-
-  <div className="button-container-admindirectorform">
-    <button className="directoryformbutton" type="submit">
-      Add
-    </button>
-    <button className="directoryformbutton" onClick={(e) => handleSubmit(e)}>
-      Delete
-    </button>
-  </div>
-</form>
-
-
+        <div className="button-container-admindirectorform">
+          <button className="directoryformbutton" type="submit">
+            Add
+          </button>
+          {/* Remove the onClick event from the Delete button */}
+          <button className="directoryformbutton" type="button">
+            Delete
+          </button>
+        </div>
+      </form>
     </div>
   );
 };
 
 export default AdminProfessionalDirectory;
+

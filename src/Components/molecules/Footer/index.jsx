@@ -1,43 +1,51 @@
 import React, { useState } from 'react';
 import { Row, Col } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { FaFacebook, FaTwitter, FaWhatsapp, FaStar,FaPhone } from 'react-icons/fa';
+import { FaFacebook, FaTwitter, FaWhatsapp, FaStar, FaPhone } from 'react-icons/fa';
 import './index.css';
 import Swal from 'sweetalert2';
 import supabase from '../../../supa/supabase/supabaseClient';
 
-
 const YourComponent = () => {
   const [selectedRating, setSelectedRating] = useState(0);
 
-  const handleRatingChange = (rating) => {
-    setSelectedRating(rating);
+  const handleRatingChange = (Rating) => {
+    setSelectedRating(Rating);
   };
 
   const handleFormSubmit = async (event) => {
     event.preventDefault();
-    const Rating = event.target.Rating.value;
-    const Comment = event.target.Comment.value;
-    const User_id = event.target.User_id.value;
 
-    try {
-      await supabase.from('tblFeedbacks').insert([
-        { Rating, Comment, User_id},
-      ]);
-  
-      event.target.Rating.value = '';
-      event.target.Comment.value = '';
-  
-    Swal.fire({
-      title: 'MindMender',
-      text: " Your feedback is the cornerstone of our progress:Thank you for your thoughtful feedback!",
-      confirmButtonColor: '#443806'
-    });
-  } catch (error) {
-    alert('Your Feedback did not get saved due to an error. Please try again later!');
-  }
+    // Use event.currentTarget to get the form
+    const form = event.currentTarget;
+
+    // Check if the form exists and find the elements inside
+    const RatingInput = form.querySelector('[name="Rating"]');
+    const CommentInput = form.querySelector('[name="Comment"]');
+
+    if (RatingInput && CommentInput) {
+      const Rating = RatingInput.value;
+      const Comment = CommentInput.value;
+
+      try {
+        await supabase.from('tblFeedback').insert([
+          { Rating, Comment },
+        ]);
+
+        // Clear the form inputs after submission
+        RatingInput.value = '';
+        CommentInput.value = '';
+
+        Swal.fire({
+          title: 'MindMender',
+          text: "Your feedback is the cornerstone of our progress: Thank you for your thoughtful feedback!",
+          confirmButtonColor: '#443806'
+        });
+      } catch (error) {
+        alert('Your Feedback did not get saved due to an error. Please try again later!');
+      }
+    }
   };
- 
 
   return (
     <footer style={{ backgroundColor: '#70663E' }} className="text-white">
@@ -99,31 +107,28 @@ const YourComponent = () => {
                 </li> 
               </ul>
             </Col>
-
             <Col md={3} xs={6}><br /> <br />
               <div className="rating-box">
                 <div className="border p-3">
                   <h5>Rate our service</h5>
                   <div className="form-outline form-white mb-4">
-                    {[1, 2, 3, 4, 5].map((rating) => (
+                    {[1, 2, 3, 4, 5].map((Rating) => (
                       <FaStar
-                        key={rating}
+                        key={Rating}
                         size={30}
-                        className={selectedRating >= rating ? "checked" : ""}
-                        onClick={() => handleRatingChange(rating)}
+                        className={selectedRating >= Rating ? "checked" : ""}
+                        onClick={() => handleRatingChange(Rating)}
                       />
                     ))}
                     <br /> <br />
-                    <textarea id="reviewInput" className="form-control mb-3" placeholder="Write your review here"></textarea>
-                    <input type="hidden" name="userId" value={supabase.auth.user?.id} />
+                    <textarea id="Comment" className="form-control mb-3" placeholder="Write your review here"></textarea>
+                    
                     <button type="submit" className="custom-submit-button" onClick={handleFormSubmit}>
                       Submit
                     </button>
-
-                  </div>
-                </div>
-
-                </div>
+          </div>
+        </div>
+      </div>
                 </Col>
           
              

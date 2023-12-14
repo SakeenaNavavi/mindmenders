@@ -25,13 +25,6 @@ const DirectoryCard = (props) => {
             </Link>
           </button>
         </p>
-        <div className="chat-button-container">
-          <button className="chat-button">
-            <Link to="/OnlineCommunity" className="custom-link">
-              Chat now
-            </Link>
-          </button>
-        </div>
       </div>
     </div>
     </Col>

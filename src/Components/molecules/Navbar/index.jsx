@@ -39,9 +39,6 @@ const Navbar = () => {
                 <a class="nav-link" href="ResourceLibrary">Resource Library</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="OnlineCommunity">Online Community</a>
-              </li>
-              <li class="nav-item">
                 <a class="nav-link" href="AboutUs">About us</a>
               </li>
             </ul>
@@ -59,7 +56,7 @@ const Navbar = () => {
 </form>
 
             <button class="btn btn-user"><Link to="/loginRegister" className="custom-link"><i class="fa fa-user"></i></Link></button>
-
+            <button class="btn btn-user"><Link to="/loginRegister" className="custom-link"><i class="fas fa-sign-out-alt fa-sm fa-fw"></i></Link></button>
           </div>
         </div>
       </nav>

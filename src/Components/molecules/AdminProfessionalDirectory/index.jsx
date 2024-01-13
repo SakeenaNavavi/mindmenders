@@ -80,13 +80,13 @@ const AdminProfessionalDirectory = () => {
     // };
   }, []);
 
-  const filteredData = Array.isArray(submittedData)
-  ? submittedData.filter((professional) =>
+  const filteredData = (submittedData)
+  submittedData.filter((professional) =>
   professional&&
   professional.Name&&
     professional.Name.toLowerCase().includes(searchInput.toLowerCase())
   )
-  :[];
+  
 
   return (
     <div>

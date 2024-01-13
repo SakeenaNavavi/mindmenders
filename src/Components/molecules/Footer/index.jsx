@@ -5,7 +5,6 @@ import { FaFacebook, FaTwitter, FaWhatsapp, FaStar, FaPhone } from 'react-icons/
 import './index.css';
 import Swal from 'sweetalert2';
 import supabase from '../../../supa/supabase/supabaseClient';
-
 const YourComponent = () => {
   const [selectedRating, setSelectedRating] = useState(0);
 
@@ -15,27 +14,22 @@ const YourComponent = () => {
 
   const handleFormSubmit = async (event) => {
     event.preventDefault();
-
-    // Use event.currentTarget to get the form
-    const form = event.currentTarget;
-
-    // Check if the form exists and find the elements inside
-    const RatingInput = form.querySelector('[name="Rating"]');
-    const CommentInput = form.querySelector('[name="Comment"]');
-
-    if (RatingInput && CommentInput) {
-      const Rating = RatingInput.value;
-      const Comment = CommentInput.value;
-
+  
+    // Ensure that the event target is a form element
+    if (event.target instanceof HTMLFormElement) {
+      const formData = new FormData(event.target);
+  
+      const Rating = formData.get('Rating');
+      const Comment = formData.get('Comment');
+  
       try {
         await supabase.from('tblFeedback').insert([
           { Rating, Comment },
         ]);
-
+  
         // Clear the form inputs after submission
-        RatingInput.value = '';
-        CommentInput.value = '';
-
+        event.target.reset();
+  
         Swal.fire({
           title: 'MindMender',
           text: "Your feedback is the cornerstone of our progress: Thank you for your thoughtful feedback!",
@@ -44,9 +38,12 @@ const YourComponent = () => {
       } catch (error) {
         alert('Your Feedback did not get saved due to an error. Please try again later!');
       }
+    } else {
+      console.error('Event target is not a form element:', event.target);
     }
   };
-
+  
+  
   return (
     <footer style={{ backgroundColor: '#70663E' }} className="text-white">
       <div className="container p-4">
